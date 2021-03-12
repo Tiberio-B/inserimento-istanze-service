@@ -24,14 +24,14 @@
 	}
 
 	package "Repository" as rep #Technology {
-		abstract class IstanzaRepository<I extends Istanza> {}
-		class DepositoAmministrativoRepository extends IstanzaRepository
-		class DepositoAmministrativoNoEsproprioRepository extends IstanzaRepository
-		class DepositoCauzionaleRepository extends IstanzaRepository
-		class DepositoGiudiziarioRepository extends IstanzaRepository
-		class RestituzioneDepositoRepository extends IstanzaRepository
-		class DecretoSvincoloReintroitoRepository extends IstanzaRepository
-		class DepositoVolontarioRepository extends IstanzaRepository
+		interface IstanzaRepository<I extends Istanza> {}
+		class DepositoAmministrativoRepository implements IstanzaRepository
+		class DepositoAmministrativoNoEsproprioRepository implements IstanzaRepository
+		class DepositoCauzionaleRepository implements IstanzaRepository
+		class DepositoGiudiziarioRepository implements IstanzaRepository
+		class RestituzioneDepositoRepository implements IstanzaRepository
+		class DecretoSvincoloReintroitoRepository implements IstanzaRepository
+		class DepositoVolontarioRepository implements IstanzaRepository
 	}
 
 	package "ExternalService" as ext #Strategy {
