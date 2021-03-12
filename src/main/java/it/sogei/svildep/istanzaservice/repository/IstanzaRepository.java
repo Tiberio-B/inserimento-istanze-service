@@ -20,11 +20,7 @@ public interface IstanzaRepository<E extends Istanza> {
 
     default E delete(Long id) { return getDatabase().remove(id); }
 
-    default E delete(E entity) { return delete(entity.getId()); }
-
     default boolean deleteEffective(Long id) { return delete(id) != null; }
-    
-    default boolean deleteEffective(E entity) { return deleteEffective(entity.getId()); }
 
     default void drop() { getDatabase().clear(); }
 }

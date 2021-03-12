@@ -42,9 +42,5 @@ public abstract class IstanzaService<I extends Istanza, D extends IstanzaDto> {
 
     public D delete(Long id) { return mapper.convertEntityToDto(repository.delete(id)); }
 
-    public D delete(D dto) throws SvildepException { return mapper.convertEntityToDto(repository.delete(mapper.convertDtoToEntity(dto))); }
-
-    public boolean deleteEffective(D dto) throws SvildepException { return repository.deleteEffective(mapper.convertDtoToEntity(dto)); }
-
     public void drop() { repository.drop(); }
 }
