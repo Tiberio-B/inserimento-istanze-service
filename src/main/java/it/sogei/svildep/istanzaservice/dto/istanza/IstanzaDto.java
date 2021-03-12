@@ -10,7 +10,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-public abstract class IstanzaDto extends Dto {
+public class IstanzaDto extends Dto {
 
     private String qualitaRichiedente;
 

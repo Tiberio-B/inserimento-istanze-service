@@ -1,14 +1,17 @@
 package it.sogei.svildep.istanzaservice.repository;
 
-import it.sogei.svildep.istanzaservice.model.istanza.Istanza;
+import it.sogei.svildep.istanzaservice.model.Istanza;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Repository
 public interface IstanzaRepository<E extends Istanza> {
 
-    Map<Long, E> getDatabase();
+    default Map<Long, E> getDatabase() { return new HashMap<>(); }
 
     default E get(Long id) { return getDatabase().get(id); }
 
