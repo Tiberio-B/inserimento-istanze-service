@@ -1,10 +1,8 @@
 package it.sogei.svildep.istanzaservice.model;
 
-
 import it.sogei.svildep.istanzaservice.model.geo.Indirizzo;
 import lombok.Getter;
 import lombok.Setter;
-
 
 @Getter
 @Setter
@@ -20,7 +18,6 @@ public class Soggetto implements Entity {
     private String partitaIva;
     private Boolean irreperibile;
     private Documento relataNotificaSoggettoNonReperibile;
-
 
     public enum Tipologia {
         FISICO,
