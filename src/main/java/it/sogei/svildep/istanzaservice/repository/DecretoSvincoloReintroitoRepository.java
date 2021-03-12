@@ -9,7 +9,7 @@ import java.util.Map;
 
 @Component
 @RequiredArgsConstructor
-public class DecretoSvincoloReintroitoRepository extends IstanzaRepository<DecretoSvincoloReintroito> {
+public class DecretoSvincoloReintroitoRepository implements IstanzaRepository<DecretoSvincoloReintroito> {
 
     @Override
     public Map<Long, DecretoSvincoloReintroito> getDatabase() {

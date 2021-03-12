@@ -1,38 +1,30 @@
 package it.sogei.svildep.istanzaservice.repository;
 
 import it.sogei.svildep.istanzaservice.model.istanza.Istanza;
-import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-@NoArgsConstructor
-public abstract class IstanzaRepository<I extends Istanza> implements IRepository<I> {
+public interface IstanzaRepository<E extends Istanza> {
 
-    @Override
-    public I get(Long id) { return getDatabase().get(id); }
+    Map<Long, E> getDatabase();
 
-    @Override
-    public List<I> getAll() { return new ArrayList<>(getDatabase().values()); }
+    default E get(Long id) { return getDatabase().get(id); }
 
-    @Override
-    public I insert(I entity) { return getDatabase().put(entity.getId(), entity); }
+    default List<E> getAll() { return new ArrayList<>((getDatabase().values())); }
 
-    @Override
-    public boolean update(I entity) { return insert(entity) == null; }
+    default E insert(E entity) { return getDatabase().put(entity.getId(), entity); }
+    
+    default boolean update(E entity) { return insert(entity) == null; }
 
-    @Override
-    public I delete(I entity) { return getDatabase().remove(entity.getId()); }
+    default E delete(Long id) { return getDatabase().remove(id); }
 
-    @Override
-    public I delete(Long id) { return getDatabase().remove(id); }
+    default E delete(E entity) { return delete(entity.getId()); }
 
-    @Override
-    public boolean deleteEffective(I entity) { return delete(entity) != null; }
+    default boolean deleteEffective(Long id) { return delete(id) != null; }
+    
+    default boolean deleteEffective(E entity) { return deleteEffective(entity.getId()); }
 
-    @Override
-    public boolean deleteEffective(Long id) { return delete(id) != null; }
-
-    @Override
-    public void drop() { getDatabase().clear(); }
+    default void drop() { getDatabase().clear(); }
 }

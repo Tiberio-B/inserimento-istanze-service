@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
-public class DepositoCauzionaleRepository extends IstanzaRepository<DepositoCauzionale> {
+public class DepositoCauzionaleRepository implements IstanzaRepository<DepositoCauzionale> {
 
     @Override
     public Map<Long, DepositoCauzionale> getDatabase() {

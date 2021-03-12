@@ -9,7 +9,7 @@ import java.util.Map;
 
 @Component
 @RequiredArgsConstructor
-public class DepositoVolontarioRepository extends IstanzaRepository<DepositoVolontario> {
+public class DepositoVolontarioRepository implements IstanzaRepository<DepositoVolontario> {
 
     @Override
     public Map<Long, DepositoVolontario> getDatabase() {

@@ -1,5 +1,6 @@
 ![plot](./z-uml/class-diagram.png)
 ![plot](./z-uml/entities-diagram.png)
+Click sulle immagini per visualizzarle in dimensione originale
 
 # 2.1.36	Servizi Comuni Istanze e Provvedimento di svincolo/reintroito
 
