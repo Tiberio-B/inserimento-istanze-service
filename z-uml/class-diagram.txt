@@ -1,69 +1,53 @@
 @startuml
 
+	package "Controller" as contr #Application {
+		abstract class IstanzaController<I extends Istanza, D extends IstanzaDto> {}
+		class DepositoAmministrativoController extends IstanzaController
+		class DepositoAmministrativoNoEsproprioController extends IstanzaController
+  		class DepositoCauzionaleController extends IstanzaController
+		class DepositoGiudiziarioController extends IstanzaController
+		class RestituzioneDepositoController extends IstanzaController
+		class DecretoSvincoloReintroitoController extends IstanzaController
+		class DepositoVolontarioController extends IstanzaController
+		'class IstanzaValidator -- IstanzaController : validator
+	}
+
+	package "Service" as serv #Business {
+		abstract class IstanzaService<I extends Istanza, D extends IstanzaDto> {}
+		class DepositoAmministrativoService extends IstanzaService
+		class DepositoAmministrativoNoEsproprioService extends IstanzaService
+		class DepositoCauzionaleService extends IstanzaService
+		class DepositoGiudiziarioService extends IstanzaService			
+		class RestituzioneDepositoService extends IstanzaService
+		class DecretoSvincoloReintroitoService extends IstanzaService
+		class DepositoVolontarioService extends IstanzaService
+	}
+
+	package "Repository" as rep #Technology {
+		abstract class IstanzaRepository<I extends Istanza> {}
+		class DepositoAmministrativoRepository extends IstanzaRepository
+		class DepositoAmministrativoNoEsproprioRepository extends IstanzaRepository
+		class DepositoCauzionaleRepository extends IstanzaRepository
+		class DepositoGiudiziarioRepository extends IstanzaRepository
+		class RestituzioneDepositoRepository extends IstanzaRepository
+		class DecretoSvincoloReintroitoRepository extends IstanzaRepository
+		class DepositoVolontarioRepository extends IstanzaRepository
+	}
+
+	package "ExternalService" as ext #Strategy {
+		abstract class ExternalService
+		class SoggettoService extends ExternalService
+		class AuthService extends ExternalService
+		class RestTemplate
+		ExternalService -right- RestTemplate
+		SoggettoService -- IstanzaService
+		IstanzaController -- AuthService : authentication
+	}
+
 	'########## Relations ##########
 
-		'########## IS-A ##########
-
-			'########## Controllers ##########
-
-				package "Controller" as contr #Application {
-					abstract class IstanzaController<I extends Istanza, D extends IstanzaDto> {}
-					class DepositoAmministrativoController extends IstanzaController
-					class DepositoAmministrativoNoEsproprioController extends IstanzaController
-  					class DepositoCauzionaleController extends IstanzaController
-					class DepositoGiudiziarioController extends IstanzaController
-					class RestituzioneDepositoController extends IstanzaController
-					class DecretoSvincoloReintroitoController extends IstanzaController
-					class DepositoVolontarioController extends IstanzaController
-				}
-
-			'########## Services ##########
-
-				'########## Istanza ##########
-
-				package "Service" as serv #Business {
-					abstract class IstanzaService<I extends Istanza, D extends IstanzaDto> {}
-					class DepositoAmministrativoService extends IstanzaService
-					class DepositoAmministrativoNoEsproprioService extends IstanzaService
-					class DepositoCauzionaleService extends IstanzaService
-					class DepositoGiudiziarioService extends IstanzaService			
-					class RestituzioneDepositoService extends IstanzaService
-					class DecretoSvincoloReintroitoService extends IstanzaService
-					class DepositoVolontarioService extends IstanzaService
-				}
-
-					'########## Others ##########
-
-						'AuthService extends ExternalService
-						'SoggettoService extends ExternalService
-
-			'########## Repositories ##########
-
-				'##########  ##########
-
-				package "Repository" as rep #Technology {
-					abstract class IstanzaRepository<I extends Istanza> {}
-					class DepositoAmministrativoRepository extends IstanzaRepository
-					class DepositoAmministrativoNoEsproprioRepository extends IstanzaRepository
-					class DepositoCauzionaleRepository extends IstanzaRepository
-					class DepositoGiudiziarioRepository extends IstanzaRepository
-					class RestituzioneDepositoRepository extends IstanzaRepository
-					class DecretoSvincoloReintroitoRepository extends IstanzaRepository
-					class DepositoVolontarioRepository extends IstanzaRepository
-				}
-
-
-		'########## Others ##########
-
-			'ExternalService -- RestTemplate
-			'SoggettoService -- Service
-			'IstanzaController -- Validator : validator
-			'IstanzaController -- AuthService : authentication
-
-		'########## Main ##########
-
-			IstanzaController -down[thickness=8]- IstanzaService : service
-			IstanzaService -down[thickness=8]- IstanzaRepository : repository
+		IstanzaController -down[thickness=8]- IstanzaService : service
+		IstanzaService -down[thickness=8]- IstanzaRepository : repository
 
 
 	'########## Adjustments (HIDDEN) ##########
