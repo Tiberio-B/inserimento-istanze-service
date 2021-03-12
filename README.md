@@ -21,7 +21,7 @@ Servizi di inserimento istanza di costituzione e di restituzione e inserimento p
 * verifica presenza tutti soggetti
 * inserimento nuovi soggetti
 * inserimento istanza codice bollo + associazioni ai soggetti
-* iserimento documenti (domanda+allegati) NEL FASCICOLO DELLA RTS ?
+* iserimento documenti (domanda+allegati) nel fascicolo della RTS
 
 ### OUTPUT
 * Messaggio successo / errore
@@ -42,7 +42,7 @@ Servizi di inserimento istanza di costituzione e di restituzione e inserimento p
 * verifica presenza tutti soggetti
 * inserimento nuovi soggetti
 * inserimento istanza codice bollo + associazioni ai soggetti
-* iserimento documenti (domanda+allegati) NEL FASCICOLO DELLA RTS ?
+* iserimento documenti (domanda+allegati) nel fascicolo della RTS
 
 ### OUTPUT
 * Messaggio successo / errore
@@ -67,7 +67,7 @@ Servizi di inserimento istanza di costituzione e di restituzione e inserimento p
 * IF ModalitàTrasmissione = "Manuale"
 			verifica esistenza particelle catastali tramite Servizio Catasto (verifica non bloccante)
 * inserimento istanza codice bollo + associazioni ai soggetti
-* iserimento documenti (domanda+allegati) NEL FASCICOLO DELLA RTS ?
+* iserimento documenti (domanda+allegati) nel fascicolo della RTS
 
 ### OUTPUT
 * Messaggio successo / errore
@@ -88,7 +88,7 @@ Servizi di inserimento istanza di costituzione e di restituzione e inserimento p
 * verifica presenza tutti soggetti
 * inserimento nuovi soggetti
 * inserimento istanza codice bollo + associazioni ai soggetti
-* iserimento documenti (domanda+allegati) NEL FASCICOLO DELLA RTS ?
+* iserimento documenti (domanda+allegati) nel fascicolo della RTS
 
 ### OUTPUT
 * Messaggio successo / errore
@@ -107,7 +107,7 @@ Servizi di inserimento istanza di costituzione e di restituzione e inserimento p
 * verifica presenza tutti soggetti
 * inserimento nuovi soggetti
 * inserimento istanza codice bollo + associazioni ai soggetti
-* iserimento documenti (domanda+allegati) NEL FASCICOLO DELLA RTS ?
+* iserimento documenti (domanda+allegati) nel fascicolo della RTS
 
 ### OUTPUT
 * Messaggio successo / errore
