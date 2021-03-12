@@ -38,16 +38,18 @@
 		abstract class ExternalService
 		class SoggettoService extends ExternalService
 		class AuthService extends ExternalService
+		class RtsService extends ExternalService
 		class RestTemplate
 		ExternalService -right- RestTemplate
 		SoggettoService -- IstanzaService
+		RtsService -- IstanzaService
 		IstanzaController -- AuthService : authentication
 	}
 
 	'########## Relations ##########
 
-		IstanzaController -down[thickness=8]- IstanzaService : service
-		IstanzaService -down[thickness=8]- IstanzaRepository : repository
+		IstanzaController -down[thickness=6]- IstanzaService
+		IstanzaService -down[thickness=6]- IstanzaRepository
 
 
 	'########## Adjustments (HIDDEN) ##########
