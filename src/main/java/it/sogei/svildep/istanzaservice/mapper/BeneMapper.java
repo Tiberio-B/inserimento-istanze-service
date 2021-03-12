@@ -1,6 +1,7 @@
 package it.sogei.svildep.istanzaservice.mapper;
 
 import it.sogei.svildep.istanzaservice.dto.BeneDto;
+import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import it.sogei.svildep.istanzaservice.model.Bene;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -21,7 +22,7 @@ public class BeneMapper implements Mapper<Bene, BeneDto> {
     }
 
     @Override
-    public Bene convertDtoToEntityImpl(BeneDto dto) {
+    public Bene convertDtoToEntityImpl(BeneDto dto) throws SvildepException {
         Bene entity = new Bene();
         entity.setDatiCatastali(catastoMapper.convertDtoToEntity(dto.getDatiCatastali()));
         entity.setProprietariCatastali(soggettoMapper.convertDtoToEntity(dto.getProprietariCatastali()));

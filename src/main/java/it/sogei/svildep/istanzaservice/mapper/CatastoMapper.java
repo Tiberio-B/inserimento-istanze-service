@@ -1,6 +1,7 @@
 package it.sogei.svildep.istanzaservice.mapper;
 
 import it.sogei.svildep.istanzaservice.dto.CatastoDto;
+import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import it.sogei.svildep.istanzaservice.mapper.geo.ComuneMapper;
 import it.sogei.svildep.istanzaservice.model.Catasto;
 import it.sogei.svildep.istanzaservice.model.geo.Provincia;
@@ -21,20 +22,24 @@ public class CatastoMapper implements Mapper<Catasto, CatastoDto> {
         dto.setFoglio(entity.getFoglio());
         dto.setSubalterno(entity.getSubalterno());
         dto.setParticella(entity.getParticella());
-        dto.setProvincia(entity.getProvincia().name());
+        dto.setProvincia(entity.getProvincia().toString());
         dto.setComune(comuneMapper.convertEntityToDto(entity.getComune()));
         return dto;
     }
 
     @Override
-    public Catasto convertDtoToEntityImpl(CatastoDto dto) {
+    public Catasto convertDtoToEntityImpl(CatastoDto dto) throws SvildepException {
         Catasto entity = new Catasto();
         entity.setTipo(dto.getTipo());
         entity.setSezioneUrbana(dto.getSezioneUrbana());
         entity.setFoglio(dto.getFoglio());
         entity.setSubalterno(dto.getSubalterno());
         entity.setParticella(dto.getParticella());
-        entity.setProvincia(Provincia.valueOf(dto.getProvincia()));
+        try {
+            entity.setProvincia(Provincia.valueOf(dto.getProvincia()));
+        } catch (Exception ex) {
+            throw new SvildepException(ex.getMessage());
+        }
         entity.setComune(comuneMapper.convertDtoToEntity(dto.getComune()));
         return entity;
     }

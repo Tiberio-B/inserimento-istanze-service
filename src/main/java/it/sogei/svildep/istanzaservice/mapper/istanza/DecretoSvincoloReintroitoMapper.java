@@ -1,6 +1,7 @@
 package it.sogei.svildep.istanzaservice.mapper.istanza;
 
 import it.sogei.svildep.istanzaservice.dto.istanza.DecretoSvincoloReintroitoDto;
+import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import it.sogei.svildep.istanzaservice.model.istanza.DecretoSvincoloReintroito;
 import org.springframework.stereotype.Component;
 
@@ -9,15 +10,11 @@ public class DecretoSvincoloReintroitoMapper extends IstanzaMapper<DecretoSvinco
 
     @Override
     public DecretoSvincoloReintroitoDto convertEntityToDtoImpl(DecretoSvincoloReintroito entity) {
-        DecretoSvincoloReintroitoDto dto = new DecretoSvincoloReintroitoDto();
-        super.mapPropertyIstanzaEntityToDto(entity, dto);
-        return dto;
+        return super.mapIstanzaEntityToDto(entity, new DecretoSvincoloReintroitoDto());
     }
 
     @Override
-    public DecretoSvincoloReintroito convertDtoToEntityImpl(DecretoSvincoloReintroitoDto dto) {
-        DecretoSvincoloReintroito entity = new DecretoSvincoloReintroito();
-        super.mapPropertyIstanzaDtoToEntity(dto, entity);
-        return entity;
+    public DecretoSvincoloReintroito convertDtoToEntityImpl(DecretoSvincoloReintroitoDto dto) throws SvildepException {
+        return super.mapIstanzaDtoToEntity(dto, new DecretoSvincoloReintroito());
     }
 }

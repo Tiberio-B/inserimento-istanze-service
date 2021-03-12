@@ -11,13 +11,11 @@ public class RtsMapper implements Mapper<Rts, RtsDto> {
 
     @Override
     public RtsDto convertEntityToDtoImpl(Rts entity) {
-        RtsDto dto = new RtsDto();
-        return dto;
+        return new RtsDto();
     }
 
     @Override
     public Rts convertDtoToEntityImpl(RtsDto dto) {
-        Rts entity = new Rts();
-        return entity;
+        return new Rts();
     }
 }

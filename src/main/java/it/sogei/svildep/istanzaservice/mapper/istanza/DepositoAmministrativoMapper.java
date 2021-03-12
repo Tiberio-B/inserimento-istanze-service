@@ -1,6 +1,7 @@
 package it.sogei.svildep.istanzaservice.mapper.istanza;
 
 import it.sogei.svildep.istanzaservice.dto.istanza.DepositoAmministrativoDto;
+import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import it.sogei.svildep.istanzaservice.mapper.BeneMapper;
 import it.sogei.svildep.istanzaservice.mapper.OperaMapper;
 import it.sogei.svildep.istanzaservice.model.istanza.DepositoAmministrativo;
@@ -16,8 +17,7 @@ public class DepositoAmministrativoMapper extends IstanzaMapper<DepositoAmminist
 
     @Override
     public DepositoAmministrativoDto convertEntityToDtoImpl(DepositoAmministrativo entity) {
-        DepositoAmministrativoDto dto = new DepositoAmministrativoDto();
-        super.mapPropertyIstanzaEntityToDto(entity, dto);
+        DepositoAmministrativoDto dto = super.mapIstanzaEntityToDto(entity, new DepositoAmministrativoDto());
         dto.setDepositante(getSoggettoMapper().convertEntityToDto(entity.getDepositante()));
         dto.setAutoritaEspropriante(getSoggettoMapper().convertEntityToDto(entity.getAutoritaEspropriante()));
         dto.setDatiOpera(operaMapper.convertEntityToDto(entity.getDatiOpera()));
@@ -26,9 +26,8 @@ public class DepositoAmministrativoMapper extends IstanzaMapper<DepositoAmminist
     }
 
     @Override
-    public DepositoAmministrativo convertDtoToEntityImpl(DepositoAmministrativoDto dto) {
-        DepositoAmministrativo entity = new DepositoAmministrativo();
-        super.mapPropertyIstanzaDtoToEntity(dto, entity);
+    public DepositoAmministrativo convertDtoToEntityImpl(DepositoAmministrativoDto dto) throws SvildepException {
+        DepositoAmministrativo entity = super.mapIstanzaDtoToEntity(dto, new DepositoAmministrativo());
         entity.setDepositante(getSoggettoMapper().convertDtoToEntity(dto.getDepositante()));
         entity.setAutoritaEspropriante(getSoggettoMapper().convertDtoToEntity(dto.getAutoritaEspropriante()));
         entity.setDatiOpera(operaMapper.convertDtoToEntity(dto.getDatiOpera()));

@@ -20,4 +20,6 @@ class SvildepException extends Exception {
     }
 
     public SvildepException(String message, HttpStatus status) { this(new MessageDto(message, status)); }
+
+    public SvildepException(String message) { this(message, HttpStatus.INTERNAL_SERVER_ERROR); }
 }

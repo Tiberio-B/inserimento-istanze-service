@@ -39,19 +39,19 @@ public abstract class IstanzaService<I extends Istanza, D extends IstanzaDto> im
     public List<D> getAll() { return mapper.convertEntityToDto(repository.getAll()); }
 
     @Override
-    public D insert(D dto) { return mapper.convertEntityToDto(repository.insert(mapper.convertDtoToEntity(dto))); }
+    public D insert(D dto) throws SvildepException { return mapper.convertEntityToDto(repository.insert(mapper.convertDtoToEntity(dto))); }
 
     @Override
-    public boolean update(D dto) { return repository.update(mapper.convertDtoToEntity(dto)); }
+    public boolean update(D dto) throws SvildepException { return repository.update(mapper.convertDtoToEntity(dto)); }
 
     @Override
     public D delete(Long id) { return mapper.convertEntityToDto(repository.delete(id)); }
 
     @Override
-    public D delete(D dto) { return mapper.convertEntityToDto(repository.delete(mapper.convertDtoToEntity(dto))); }
+    public D delete(D dto) throws SvildepException { return mapper.convertEntityToDto(repository.delete(mapper.convertDtoToEntity(dto))); }
 
     @Override
-    public boolean deleteEffective(D dto) { return repository.deleteEffective(mapper.convertDtoToEntity(dto)); }
+    public boolean deleteEffective(D dto) throws SvildepException { return repository.deleteEffective(mapper.convertDtoToEntity(dto)); }
 
     @Override
     public void drop() { repository.drop(); }

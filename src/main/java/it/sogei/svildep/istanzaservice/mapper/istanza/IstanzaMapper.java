@@ -1,6 +1,7 @@
 package it.sogei.svildep.istanzaservice.mapper.istanza;
 
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
+import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import it.sogei.svildep.istanzaservice.mapper.*;
 import it.sogei.svildep.istanzaservice.model.istanza.Istanza;
 import lombok.Getter;
@@ -22,20 +23,33 @@ public abstract class IstanzaMapper<I extends Istanza, D extends IstanzaDto> imp
     @Autowired private RtsMapper rtsMapper;
     @Autowired private DocumentoMapper documentoMapper;
 
-    public void mapPropertyIstanzaEntityToDto(I entity, D dto) {
-        dto.setQualitaRichiedente(entity.getQualitaRichiedente().name());
-        dto.setCategoriaDeposito(entity.getCategoriaDeposito().name());
-        dto.setStato(entity.getStato().name());
+    D mapIstanzaEntityToDto(I entity, D dto) {
+        dto.setQualitaRichiedente(entity.getQualitaRichiedente().toString());
+        dto.setCategoriaDeposito(entity.getCategoriaDeposito().toString());
+        dto.setStato(entity.getStato().toString());
         dto.setRichiedente(soggettoMapper.convertEntityToDto(entity.getRichiedente()));
         dto.setDatiDeposito(depositoMapper.convertEntityToDto(entity.getDatiDeposito()));
         dto.setDatiRichiesta(richiestaMapper.convertEntityToDto(entity.getDatiRichiesta()));
         dto.setDatiProtocollo(protocolloMapper.convertEntityToDto(entity.getDatiProtocollo()));
         dto.setRtsInoltro(rtsMapper.convertEntityToDto(entity.getRtsInoltro()));
         dto.setAllegati(documentoMapper.convertEntityToDto(entity.getAllegati()));
+        return dto;
     }
 
-    public void mapPropertyIstanzaDtoToEntity(D dto, I entity) {
+    I mapIstanzaDtoToEntity(D dto, I entity) throws SvildepException {
+        try {
+            entity.setQualitaRichiedente(Istanza.QualitaRichiedente.valueOf(dto.getQualitaRichiedente()));
+            entity.setCategoriaDeposito(Istanza.Categoria.valueOf(dto.getCategoriaDeposito()));
+            entity.setStato(Istanza.Stato.valueOf(dto.getStato()));
+        } catch (Exception ex) {
+            throw new SvildepException(ex.getMessage());
+        }
         entity.setRichiedente(soggettoMapper.convertDtoToEntity(dto.getRichiedente()));
         entity.setDatiDeposito(depositoMapper.convertDtoToEntity(dto.getDatiDeposito()));
+        entity.setDatiRichiesta(richiestaMapper.convertDtoToEntity(dto.getDatiRichiesta()));
+        entity.setDatiProtocollo(protocolloMapper.convertDtoToEntity(dto.getDatiProtocollo()));
+        entity.setRtsInoltro(rtsMapper.convertDtoToEntity(dto.getRtsInoltro()));
+        entity.setAllegati(documentoMapper.convertDtoToEntity(dto.getAllegati()));
+        return entity;
     }
 }

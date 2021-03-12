@@ -1,6 +1,7 @@
 package it.sogei.svildep.istanzaservice.service;
 
 import it.sogei.svildep.istanzaservice.dto.Dto;
+import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import it.sogei.svildep.istanzaservice.mapper.Mapper;
 import it.sogei.svildep.istanzaservice.model.Entity;
 import it.sogei.svildep.istanzaservice.repository.IRepository;
@@ -17,15 +18,15 @@ interface IService<E extends Entity, D extends Dto> {
 
     List<D> getAll();
 
-    D insert(D dto);
+    D insert(D dto) throws SvildepException;
 
-    boolean update(D dto);
+    boolean update(D dto) throws SvildepException;
 
     D delete(Long id);
 
-    D delete(D dto);
+    D delete(D dto) throws SvildepException;
 
-    boolean deleteEffective(D dto);
+    boolean deleteEffective(D dto) throws SvildepException;
 
     void drop();
 }
