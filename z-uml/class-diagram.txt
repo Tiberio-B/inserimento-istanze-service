@@ -20,9 +20,11 @@
 		class AuthService extends ExternalService
 		class RtsService extends ExternalService
 		class RestTemplate
-		ExternalService -right- RestTemplate
-		SoggettoService -- IstanzaService
-		RtsService -- IstanzaService
+		ExternalService -- RestTemplate
+		SoggettoService -left- IstanzaService
+		SoggettoService -[hidden]left- ExternalService
+		AuthService -[hidden]right- ExternalService
+		RtsService -left- IstanzaService
 		IstanzaController -- AuthService : authentication
 	}
 
