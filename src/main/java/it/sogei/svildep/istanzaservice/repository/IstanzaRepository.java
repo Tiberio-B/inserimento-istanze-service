@@ -9,19 +9,19 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public interface IstanzaRepository<E extends Istanza> {
+public interface IstanzaRepository {
 
-    default Map<Long, E> getDatabase() { return new HashMap<>(); }
+    default Map<Long, Istanza> getDatabase() { return new HashMap<>(); }
 
-    default E get(Long id) { return getDatabase().get(id); }
+    default Istanza get(Long id) { return getDatabase().get(id); }
 
-    default List<E> getAll() { return new ArrayList<>((getDatabase().values())); }
+    default List<Istanza> getAll() { return new ArrayList<>((getDatabase().values())); }
 
-    default E insert(E entity) { return getDatabase().put(entity.getId(), entity); }
+    default Istanza insert(Istanza entity) { return getDatabase().put(entity.getId(), entity); }
     
-    default boolean update(E entity) { return insert(entity) == null; }
+    default boolean update(Istanza entity) { return insert(entity) == null; }
 
-    default E delete(Long id) { return getDatabase().remove(id); }
+    default Istanza delete(Long id) { return getDatabase().remove(id); }
 
     default boolean deleteEffective(Long id) { return delete(id) != null; }
 

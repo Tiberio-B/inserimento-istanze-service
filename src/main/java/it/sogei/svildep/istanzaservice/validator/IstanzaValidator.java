@@ -6,7 +6,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 @Component
-public abstract class DtoValidator implements Validator {
+public abstract class IstanzaValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> aClass) {

@@ -1,5 +1,5 @@
 @startuml
-skinparam linetype ortho
+'skinparam linetype ortho
 
 '########## Legenda ########## 
 
@@ -19,15 +19,6 @@ package "Model" as mod #Motivation {
 			- qualitaRichiedente*** : QualitaRichiedente
 			- categoriaDeposito : Categoria
 			- stato : Stato
-		}
-
-		class DepositoAmministrativo extends Istanza
-		class DepositoAmministrativoNoEsproprio extends Istanza
-		class DepositoCauzionale extends Istanza
-		class DepositoGiudiziario extends Istanza
-		class DepositoVolontario extends Istanza
-
-		class RestituzioneDeposito extends Istanza {
 			- pagamentoASoggettiDeposito : boolean
 			- modalitaPagamento : modalitaPagamento
 			- importoRichiesto : BigDecimal
@@ -85,35 +76,35 @@ package "Model" as mod #Motivation {
 
 	'########## DepositoAmministrativo ########## 
 
-		DepositoAmministrativo -- Soggetto : depositante
-		DepositoAmministrativo -- Soggetto : autoritaEspropriante
-		DepositoAmministrativo -- Opera : opera
-		DepositoAmministrativo -- Bene : beneEspropriato
+		Istanza -- Soggetto : depositante
+		Istanza -- Soggetto : autoritaEspropriante
+		Istanza -- Opera : opera
+		Istanza -- Bene : beneEspropriato
 
 	'########## DepositoAmministrativoNoEsproprio ########## 
 
-		DepositoAmministrativoNoEsproprio -- Soggetto : versante
-		DepositoAmministrativoNoEsproprio -- Soggetto : ulterioreSoggetto
+		Istanza -- Soggetto : versante
+		Istanza -- Soggetto : ulterioreSoggetto
 
 	'########## DepositoCauzionale ########## 
 
-		DepositoCauzionale -- Soggetto : proprietario
-		DepositoCauzionale -- Soggetto : enteRichiedente
+		Istanza -- Soggetto : proprietario
+		Istanza -- Soggetto : enteRichiedente
 
 	'########## DepositoGiudiziario ########## 
 
-		DepositoGiudiziario -- Soggetto : versante
-		DepositoGiudiziario -- Soggetto : autoritaOrdinante
-		DepositoGiudiziario -- Soggetto : soggettoUlteriore
+		Istanza -- Soggetto : versante
+		Istanza -- Soggetto : autoritaOrdinante
+		Istanza -- Soggetto : soggettoUlteriore
 
 	'########## DepositoVolontario ########## 
 
-		DepositoVolontario -- Soggetto : proprietario
+		Istanza -- Soggetto : proprietario
 
 	'########## RestituzioneDeposito ########## 
 
-		DepositoVolontario "*" -- "1" Soggetto : soggettiObbligatori
-		DepositoVolontario -- Soggetto : intestatario
+		Istanza "*" -- "1" Soggetto : soggettiObbligatori
+		Istanza -- Soggetto : intestatario
 
 @enduml
 -txmi:star

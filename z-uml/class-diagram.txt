@@ -1,37 +1,17 @@
 @startuml
 
 	package "Controller" as contr #Application {
-		abstract class IstanzaController<I extends Istanza, D extends IstanzaDto> {}
-		class DepositoAmministrativoController extends IstanzaController
-		class DepositoAmministrativoNoEsproprioController extends IstanzaController
-  		class DepositoCauzionaleController extends IstanzaController
-		class DepositoGiudiziarioController extends IstanzaController
-		class RestituzioneDepositoController extends IstanzaController
-		class DecretoSvincoloReintroitoController extends IstanzaController
-		class DepositoVolontarioController extends IstanzaController
-		'class IstanzaValidator -- IstanzaController : validator
+		abstract class IstanzaController {}
+		class IstanzaValidator {}
+		IstanzaValidator -- IstanzaController : validator
 	}
 
 	package "Service" as serv #Business {
-		abstract class IstanzaService<I extends Istanza, D extends IstanzaDto> {}
-		class DepositoAmministrativoService extends IstanzaService
-		class DepositoAmministrativoNoEsproprioService extends IstanzaService
-		class DepositoCauzionaleService extends IstanzaService
-		class DepositoGiudiziarioService extends IstanzaService			
-		class RestituzioneDepositoService extends IstanzaService
-		class DecretoSvincoloReintroitoService extends IstanzaService
-		class DepositoVolontarioService extends IstanzaService
+		abstract class IstanzaService {}
 	}
 
 	package "Repository" as rep #Technology {
-		interface IstanzaRepository<I extends Istanza> {}
-		class DepositoAmministrativoRepository implements IstanzaRepository
-		class DepositoAmministrativoNoEsproprioRepository implements IstanzaRepository
-		class DepositoCauzionaleRepository implements IstanzaRepository
-		class DepositoGiudiziarioRepository implements IstanzaRepository
-		class RestituzioneDepositoRepository implements IstanzaRepository
-		class DecretoSvincoloReintroitoRepository implements IstanzaRepository
-		class DepositoVolontarioRepository implements IstanzaRepository
+		interface IstanzaRepository {}
 	}
 
 	package "ExternalService" as ext #Strategy {
@@ -53,19 +33,6 @@
 
 
 	'########## Adjustments (HIDDEN) ##########
-
-		DepositoAmministrativoController -[hidden]down- DepositoAmministrativoNoEsproprioController
-		DepositoCauzionaleController -[hidden]down- DepositoGiudiziarioController
-		RestituzioneDepositoController -[hidden]down- DecretoSvincoloReintroitoController
-
-
-		DepositoAmministrativoService -[hidden]down- DepositoAmministrativoNoEsproprioService
-		DepositoCauzionaleService -[hidden]down- DepositoGiudiziarioService		
-		RestituzioneDepositoService -[hidden]down- DecretoSvincoloReintroitoService
-
-		DepositoAmministrativoRepository -[hidden]down- DepositoAmministrativoNoEsproprioRepository
-		DepositoCauzionaleRepository -[hidden]down- DepositoGiudiziarioRepository
-		RestituzioneDepositoRepository -[hidden]down- DecretoSvincoloReintroitoRepository
 
 @enduml
 -txmi:star
