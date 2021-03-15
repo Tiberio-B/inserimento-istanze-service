@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class ProtocolloMapper implements Mapper<Protocollo, ProtocolloDto> {
 
     @Override
-    public ProtocolloDto convertEntityToDtoImpl(Protocollo entity) {
+    public ProtocolloDto mapEntityToDtoImpl(Protocollo entity) {
         ProtocolloDto dto = new ProtocolloDto();
         dto.setNumero(String.valueOf(entity.getNumero()));
         dto.setData(entity.getData().toString());
@@ -19,14 +19,10 @@ public class ProtocolloMapper implements Mapper<Protocollo, ProtocolloDto> {
     }
 
     @Override
-    public Protocollo convertDtoToEntityImpl(ProtocolloDto dto) throws SvildepException {
+    public Protocollo mapDtoToEntityImpl(ProtocolloDto dto) throws RuntimeException {
         Protocollo entity = new Protocollo();
-        try {
-            if (dto.getNumero() != null) entity.setNumero(Long.parseLong(dto.getNumero()));
-            entity.setData(LocalDateTime.parse(dto.getData()));
-        } catch (Exception ex) {
-            throw new SvildepException(ex.getCause() + " " + ex.getMessage());
-        }
+        entity.setNumero(Long.parseLong(dto.getNumero()));
+        entity.setData(LocalDateTime.parse(dto.getData()));
         return entity;
     }
 }

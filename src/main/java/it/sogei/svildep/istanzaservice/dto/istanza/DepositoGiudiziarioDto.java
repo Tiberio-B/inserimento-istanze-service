@@ -15,5 +15,6 @@ public class DepositoGiudiziarioDto extends IstanzaDto {
     public DepositoGiudiziarioDto() {
         super();
         this.setCategoriaDeposito("DEPOSITO_GIUDIZIARIO");
+        if (getQualitaRichiedente().equals("ME_MEDESIMO")) this.versante = getRichiedente();
     }
 }

@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Setter
 public class ProtocolloDto extends Dto {
 
+    @NotBlank
     private String numero;
     @NotBlank
     private String data;

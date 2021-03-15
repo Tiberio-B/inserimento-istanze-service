@@ -14,6 +14,8 @@ public class DepositoAmministrativoDto extends IstanzaDto {
     private SoggettoDto depositante;
     private SoggettoDto autoritaEspropriante;
 
+    private String autoritaEsproprianteCoincidenteConDepositante;
+
     private OperaDto datiOpera;
     private BeneDto beneEspropriato;
 

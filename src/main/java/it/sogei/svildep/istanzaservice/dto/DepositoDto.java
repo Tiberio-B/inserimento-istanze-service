@@ -12,8 +12,6 @@ import javax.validation.constraints.NotBlank;
 @Setter
 public class DepositoDto extends Dto {
 
-    @NotBlank
-    private String causale;
-    @NotBlank
-    private String importo;
+    @NotBlank private String causale;
+    @NotBlank private String importo;
 }

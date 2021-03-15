@@ -14,18 +14,18 @@ public class BeneMapper implements Mapper<Bene, BeneDto> {
     private final CatastoMapper catastoMapper;
 
     @Override
-    public BeneDto convertEntityToDtoImpl(Bene entity) {
+    public BeneDto mapEntityToDtoImpl(Bene entity) {
         BeneDto dto = new BeneDto();
-        dto.setDatiCatastali(catastoMapper.convertEntityToDto(entity.getDatiCatastali()));
-        dto.setProprietariCatastali(soggettoMapper.convertEntityToDto(entity.getProprietariCatastali()));
+        dto.setDatiCatastali(catastoMapper.mapEntityToDto(entity.getDatiCatastali()));
+        dto.setProprietariCatastali(soggettoMapper.mapEntityToDto(entity.getProprietariCatastali()));
         return dto;
     }
 
     @Override
-    public Bene convertDtoToEntityImpl(BeneDto dto) throws SvildepException {
+    public Bene mapDtoToEntityImpl(BeneDto dto) throws SvildepException {
         Bene entity = new Bene();
-        entity.setDatiCatastali(catastoMapper.convertDtoToEntity(dto.getDatiCatastali()));
-        entity.setProprietariCatastali(soggettoMapper.convertDtoToEntity(dto.getProprietariCatastali()));
+        entity.setDatiCatastali(catastoMapper.mapDtoToEntity(dto.getDatiCatastali()));
+        entity.setProprietariCatastali(soggettoMapper.mapDtoToEntity(dto.getProprietariCatastali()));
         return entity;
     }
 }

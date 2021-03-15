@@ -11,14 +11,14 @@ import org.springframework.stereotype.Component;
 public class ComuneMapper implements Mapper<Comune, ComuneDto> {
 
     @Override
-    public ComuneDto convertEntityToDtoImpl(Comune entity) {
+    public ComuneDto mapEntityToDtoImpl(Comune entity) {
         ComuneDto dto = new ComuneDto();
         dto.setNome(entity.getNome());
         return dto;
     }
 
     @Override
-    public Comune convertDtoToEntityImpl(ComuneDto dto) {
+    public Comune mapDtoToEntityImpl(ComuneDto dto) {
         Comune entity = new Comune();
         entity.setNome(dto.getNome());
         return entity;

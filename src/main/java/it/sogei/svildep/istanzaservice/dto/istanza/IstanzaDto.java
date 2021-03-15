@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Getter
@@ -12,8 +14,10 @@ import java.util.Set;
 @NoArgsConstructor
 public class IstanzaDto extends Dto {
 
+    @NotBlank
     private String qualitaRichiedente;
 
+    @NotNull
     private SoggettoDto richiedente;
 
     private DepositoDto datiDeposito;
@@ -27,11 +31,5 @@ public class IstanzaDto extends Dto {
     private String stato;
 
     private Set<DocumentoDto> allegati;
-
-    public IstanzaDto(SoggettoDto richiedente, DepositoDto datiDeposito, String categoriaDeposito) {
-        this.richiedente = richiedente;
-        this.datiDeposito = datiDeposito;
-        this.categoriaDeposito = categoriaDeposito;
-    }
 
 }

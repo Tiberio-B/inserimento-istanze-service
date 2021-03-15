@@ -13,5 +13,5 @@ public class Nazione implements Entity {
 
     private Long id;
     private String nome;
-    private boolean areaSepa;
+    private Boolean areaSepa;
 }

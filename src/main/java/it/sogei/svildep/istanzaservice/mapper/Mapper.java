@@ -8,42 +8,47 @@ import java.util.*;
 
 public interface Mapper<E extends Entity, D extends Dto> {
 
-    D convertEntityToDtoImpl(E entity);
+    D mapEntityToDtoImpl(E entity);
 
-    E convertDtoToEntityImpl(D dto) throws SvildepException;
+    E mapDtoToEntityImpl(D dto) throws SvildepException;
 
-    default D convertEntityToDto(E entity) {
+    default D mapEntityToDto(E entity) {
         if (entity == null) return null;
-        D dto = convertEntityToDtoImpl(entity);
+        D dto = mapEntityToDtoImpl(entity);
         dto.setId(String.valueOf(entity.getId()));
         return dto;
     }
 
-    default Collection<D> convertEntityToDto(Collection<D> dtos, Collection<E> entities) {
+    default Collection<D> mapEntityToDto(Collection<D> dtos, Collection<E> entities) {
         if (entities == null) return null;
-        for (E entity : entities) dtos.add(convertEntityToDto(entity));
+        for (E entity : entities) dtos.add(mapEntityToDto(entity));
         return dtos;
     }
 
-    default List<D> convertEntityToDto(List<E> entities) { return (List<D>) convertEntityToDto(new ArrayList<>(), entities); }
+    default List<D> mapEntityToDto(List<E> entities) { return (List<D>) mapEntityToDto(new ArrayList<>(), entities); }
 
-    default Set<D> convertEntityToDto(Set<E> entities) { return (Set<D>) convertEntityToDto(new HashSet<>(), entities); }
+    default Set<D> mapEntityToDto(Set<E> entities) { return (Set<D>) mapEntityToDto(new HashSet<>(), entities); }
 
-    default E convertDtoToEntity(D dto) throws SvildepException {
+    default E mapDtoToEntity(D dto) throws SvildepException {
         if (dto == null) return null;
-        E entity = convertDtoToEntityImpl(dto);
-        if (dto.getId() != null) entity.setId(Long.parseLong(dto.getId()));
+        E entity;
+        try {
+            entity = mapDtoToEntityImpl(dto);
+            if (dto.getId() != null) entity.setId(Long.parseLong(dto.getId()));
+        } catch (Exception ex) {
+            throw new SvildepException(ex.getCause() +" "+ ex.getMessage());
+        }
         return entity;
     }
 
-    default Collection<E> convertDtoToEntity(Collection<E> entities, Collection<D> dtos) throws SvildepException {
+    default Collection<E> mapDtoToEntity(Collection<E> entities, Collection<D> dtos) throws SvildepException {
         if (dtos == null) return null;
-        for (D dto : dtos) entities.add(convertDtoToEntity(dto));
+        for (D dto : dtos) entities.add(mapDtoToEntity(dto));
         return entities;
     }
 
-    default List<E> convertDtoToEntity(List<D> dtos) throws SvildepException { return (List<E>) convertDtoToEntity(new ArrayList<>(), dtos); }
+    default List<E> mapDtoToEntity(List<D> dtos) throws SvildepException { return (List<E>) mapDtoToEntity(new ArrayList<>(), dtos); }
 
-    default Set<E> convertDtoToEntity(Set<D> dtos) throws SvildepException { return (Set<E>) convertDtoToEntity(new HashSet<>(), dtos); }
+    default Set<E> mapDtoToEntity(Set<D> dtos) throws SvildepException { return (Set<E>) mapDtoToEntity(new HashSet<>(), dtos); }
 
 }

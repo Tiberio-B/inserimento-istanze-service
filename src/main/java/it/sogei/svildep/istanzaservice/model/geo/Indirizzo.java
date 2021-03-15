@@ -8,7 +8,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-
 public class Indirizzo implements Entity {
 
     private Long id;

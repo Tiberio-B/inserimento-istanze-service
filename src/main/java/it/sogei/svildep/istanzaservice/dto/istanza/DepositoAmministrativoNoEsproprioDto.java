@@ -19,5 +19,6 @@ public class DepositoAmministrativoNoEsproprioDto extends IstanzaDto {
     public DepositoAmministrativoNoEsproprioDto() {
         super();
         this.setCategoriaDeposito("DEPOSITO_AMMINISTRATIVO_NO_ESPROPRIO");
+        if (getQualitaRichiedente().equals("ME_MEDESIMO")) this.versante = getRichiedente();
     }
 }

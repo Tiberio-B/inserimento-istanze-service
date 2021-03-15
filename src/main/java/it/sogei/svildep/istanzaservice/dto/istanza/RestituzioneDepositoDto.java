@@ -18,7 +18,7 @@ public class RestituzioneDepositoDto extends IstanzaDto {
 
     private String pagamentoASoggettiDeposito;
 
-    private String modalitaPagamento;
+    private String modalitaPagamentoId;
 
     public RestituzioneDepositoDto() {
         super();

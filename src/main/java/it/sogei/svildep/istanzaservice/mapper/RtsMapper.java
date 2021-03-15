@@ -10,12 +10,12 @@ import java.time.LocalDateTime;
 public class RtsMapper implements Mapper<Rts, RtsDto> {
 
     @Override
-    public RtsDto convertEntityToDtoImpl(Rts entity) {
+    public RtsDto mapEntityToDtoImpl(Rts entity) {
         return new RtsDto();
     }
 
     @Override
-    public Rts convertDtoToEntityImpl(RtsDto dto) {
+    public Rts mapDtoToEntityImpl(RtsDto dto) {
         return new Rts();
     }
 }

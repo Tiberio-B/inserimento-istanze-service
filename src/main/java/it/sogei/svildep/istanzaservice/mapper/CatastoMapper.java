@@ -15,7 +15,7 @@ public class CatastoMapper implements Mapper<Catasto, CatastoDto> {
     private final ComuneMapper comuneMapper;
 
     @Override
-    public CatastoDto convertEntityToDtoImpl(Catasto entity) {
+    public CatastoDto mapEntityToDtoImpl(Catasto entity) {
         CatastoDto dto = new CatastoDto();
         dto.setTipo(entity.getTipo());
         dto.setSezioneUrbana(entity.getSezioneUrbana());
@@ -23,24 +23,23 @@ public class CatastoMapper implements Mapper<Catasto, CatastoDto> {
         dto.setSubalterno(entity.getSubalterno());
         dto.setParticella(entity.getParticella());
         dto.setProvincia(entity.getProvincia().toString());
-        dto.setComune(comuneMapper.convertEntityToDto(entity.getComune()));
+        dto.setComune(comuneMapper.mapEntityToDto(entity.getComune()));
         return dto;
     }
 
     @Override
-    public Catasto convertDtoToEntityImpl(CatastoDto dto) throws SvildepException {
+    public Catasto mapDtoToEntityImpl(CatastoDto dto) throws IllegalArgumentException, SvildepException {
         Catasto entity = new Catasto();
+
+        String provincia = dto.getProvincia();
+        entity.setProvincia(provincia != null? Provincia.valueOf(provincia) : null);
+
+        entity.setComune(comuneMapper.mapDtoToEntity(dto.getComune()));
         entity.setTipo(dto.getTipo());
         entity.setSezioneUrbana(dto.getSezioneUrbana());
         entity.setFoglio(dto.getFoglio());
         entity.setSubalterno(dto.getSubalterno());
         entity.setParticella(dto.getParticella());
-        try {
-            entity.setProvincia(Provincia.valueOf(dto.getProvincia()));
-        } catch (Exception ex) {
-            throw new SvildepException(ex.getMessage());
-        }
-        entity.setComune(comuneMapper.convertDtoToEntity(dto.getComune()));
         return entity;
     }
 }

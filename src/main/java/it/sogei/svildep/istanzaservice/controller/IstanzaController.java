@@ -20,10 +20,6 @@ public class IstanzaController {
 
     private final IstanzaService service;
 
-    private void validate(BindingResult bindingResult) throws BindingException {
-        if (bindingResult.hasErrors()) throw new BindingException(bindingResult);
-    }
-
     private ResponseEntity<IstanzaDto> insert(IstanzaDto requestDto, BindingResult bindingResult) throws SvildepException {
         if (bindingResult.hasErrors()) throw new BindingException(bindingResult);
         service.prepareInsert(requestDto);
@@ -78,7 +74,7 @@ public class IstanzaController {
 
     @PutMapping
     public ResponseEntity<Dto> update(@Valid @RequestBody IstanzaDto requestDto, BindingResult bindingResult) throws SvildepException {
-        validate(bindingResult);
+        if (bindingResult.hasErrors()) throw new BindingException(bindingResult);
         boolean created = service.update(requestDto);
         return ResponseEntity.status(created? HttpStatus.CREATED : HttpStatus.OK).body(requestDto);
     }

@@ -13,20 +13,16 @@ import java.time.LocalDateTime;
 public class RichiestaMapper implements Mapper<Richiesta, RichiestaDto> {
 
     @Override
-    public RichiestaDto convertEntityToDtoImpl(Richiesta entity) {
+    public RichiestaDto mapEntityToDtoImpl(Richiesta entity) {
         RichiestaDto dto = new RichiestaDto();
         dto.setData(entity.getData().toString());
         return dto;
     }
 
     @Override
-    public Richiesta convertDtoToEntityImpl(RichiestaDto dto) throws SvildepException {
+    public Richiesta mapDtoToEntityImpl(RichiestaDto dto) throws RuntimeException {
         Richiesta entity = new Richiesta();
-        try {
-            entity.setData(LocalDateTime.parse(dto.getData()));
-        } catch (Exception ex) {
-            throw new SvildepException(ex.getMessage());
-        }
+        entity.setData(LocalDateTime.parse(dto.getData()));
         return entity;
     }
 }

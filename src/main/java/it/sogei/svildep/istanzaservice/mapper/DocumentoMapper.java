@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 public class DocumentoMapper implements Mapper<Documento, DocumentoDto> {
 
     @Override
-    public DocumentoDto convertEntityToDtoImpl(Documento entity) {
+    public DocumentoDto mapEntityToDtoImpl(Documento entity) {
         return new DocumentoDto();
     }
 
     @Override
-    public Documento convertDtoToEntityImpl(DocumentoDto dto) {
+    public Documento mapDtoToEntityImpl(DocumentoDto dto) {
         return new Documento();
     }
 }

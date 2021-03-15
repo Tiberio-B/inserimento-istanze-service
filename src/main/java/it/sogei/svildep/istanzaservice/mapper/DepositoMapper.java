@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 public class DepositoMapper implements Mapper<Deposito, DepositoDto> {
 
     @Override
-    public DepositoDto convertEntityToDtoImpl(Deposito entity) {
+    public DepositoDto mapEntityToDtoImpl(Deposito entity) {
         DepositoDto dto = new DepositoDto();
         dto.setCausale(entity.getCausale());
         dto.setImporto(String.valueOf(entity.getImporto()));
@@ -22,14 +22,10 @@ public class DepositoMapper implements Mapper<Deposito, DepositoDto> {
     }
 
     @Override
-    public Deposito convertDtoToEntityImpl(DepositoDto dto) throws SvildepException {
+    public Deposito mapDtoToEntityImpl(DepositoDto dto) throws IllegalArgumentException {
         Deposito entity = new Deposito();
         entity.setCausale(dto.getCausale());
-        try {
-            entity.setImporto(NumberUtils.parseNumber(dto.getImporto(), BigDecimal.class));
-        } catch (Exception ex) {
-            throw new SvildepException(ex.getMessage());
-        }
+        entity.setImporto(NumberUtils.parseNumber(dto.getImporto(), BigDecimal.class));
         return entity;
     }
 }
