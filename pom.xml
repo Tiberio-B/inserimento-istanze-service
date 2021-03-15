@@ -11,7 +11,7 @@
     <groupId>it.sogei.svildep</groupId>
     <artifactId>istanza-service</artifactId>
     <version>1.0</version>
-    <name>inserimento-istanze</name>
+    <name>istanza-service</name>
     <description>Servizi di inserimento istanza costituzione di deposito</description>
     <properties>
         <java.version>11</java.version>

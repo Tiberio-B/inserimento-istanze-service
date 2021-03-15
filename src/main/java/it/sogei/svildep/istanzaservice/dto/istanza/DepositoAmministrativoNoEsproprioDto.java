@@ -10,7 +10,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-
 public class DepositoAmministrativoNoEsproprioDto extends IstanzaDto {
 
     private SoggettoDto versante;

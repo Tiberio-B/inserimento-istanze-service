@@ -8,7 +8,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-
 public class DepositoAmministrativoDto extends IstanzaDto {
 
     private SoggettoDto depositante;

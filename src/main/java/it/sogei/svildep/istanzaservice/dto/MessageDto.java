@@ -17,7 +17,7 @@ public class MessageDto extends Dto {
     @NonNull
     private String content;
 
-    private HttpStatus status = HttpStatus.CONTINUE;
+    private HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
 
     public static MessageDto nonAutorizzato() { return new MessageDto(non_autorizzato, HttpStatus.UNAUTHORIZED);
     }

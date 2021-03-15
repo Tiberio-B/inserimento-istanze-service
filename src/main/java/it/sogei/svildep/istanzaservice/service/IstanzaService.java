@@ -11,11 +11,11 @@ import it.sogei.svildep.istanzaservice.service.external.SoggettoService;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 @Getter
 @NoArgsConstructor
 public abstract class IstanzaService<D extends IstanzaDto> {
