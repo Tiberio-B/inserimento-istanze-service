@@ -1,13 +1,80 @@
 @startuml
 
 	package "Controller" as contr #Application {
-		abstract class IstanzaController {}
-		class IstanzaValidator {}
-		IstanzaValidator -- IstanzaController : validator
+		abstract class IstanzaController<D extends IstanzaDto> {
+			'- validator : IstanzaValidator
+			- service : IstanzaService<D>
+			'- authService : AuthService
+		}
+		class DepositoAmministrativoController {
+			- service : DepositoAmministrativoService
+		}
+		class DepositoAmministrativoNoEsproprioController {
+			- service : DepositoAmministrativoNoEsproprioService
+		}
+  		class DepositoCauzionaleController {
+			- service : DepositoCauzionaleService
+		}
+		class DepositoGiudiziarioController {
+			- service : DepositoGiudiziarioService
+		}
+		class RestituzioneDepositoController {
+			- service : RestituzioneDepositoService
+		}
+		class DecretoSvincoloReintroitoController{
+			- service : DecretoSvincoloReintroitoService
+		}
+		class DepositoVolontarioController {
+			- service : DepositoVolontarioService
+		}
+
+		class DepositoAmministrativoController extends IstanzaController
+		class DepositoAmministrativoNoEsproprioController extends IstanzaController
+  		class DepositoCauzionaleController extends IstanzaController
+		class DepositoGiudiziarioController extends IstanzaController
+		class RestituzioneDepositoController extends IstanzaController
+		class DecretoSvincoloReintroitoController extends IstanzaController
+		class DepositoVolontarioController extends IstanzaController
+		'class AuthService -- IstanzaController: authentication
+		'class IstanzaValidator -- IstanzaController : validator
 	}
 
 	package "Service" as serv #Business {
-		abstract class IstanzaService {}
+		abstract class IstanzaService<D extends IstanzaDto> {
+			- soggettoService : SoggettoService
+			- rtsService : RtsService
+			- repository : IstanzaRepository
+			- mapper : Mapper<Istanza, D>
+		}
+		class DepositoAmministrativoService {
+			- mapper : DepositoAmministrativoMapper
+		}
+		class DepositoAmministrativoNoEsproprioService {
+			- mapper : DepositoAmministrativoNoEsproprioMapper
+		}
+		class DepositoCauzionaleService {
+			- mapper : DepositoCauzionaleMapper
+		}
+		class DepositoGiudiziarioService {
+			- mapper : DepositoGiudiziarioMapper
+		}	
+		class RestituzioneDepositoService {
+			- mapper : RestituzioneDepositoMapper
+		}
+		class DecretoSvincoloReintroitoService {
+			- mapper : DecretoSvincoloReintroitoMapper
+		}
+		class DepositoVolontarioService {
+			- mapper : DepositoVolontarioMapper
+		}
+
+		DepositoAmministrativoService extends IstanzaService
+		DepositoAmministrativoNoEsproprioService extends IstanzaService
+		DepositoCauzionaleService extends IstanzaService
+		DepositoGiudiziarioService extends IstanzaService			
+		RestituzioneDepositoService extends IstanzaService
+		DecretoSvincoloReintroitoService extends IstanzaService
+		DepositoVolontarioService extends IstanzaService
 	}
 
 	package "Repository" as rep #Technology {
@@ -20,21 +87,38 @@
 		class AuthService extends ExternalService
 		class RtsService extends ExternalService
 		class RestTemplate
-		ExternalService -- RestTemplate
-		SoggettoService -left- IstanzaService
-		SoggettoService -[hidden]left- ExternalService
-		AuthService -[hidden]right- ExternalService
-		RtsService -left- IstanzaService
-		IstanzaController -- AuthService : authentication
+		ExternalService -right- RestTemplate
+	}
+
+		
+
+		IstanzaService::soggettoService -- SoggettoService
+		IstanzaService::rtsService -- RtsService
+		IstanzaService::repository -- IstanzaRepository
+
+
+
+	package Database <<Database>> #Physical {
+
 	}
 
 	'########## Relations ##########
 
 		IstanzaController -down[thickness=6]- IstanzaService
 		IstanzaService -down[thickness=6]- IstanzaRepository
+		IstanzaRepository -down[thickness=6]- Database
 
 
 	'########## Adjustments (HIDDEN) ##########
+
+		DepositoAmministrativoController -[hidden]down- DepositoAmministrativoNoEsproprioController
+		DepositoCauzionaleController -[hidden]down- DepositoGiudiziarioController
+		RestituzioneDepositoController -[hidden]down- DecretoSvincoloReintroitoController
+
+
+		DepositoAmministrativoService -[hidden]down- DepositoAmministrativoNoEsproprioService
+		DepositoCauzionaleService -[hidden]down- DepositoGiudiziarioService		
+		RestituzioneDepositoService -[hidden]down- DecretoSvincoloReintroitoService
 
 @enduml
 -txmi:star
