@@ -6,7 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
@@ -15,22 +17,27 @@ import java.util.Set;
 @NoArgsConstructor
 public class IstanzaDto extends Dto {
 
-    @NotBlank(message = Messages.qualitaRichiedente)
+    @NotEmpty(message = Messages.qualitaRichiedente)
     private String qualitaRichiedente;
 
+    @Valid
     @NotNull(message = Messages.richiedente)
     private SoggettoDto richiedente;
 
+    @Valid
     private DepositoDto datiDeposito;
-    private String categoriaDeposito;
 
+    @Valid
     private RichiestaDto datiRichiesta;
+    @Valid
     private ProtocolloDto datiProtocollo;
 
+    @Valid
     private RtsDto rtsInoltro;
 
     private String stato;
 
+    @Valid
     private Set<DocumentoDto> allegati;
 
 }
