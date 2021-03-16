@@ -68,13 +68,13 @@
 			- mapper : DepositoVolontarioMapper
 		}
 
-		DepositoAmministrativoService extends IstanzaService
-		DepositoAmministrativoNoEsproprioService extends IstanzaService
-		DepositoCauzionaleService extends IstanzaService
-		DepositoGiudiziarioService extends IstanzaService			
-		RestituzioneDepositoService extends IstanzaService
-		DecretoSvincoloReintroitoService extends IstanzaService
-		DepositoVolontarioService extends IstanzaService
+		class DepositoAmministrativoService extends IstanzaService
+		class DepositoAmministrativoNoEsproprioService extends IstanzaService
+		class DepositoCauzionaleService extends IstanzaService
+		class DepositoGiudiziarioService extends IstanzaService			
+		class RestituzioneDepositoService extends IstanzaService
+		class DecretoSvincoloReintroitoService extends IstanzaService
+		class DepositoVolontarioService extends IstanzaService
 	}
 
 	package "Repository" as rep #Technology {

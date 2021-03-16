@@ -1,5 +1,6 @@
 package it.sogei.svildep.istanzaservice.dto;
 
+import it.sogei.svildep.istanzaservice.exception.Messages;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,7 @@ import javax.validation.constraints.NotBlank;
 @Setter
 public class OperaDto extends Dto {
 
-    @NotBlank private String descrizione;
+    @NotBlank(message = Messages.descrizioneOpera)
+    private String descrizione;
     private String regione;
 }

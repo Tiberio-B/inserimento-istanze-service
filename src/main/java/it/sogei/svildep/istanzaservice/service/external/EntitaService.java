@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class IstanzaService extends ExternalService {
+public class EntitaService extends ExternalService {
 
-    IstanzaService(RestTemplate restTemplate) {
+    EntitaService(RestTemplate restTemplate) {
         super(restTemplate);
     }
 

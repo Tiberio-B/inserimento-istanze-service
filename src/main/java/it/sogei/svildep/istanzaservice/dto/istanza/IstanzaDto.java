@@ -1,6 +1,7 @@
 package it.sogei.svildep.istanzaservice.dto.istanza;
 
 import it.sogei.svildep.istanzaservice.dto.*;
+import it.sogei.svildep.istanzaservice.exception.Messages;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,10 +15,10 @@ import java.util.Set;
 @NoArgsConstructor
 public class IstanzaDto extends Dto {
 
-    @NotBlank
+    @NotBlank(message = Messages.qualitaRichiedente)
     private String qualitaRichiedente;
 
-    @NotNull
+    @NotNull(message = Messages.richiedente)
     private SoggettoDto richiedente;
 
     private DepositoDto datiDeposito;

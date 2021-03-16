@@ -1,5 +1,6 @@
 package it.sogei.svildep.istanzaservice.dto;
 
+import it.sogei.svildep.istanzaservice.exception.Messages;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,8 +12,9 @@ import java.util.Set;
 @Setter
 public class BeneDto extends Dto {
 
-    @NotNull
+    @NotNull(message = Messages.datiCatastali)
     private CatastoDto datiCatastali;
-    @NotEmpty
+
+    @NotEmpty(message = Messages.proprietariCatastali)
     private Set<SoggettoDto> proprietariCatastali;
 }
