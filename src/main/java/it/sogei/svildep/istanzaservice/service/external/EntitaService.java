@@ -1,5 +1,6 @@
 package it.sogei.svildep.istanzaservice.service.external;
 
+import it.sogei.svildep.istanzaservice.MockDataLoader;
 import it.sogei.svildep.istanzaservice.dto.MessageDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
@@ -20,6 +21,7 @@ public class EntitaService extends ExternalService {
     public MessageDto inserimentoIstanzaMock(IstanzaDto dto) throws SvildepException {
         MessageDto response;
         // response =  getRestTemplate().exchange(getURL(), HttpMethod.POST, new HttpEntity<>(dto) MessageDto.class).getBody();
+        MockDataLoader.databaseIstanze.put(String.valueOf(dto), dto);
         response = MessageDto.inserito();
         if (response.isError()) throw new SvildepException(response);
         return response;

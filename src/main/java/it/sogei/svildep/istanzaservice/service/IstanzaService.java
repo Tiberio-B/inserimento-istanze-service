@@ -1,5 +1,6 @@
 package it.sogei.svildep.istanzaservice.service;
 
+import it.sogei.svildep.istanzaservice.MockDataLoader;
 import it.sogei.svildep.istanzaservice.dto.MessageDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
@@ -8,6 +9,9 @@ import it.sogei.svildep.istanzaservice.service.external.RtsService;
 import it.sogei.svildep.istanzaservice.service.external.SoggettoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -27,5 +31,9 @@ public class IstanzaService {
         response = entitaService.inserimentoIstanzaMock(requestDto);
         return response;
     }
+
+    public IstanzaDto get(Long id) { return MockDataLoader.databaseIstanze.get(id.toString()); }
+
+    public List<IstanzaDto> getAll() { return new ArrayList<>(MockDataLoader.databaseIstanze.values()); }
 
 }

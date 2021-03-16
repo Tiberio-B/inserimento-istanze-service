@@ -1,6 +1,7 @@
 package it.sogei.svildep.istanzaservice.validator;
 
 import it.sogei.svildep.istanzaservice.dto.Dto;
+import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -15,9 +16,8 @@ public class IstanzaValidator implements Validator {
 
     @Override
     public void validate(Object obj, Errors errors) {
-        if (obj instanceof Dto) {
-            Dto dto = (Dto) obj;
-            //TO-DO
+        if (obj instanceof IstanzaDto) {
+            IstanzaDto dto = (IstanzaDto) obj;
         }
         else errors.rejectValue("class", "notADto", "NOT_A_DTO");
     }

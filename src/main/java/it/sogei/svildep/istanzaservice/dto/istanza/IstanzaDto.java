@@ -2,6 +2,7 @@ package it.sogei.svildep.istanzaservice.dto.istanza;
 
 import it.sogei.svildep.istanzaservice.dto.*;
 import it.sogei.svildep.istanzaservice.exception.Messages;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,6 +27,14 @@ public class IstanzaDto extends Dto {
 
     @Valid
     private DepositoDto datiDeposito;
+
+    @Valid
+    @NotNull(message = Messages.categoriaDeposito)
+    private String categoriaDeposito;
+
+    @Valid
+    @NotNull(message = Messages.tipoIstanza)
+    private String tipoIstanza;
 
     @Valid
     private RichiestaDto datiRichiesta;

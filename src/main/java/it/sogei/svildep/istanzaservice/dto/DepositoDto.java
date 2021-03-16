@@ -1,6 +1,7 @@
 package it.sogei.svildep.istanzaservice.dto;
 
 import it.sogei.svildep.istanzaservice.exception.Messages;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 

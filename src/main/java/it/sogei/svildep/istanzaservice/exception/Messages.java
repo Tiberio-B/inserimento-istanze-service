@@ -2,6 +2,9 @@ package it.sogei.svildep.istanzaservice.exception;
 
 public interface Messages {
 
+    String categoriaDeposito = "E' necessario specificare la categoria deposito.";
+    String tipoIstanza = "E' necessario specificare il tipo di istanza.";
+
     String inserimento = "Inserimento effettuato con successo.";
 
     String nonAutorizzato = "L'utente corrente non è autorizzato ad eseguire l'operazione.";
