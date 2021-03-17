@@ -8,12 +8,11 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 @AllArgsConstructor
-@RequiredArgsConstructor
 public class MessageDto extends Dto {
 
-    private final String content;
+    private String content;
 
-    private HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
+    private HttpStatus status;
 
     public static MessageDto nonAutorizzato() { return new MessageDto(Messages.nonAutorizzato, HttpStatus.UNAUTHORIZED); }
 

@@ -34,4 +34,7 @@ public interface Messages {
 
     String descrizioneOpera = "E' necessario specificare la descrizione dell'opera.";
 
+    String invalidDtoCode = "invalidDto";
+    String invalidDtoMessage = "Il corpo della richiesta non è un DTO valido.";
+
 }

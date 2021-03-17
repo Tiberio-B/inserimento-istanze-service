@@ -2,6 +2,7 @@ package it.sogei.svildep.istanzaservice.validator;
 
 import it.sogei.svildep.istanzaservice.dto.Dto;
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
+import it.sogei.svildep.istanzaservice.exception.Messages;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -19,6 +20,6 @@ public class IstanzaValidator implements Validator {
         if (obj instanceof IstanzaDto) {
             IstanzaDto dto = (IstanzaDto) obj;
         }
-        else errors.rejectValue("class", "notADto", "NOT_A_DTO");
+        else errors.rejectValue("class", Messages.invalidDtoCode, Messages.invalidDtoMessage);
     }
 }
