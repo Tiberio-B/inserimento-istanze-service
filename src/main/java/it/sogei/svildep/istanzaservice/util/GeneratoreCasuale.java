@@ -74,7 +74,7 @@ public class GeneratoreCasuale extends Random {
 		istanza.setRichiedente(soggettoCasuale());
 		istanza.setDatiDeposito(depositoCasuale());
 		istanza.setCategoriaDeposito(stringaCasuale());
-		istanza.setTipoIstanza(stringaCasuale());
+		istanza.setTipo(stringaCasuale());
 		istanza.setDatiRichiesta(richiestaCasuale());
 		istanza.setDatiProtocollo(protocolloCasuale());
 		istanza.setRtsInoltro(rtsCasuale());

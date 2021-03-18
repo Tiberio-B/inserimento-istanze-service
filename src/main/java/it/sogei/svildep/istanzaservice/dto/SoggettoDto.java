@@ -15,12 +15,27 @@ public class SoggettoDto extends Dto {
     private String cognome;
     private String partitaIva;
 
-    private String tipoSoggetto;
-    private String categoriaSoggetto;
+    private String tipo;
+    private String categoria;
+    private String sesso;
 
     private String irreperibile;
     private DocumentoDto relataNotificaSoggettoNonReperibile;
     
-    private String sesso;
-    private IndirizzoDto nasctia;
+
+    private IndirizzoDto nascita;
+
+    public enum Tipo {
+        FISICO,
+        GIURIDICO,
+        DITTA_INDIVIDUALE;
+    }
+
+    public enum Categoria {
+        DA_INDIVIDUARE, AUTORITA_ORDINANTE, PRESUNTO_BENEFICIARIO;
+    }
+
+    public enum Sesso {
+        M, F, X;
+    }
 }

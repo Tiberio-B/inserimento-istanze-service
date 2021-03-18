@@ -37,4 +37,22 @@ public interface Messages {
     String invalidDtoCode = "invalidDto";
     String invalidDtoMessage = "Il corpo della richiesta non è un DTO valido.";
 
+
+    String invalidIdCode = "invalidId";
+    String invalidIdMessage = "L'id acquisito non è un numero valido.";
+
+    String invalidSessoCode = "invalidSesso";
+    String invalidSessoMessage = "Il sesso specificato non è valido.";
+
+    String invalidTipoCode = "invalidTipo";
+    String invalidTipoMessage = "Il tipo specificato non è valido.";
+
+    String invalidCategoriaCode = "invalidCategoria";
+    String invalidCategoriaMessage = "La categoria specificata non è valida.";
+
+    String invalidQualitaRichiedenteCode = "invalidQualitaRichiedente";
+    String invalidQualitaRichiedenteMessage = "La qualita' richiedente specificata non è valida.";
+
+    String invalidStatoCode = "invalidStato";
+    String invalidStatoMessage = "Lo stato specificato non è valido.";
 }
