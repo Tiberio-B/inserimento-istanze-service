@@ -33,5 +33,6 @@ public interface Messages {
     String dataRichiesta = "E' necessario specificare la data della richiesta.";
 
     String descrizioneOpera = "E' necessario specificare la descrizione dell'opera.";
+    String tipoSoggetto = "E' necessario specificare il tipo soggetto";
 
 }

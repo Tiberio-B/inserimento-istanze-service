@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice;
 
-import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.ListaRicercaIstanzaDto;
 import it.sogei.svildep.istanzaservice.util.GeneratoreCasuale;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -16,7 +16,7 @@ public class MockDataLoader implements ApplicationRunner {
 
     private GeneratoreCasuale random = new GeneratoreCasuale();
 
-    public static Map<String, IstanzaDto> databaseIstanze = new HashMap<>();
+    public static Map<String, ListaRicercaIstanzaDto> databaseIstanze = new HashMap<>();
 
     public void run(ApplicationArguments args) {
         initIstanze(NUM_ISTANZE);

@@ -1,7 +1,7 @@
 package it.sogei.svildep.istanzaservice.util;
 
 import it.sogei.svildep.istanzaservice.dto.*;
-import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.ListaRicercaIstanzaDto;
 
 import java.util.*;
 
@@ -68,18 +68,21 @@ public class GeneratoreCasuale extends Random {
 		return elementoCasuale(LoremIpsum.CITTA);
 	}
 
-	public IstanzaDto istanzaCasuale() {
-		IstanzaDto istanza = new IstanzaDto();
+	public ListaRicercaIstanzaDto istanzaCasuale() {
+		ListaRicercaIstanzaDto istanza = new ListaRicercaIstanzaDto();
 		istanza.setQualitaRichiedente(stringaCasuale());
-		istanza.setRichiedente(soggettoCasuale());
-		istanza.setDatiDeposito(depositoCasuale());
 		istanza.setCategoriaDeposito(stringaCasuale());
-		istanza.setTipoIstanza(stringaCasuale());
-		istanza.setDatiRichiesta(richiestaCasuale());
-		istanza.setDatiProtocollo(protocolloCasuale());
-		istanza.setRtsInoltro(rtsCasuale());
-		istanza.setStato(stringaCasuale());
-		istanza.setAllegati(new HashSet<>());
+		istanza.setDataIstanza(stringaCasuale());
+		istanza.setIdNumeroIstanza(stringaCasuale());
+		istanza.setIdTipoIstanza(stringaCasuale());
+		istanza.setCf(stringaCasuale());
+		istanza.setModalitaTrasmissione(stringaCasuale());
+		istanza.setIdRtsCompetente(stringaCasuale());
+		istanza.setIdRtsRicevente(stringaCasuale());
+		istanza.setNominativoRichiedente(stringaCasuale());
+		istanza.setIdenRichiestPadre(stringaCasuale());
+		istanza.setNumeroMandatoRestituzione(stringaCasuale());
+		istanza.setIdenRichiestPadre(stringaCasuale());
 		return istanza;
 	}
 

@@ -3,6 +3,9 @@ package it.sogei.svildep.istanzaservice.service;
 import it.sogei.svildep.istanzaservice.MockDataLoader;
 import it.sogei.svildep.istanzaservice.dto.MessageDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.dettaglio.DettaglioIstanzaDepCauzionaleDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.dettaglio.DettaglioIstanzaDepositoDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.ListaRicercaIstanzaDto;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import it.sogei.svildep.istanzaservice.service.external.EntitaService;
 import it.sogei.svildep.istanzaservice.service.external.RtsService;
@@ -28,12 +31,23 @@ public class IstanzaService {
         response = rtsService.inserimentoInFascicoloMock(requestDto.getAllegati());
         if (response.isError()) throw new SvildepException(response);
 
-        response = entitaService.inserimentoIstanzaMock(requestDto);
+//        response = entitaService.inserimentoIstanzaMock(requestDto);
         return response;
     }
 
-    public IstanzaDto get(Long id) { return MockDataLoader.databaseIstanze.get(id.toString()); }
+    public DettaglioIstanzaDepositoDto get(Long id) {
+//        return MockDataLoader.databaseIstanze.get(id.toString());
+        DettaglioIstanzaDepCauzionaleDto dto = new DettaglioIstanzaDepCauzionaleDto();
+        dto.setNumeroRichiesta("1");
+        dto.setDataRichiesta("18/03/2021");
+        dto.setStatoRichiesta("BOZZA");
 
-    public List<IstanzaDto> getAll() { return new ArrayList<>(MockDataLoader.databaseIstanze.values()); }
+        return dto;
+    }
+
+    public List<ListaRicercaIstanzaDto> getAll() {
+
+        return new ArrayList<ListaRicercaIstanzaDto>(MockDataLoader.databaseIstanze.values());
+    }
 
 }
