@@ -19,6 +19,7 @@ public class DettaglioIstanzaController extends IstanzaController{
     public ResponseEntity<DettaglioIstanzaDepCauzionaleDto> getIstanzaDepCauzionale(@RequestHeader("authorization") String token, @PathVariable Long id) throws SvildepException {
         authService.ottieniUtenteAutorizzatoMock(token, AuthService.Role.OPERATORE_RTS_ROLE);
 
-        return get(token,id);
+        //return get(token,id);
+        return null;
     }
 }

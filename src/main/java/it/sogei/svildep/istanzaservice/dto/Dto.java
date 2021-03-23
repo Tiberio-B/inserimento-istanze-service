@@ -11,5 +11,12 @@ import javax.validation.constraints.Pattern;
 public abstract class Dto {
 
 	@Pattern(regexp="^(0|[1-9][0-9]*)$", message = Messages.invalidIdMessage)
-	private String id;
+	private String idUtenteInserimento;
+
+	private String timestampInserimento;
+
+	@Pattern(regexp="^(0|[1-9][0-9]*)$", message = Messages.invalidIdMessage)
+	private String idUtenteAggiornamento;
+
+	private String timestampAggiornamento;
 }

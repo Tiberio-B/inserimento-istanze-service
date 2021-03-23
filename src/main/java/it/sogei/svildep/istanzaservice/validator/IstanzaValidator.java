@@ -7,7 +7,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 @Component
-public class IstanzaValidator implements Validator {
+public class IstanzaValidator extends DtoValidator {
 
     @Override
     public boolean supports(Class<?> aClass) {
@@ -16,6 +16,7 @@ public class IstanzaValidator implements Validator {
 
     @Override
     public void validate(Object obj, Errors errors) {
+        super.validate(obj, errors);
         if (obj instanceof IstanzaDto) {
             IstanzaDto dto = (IstanzaDto) obj;
             try {

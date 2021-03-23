@@ -7,7 +7,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 @Component
-public class DepositoValidator implements Validator {
+public class DepositoValidator extends DtoValidator {
 
     @Override
     public boolean supports(Class<?> aClass) {
@@ -16,6 +16,7 @@ public class DepositoValidator implements Validator {
 
     @Override
     public void validate(Object obj, Errors errors) {
+        super.validate(obj, errors);
         if (obj instanceof SoggettoDto) {
             SoggettoDto dto = (SoggettoDto) obj;
             try {

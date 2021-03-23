@@ -1,10 +1,11 @@
 @startuml
 
+
 	package "Controller" as contr #Application {
 		abstract class IstanzaController {
+			- {field} authService : AuthService
 			- {field} validator : IstanzaValidator
 			- {field} service : IstanzaService
-			- {field} authService : AuthService
 			..
 			~ {method} insert : ResponseEntity<MessageDto>
 			> {method} token : String ,
@@ -53,16 +54,19 @@
 			> {method} requestDto : RestituzioneDepositoDto,
 			> {method} br : BindingResult
 		}
+		class IstanzaValidator << @Component >> {
+			+ {method} validate
+			> {method} requestDto : IstanzaDto
+			> {method} errors : Errors
+		}
 
 		class DepositoAmministrativoController extends IstanzaController
 		class DepositoAmministrativoNoEsproprioController extends IstanzaController
   		class DepositoCauzionaleController extends IstanzaController
 		class DepositoGiudiziarioController extends IstanzaController
 		class RestituzioneDepositoController extends IstanzaController
-		class DecretoSvincoloReintroitoController extends IstanzaController
 		class DepositoVolontarioController extends IstanzaController
-
-		class IstanzaValidator
+		DecretoSvincoloReintroitoController -left-|> IstanzaController
 	}
 
 	package "Service" as serv #Business {
@@ -78,7 +82,7 @@
 		}
 	}
 
-	package "ExternalService" as ext #Strategy {
+	package "ExternalService" as zext #Strategy {
 		abstract class ExternalService {
 			- {field} restTemplate : RestTemplate
 			+ {method} getURL() : String
@@ -90,7 +94,7 @@
 			< {method} throws AuthorizationException
 		}
 		class EntitaService << @Service >> {
-			+ {method} inserisciIstanza : MessageDto
+			+ {method} inserimentoiIstanza : MessageDto
 			> {method} istanza : IstanzaDto
 			< {method} throws SvildepException
 		}
@@ -111,9 +115,9 @@
 		}
 	}
 
-		IstanzaController::service -down[thickness=6]- IstanzaService : service
+		IstanzaController::service -right[thickness=6]- IstanzaService : service
 		IstanzaController::authService -- AuthService : authentication
-		IstanzaController::validator -- IstanzaValidator : validator
+		IstanzaController::validator -up- IstanzaValidator : validator
 
 		IstanzaService::soggettoService -- SoggettoService
 		IstanzaService::rtsService -- RtsService
@@ -125,15 +129,15 @@
 		SoggettoService -[hidden]down- RtsService 
 		RtsService -[hidden]down- CatastoService 
 
-		AuthService -left-|> ExternalService
-		EntitaService -left-|> ExternalService
-		SoggettoService -left-|> ExternalService
-		RtsService -left-|> ExternalService
-		CatastoService -left-|> ExternalService
+		class AuthService extends ExternalService
+		class EntitaService extends ExternalService
+		class SoggettoService extends ExternalService
+		class RtsService extends ExternalService
+		class CatastoService extends ExternalService
 
+		DepositoGiudiziarioController -[hidden]down- DepositoCauzionaleController
 		DepositoAmministrativoController -[hidden]down- DepositoAmministrativoNoEsproprioController
-		DepositoCauzionaleController -[hidden]down- DepositoGiudiziarioController
-		RestituzioneDepositoController -[hidden]down- DecretoSvincoloReintroitoController
+		RestituzioneDepositoController -[hidden]down- DepositoVolontarioController
 
 		
 

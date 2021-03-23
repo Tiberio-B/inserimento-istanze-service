@@ -4,10 +4,9 @@ import it.sogei.svildep.istanzaservice.dto.SoggettoDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
-import org.springframework.validation.Validator;
 
 @Component
-public class SoggettoValidator implements Validator {
+public class SoggettoValidator extends DtoValidator {
 
     @Override
     public boolean supports(Class<?> aClass) {
@@ -16,6 +15,7 @@ public class SoggettoValidator implements Validator {
 
     @Override
     public void validate(Object obj, Errors errors) {
+        super.validate(obj, errors);
         if (obj instanceof SoggettoDto) {
             SoggettoDto dto = (SoggettoDto) obj;
             try {

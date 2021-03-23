@@ -42,6 +42,9 @@ public interface Messages {
     String invalidIdCode = "invalidId";
     String invalidIdMessage = "L'id acquisito non è un numero valido.";
 
+    String invalidDateCode = "invalidDate";
+    String invalidDateMessage = "La data specificata non è una data valida.";
+
     String invalidSessoCode = "invalidSesso";
     String invalidSessoMessage = "Il sesso specificato non è valido.";
 

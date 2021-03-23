@@ -11,6 +11,7 @@ public class IndirizzoDto extends Dto {
     private NazioneDto nazione;
     private ComuneDto comune;
     private String provincia;
+
     private String cap;
     private String indirizzo;
     private String civico;

@@ -5,6 +5,9 @@ import it.sogei.svildep.istanzaservice.exception.Messages;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import java.time.DateTimeException;
+import java.time.LocalDateTime;
+
 public abstract class DtoValidator implements Validator {
 
     @Override
@@ -17,9 +20,16 @@ public abstract class DtoValidator implements Validator {
         if (obj instanceof Dto) {
             Dto dto = (Dto) obj;
             try {
-                Long.parseLong(dto.getId());
+                if (dto.getIdUtenteInserimento() != null) Long.parseLong(dto.getIdUtenteInserimento());
+                if (dto.getIdUtenteAggiornamento() != null) Long.parseLong(dto.getIdUtenteAggiornamento());
             } catch (NumberFormatException ex) {
                 errors.rejectValue("id", Messages.invalidIdCode, Messages.invalidIdMessage);
+            }
+            try {
+                if (dto.getTimestampAggiornamento() != null) LocalDateTime.parse(dto.getTimestampAggiornamento());
+                if (dto.getTimestampInserimento() != null) LocalDateTime.parse(dto.getTimestampInserimento());
+            } catch (DateTimeException ex) {
+                errors.rejectValue("id", Messages.invalidIdCode, Messages.invalidDateMessage);
             }
         }
         else errors.rejectValue("class", Messages.invalidDtoCode, Messages.invalidDtoMessage);
