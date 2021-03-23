@@ -11,12 +11,14 @@ public class ExceptionAdvisor {
 
 	@ExceptionHandler(SvildepException.class)
 	public ResponseEntity<MessageDto> handleException(SvildepException e){
-		return ResponseEntity.status(e.getMessageDto().getStatus()).body(new MessageDto(e.getMessage()));
+		MessageDto messageDto = e.getMessageDto();
+		return ResponseEntity.status(messageDto.getStatus()).body(messageDto);
 	}
- 
+
 	@ExceptionHandler(Exception.class)
-    public ResponseEntity<MessageDto> handleException(Exception e){
-		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new MessageDto(e.getMessage()));
-    }
+	public ResponseEntity<MessageDto> handleException(Exception e){
+		HttpStatus errorStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+		return ResponseEntity.status(errorStatus).body(new MessageDto(e.getMessage(), errorStatus));
+	}
 
 }
