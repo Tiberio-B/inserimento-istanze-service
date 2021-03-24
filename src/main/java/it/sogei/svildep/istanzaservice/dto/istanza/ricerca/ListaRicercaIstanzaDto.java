@@ -1,11 +1,12 @@
 package it.sogei.svildep.istanzaservice.dto.istanza.ricerca;
 
+import it.sogei.svildep.istanzaservice.dto.Dto;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class ListaRicercaIstanzaDto {
+public class ListaRicercaIstanzaDto extends Dto {
 
     private String dataIstanza;
     private String idTipoIstanza;

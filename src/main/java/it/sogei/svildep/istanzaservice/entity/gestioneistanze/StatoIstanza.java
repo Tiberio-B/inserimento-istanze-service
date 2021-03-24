@@ -7,7 +7,12 @@ import lombok.Setter;
 @Getter @Setter
 public class StatoIstanza {
 
-    private Long idStatoIstanza;
-    private String descrizioneStatoIstanza;
+    private Long id;
+    private Stato descrizioneStatoIstanza;
     private Ruolo ruolo;
+
+    public enum Stato {
+
+        IN_BOZZA;
+    }
 }

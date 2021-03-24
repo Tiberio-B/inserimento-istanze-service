@@ -8,6 +8,10 @@ import java.time.LocalDateTime;
 @Getter @Setter
 public abstract class BaseEntity {
 
+    public abstract Long getId();
+
+    public abstract void setId(Long id);
+
     private Long idUtenteInserimento;
 
     private LocalDateTime timestampInserimento;

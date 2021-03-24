@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
 @Component
-public class RicercaIstanzaValidator extends DtoValidator {
+public class RicercaIstanzaValidator extends IstanzaValidator {
 
     @Override
     public boolean supports(Class<?> aClass) {

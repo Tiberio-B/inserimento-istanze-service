@@ -5,11 +5,17 @@ public interface Messages {
     String categoriaDeposito = "E' necessario specificare la categoria deposito.";
     String tipoIstanza = "E' necessario specificare il tipo di istanza.";
 
+    String modalitaTrasmissione = "Errore modalità di trasmissione.";
+
+    String idRTSInoltro = "Errore id RTS per inoltro.";
+
     String inserimento = "Inserimento effettuato con successo.";
+
+    String numeroRichiesta = "E' necessario specificare il numero della richiesta.";
 
     String nonAutorizzato = "L'utente corrente non è autorizzato ad eseguire l'operazione.";
 
-    String enteRichiedente = "E' necessario specificare l'ente richiedente.";
+    String enteCauzionato = "E' necessario specificare l'ente richiedente.";
     String qualitaRichiedente = "E' necessario specificare la qualita' del richiedente.";
     String richiedente = "E' necessario specificare il richiedente.";
 
@@ -38,7 +44,6 @@ public interface Messages {
     String invalidDtoCode = "invalidDto";
     String invalidDtoMessage = "Il corpo della richiesta non è un DTO valido.";
 
-
     String invalidIdCode = "invalidId";
     String invalidIdMessage = "L'id acquisito non è un numero valido.";
 
@@ -59,4 +64,7 @@ public interface Messages {
 
     String invalidStatoCode = "invalidStato";
     String invalidStatoMessage = "Lo stato specificato non è valido.";
+
+    String proprietario = "Dati proprietario non validi.";
+    String versante = "Dati versante non validi.";
 }

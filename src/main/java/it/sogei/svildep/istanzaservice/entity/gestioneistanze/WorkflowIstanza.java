@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter @Setter
 public class WorkflowIstanza extends BaseEntity {
 
-    private Long idWorkflowIstanza;
+    private Long id;
     private StatoIstanza statoIstanza;
     private Utente utente;
     private Deposito deposito;

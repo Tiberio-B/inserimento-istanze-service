@@ -1,6 +1,7 @@
 package it.sogei.svildep.istanzaservice.mapper.istanza;
 
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.inserimento.InserimentoIstanzaDto;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.Istanza;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import it.sogei.svildep.istanzaservice.mapper.*;
@@ -17,13 +18,13 @@ public abstract class IstanzaMapper<Dto extends IstanzaDto> implements Mapper<Is
 
     @Getter
     @Autowired private SoggettoMapper soggettoMapper;
-    @Autowired private DepositoMapper depositoMapper;
-    @Autowired private RichiestaMapper richiestaMapper;
-    @Autowired private ProtocolloMapper protocolloMapper;
     @Autowired private RtsMapper rtsMapper;
     @Autowired private DocumentoMapper documentoMapper;
 
     Dto fromIstanzaToDto(Istanza entity, Dto dto) {
+        dto.
+
+
         dto.setQualitaRichiedente(entity.getQualitaRichiedente().toString());
         dto.setCategoriaDeposito(entity.getCategoriaDeposito().toString());
         dto.setStato(entity.getStato().toString());

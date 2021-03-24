@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter @Setter
 public class DirittoSoggetto extends BaseEntity {
 
-    private Long idDirittoSoggetto;
+    private Long id;
     private TipoDirittoSoggetto tipoDirittoSoggetto;
     private Soggetto soggetto;
     private Deposito deposito;

@@ -7,6 +7,6 @@ import lombok.Setter;
 @Getter @Setter
 public class TipoModalitaPagamento extends BaseEntity {
 
-    private Long idTipoModalitaPagamento;
+    private Long id;
     private String descrizioneModalitaPagamento;
 }

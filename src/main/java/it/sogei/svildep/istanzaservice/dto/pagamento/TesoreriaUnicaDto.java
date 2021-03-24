@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class TesoreriaUnicaDto extends Dto {
+public class TesoreriaUnicaDto extends ModalitaPagamentoDto {
 
     private String tesoreria;
     private String numeroConto;

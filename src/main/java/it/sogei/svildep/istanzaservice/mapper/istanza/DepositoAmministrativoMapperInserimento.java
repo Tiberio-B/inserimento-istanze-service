@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.mapper.istanza;
 
-import it.sogei.svildep.istanzaservice.dto.istanza.DepositoAmministrativoDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.inserimento.DepositoAmministrativoDtoInserimento;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.Istanza;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import it.sogei.svildep.istanzaservice.mapper.BeneMapper;
@@ -10,14 +10,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class DepositoAmministrativoMapper extends IstanzaMapper<DepositoAmministrativoDto> {
+public class DepositoAmministrativoMapperInserimento extends InserimentoIstanzaMapper<DepositoAmministrativoDtoInserimento> {
 
     private final OperaMapper operaMapper;
     private final BeneMapper beneMapper;
 
     @Override
-    public DepositoAmministrativoDto mapEntityToDtoImpl(Istanza entity) {
-        DepositoAmministrativoDto dto = super.fromIstanzaToDto(entity, new DepositoAmministrativoDto());
+    public DepositoAmministrativoDtoInserimento mapEntityToDtoImpl(Istanza entity) {
+        DepositoAmministrativoDtoInserimento dto = super.fromIstanzaToDto(entity, new DepositoAmministrativoDtoInserimento());
         dto.setDepositante(getSoggettoMapper().mapEntityToDto(entity.getDepositante()));
         dto.setAutoritaEspropriante(getSoggettoMapper().mapEntityToDto(entity.getAutoritaEspropriante()));
         dto.setDatiOpera(operaMapper.mapEntityToDto(entity.getDatiOpera()));
@@ -26,7 +26,7 @@ public class DepositoAmministrativoMapper extends IstanzaMapper<DepositoAmminist
     }
 
     @Override
-    public Istanza mapDtoToEntityImpl(DepositoAmministrativoDto dto) throws SvildepException {
+    public Istanza mapDtoToEntityImpl(DepositoAmministrativoDtoInserimento dto) throws SvildepException {
         Istanza entity = super.fromDtoToIstanza(dto);
         entity.setDepositante(getSoggettoMapper().mapDtoToEntity(dto.getDepositante()));
         entity.setAutoritaEspropriante(getSoggettoMapper().mapDtoToEntity(dto.getAutoritaEspropriante()));

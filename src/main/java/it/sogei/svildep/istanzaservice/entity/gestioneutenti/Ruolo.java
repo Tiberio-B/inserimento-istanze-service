@@ -7,6 +7,6 @@ import lombok.Setter;
 @Getter @Setter
 public class Ruolo extends BaseEntity {
 
-    private Long idRuolo;
+    private Long id;
     private String ruolo;
 }

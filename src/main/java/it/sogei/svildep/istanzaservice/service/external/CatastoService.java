@@ -15,7 +15,7 @@ public class CatastoService extends ExternalService {
     }
 
     @Override
-    String getURL() { return "http://localhost:8080/svildep/api/catasto"; }
+    protected String getURL() { return "http://localhost:8080/svildep/api/catasto"; }
 
     public MessageDto verificaDatiCatastoMock(CatastoDto dto) throws SvildepException {
         MessageDto response;

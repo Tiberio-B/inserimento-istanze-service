@@ -1,11 +1,12 @@
 package it.sogei.svildep.istanzaservice.entity.gestionesoggetti;
 
+import it.sogei.svildep.istanzaservice.entity.base.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
 public class TipoIndirizzo extends BaseEntity {
 
-    private Long idTipoIndirizzo;
+    private Long id;
     private String descrizioneTipoIndirizzo;
 }

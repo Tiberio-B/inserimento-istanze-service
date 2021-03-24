@@ -1,21 +1,21 @@
 package it.sogei.svildep.istanzaservice.mapper.geo;
 
-import it.sogei.svildep.istanzaservice.dto.geo.NazioneDto;
+import it.sogei.svildep.istanzaservice.dto.geo.StatoEsteroDto;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NazioneMapper implements Mapper<Nazione, NazioneDto> {
+public class NazioneMapper implements Mapper<Nazione, StatoEsteroDto> {
 
     @Override
-    public NazioneDto mapEntityToDtoImpl(Nazione entity) {
-        NazioneDto dto = new NazioneDto();
+    public StatoEsteroDto mapEntityToDtoImpl(Nazione entity) {
+        StatoEsteroDto dto = new StatoEsteroDto();
         dto.setNome(entity.getNome());
         dto.setAreaSepa(entity.getAreaSepa().toString());
         return dto;
     }
 
     @Override
-    public Nazione mapDtoToEntityImpl(NazioneDto dto) {
+    public Nazione mapDtoToEntityImpl(StatoEsteroDto dto) {
         Nazione entity = new Nazione();
         entity.setNome(dto.getNome());
 

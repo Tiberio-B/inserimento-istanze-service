@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class CatastoMapper implements Mapper<Catasto, CatastoDto> {
+public class DatoCatastaleMapper implements Mapper<Catasto, CatastoDto> {
     
     private final ComuneMapper comuneMapper;
 

@@ -15,7 +15,7 @@ public class AuthService extends ExternalService {
     }
 
     @Override
-    String getURL() { return "http://localhost:8080/svildep/api/auth"; }
+    protected String getURL() { return "http://localhost:8080/svildep/api/auth"; }
 
     public UserDto ottieniUtenteAutorizzatoMock(String token, Role... requiredRoles) throws AuthorizationException {
         // UserDto userDTO = getRestTemplate().exchange(getURL(), HttpMethod.GET, setRequestAuthorization(token, requiredRoles), UserDto.class).getBody();

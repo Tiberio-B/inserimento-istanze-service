@@ -14,8 +14,9 @@ import java.time.LocalDate;
 @Getter @Setter
 public class Istanza extends BaseEntity {
 
-    private Long idIstanza;
+    private Long id;
     private Long numeroRichiesta;
+    private LocalDate dataRichiesta;
     private Long numeroProtocollo;
     private LocalDate dataProtocollo;
     private String codicePagoPA;
@@ -37,5 +38,13 @@ public class Istanza extends BaseEntity {
     private DirittoSoggetto proprietarioEntePubblico;
     private DirittoSoggetto erede;
     private ModalitaPagamento modalitaPagamento;
+    private StatoIstanza stato;
     //TODO: serve il mandato? SI
+
+    public enum QualitaRichiedente {
+
+        ME_MEDESIMO,
+        TITOLARE_RAPPRESENTANTE_LEGALE,
+        RESPONSABILE_UFFICIO_PUBBLICO;
+    }
 }

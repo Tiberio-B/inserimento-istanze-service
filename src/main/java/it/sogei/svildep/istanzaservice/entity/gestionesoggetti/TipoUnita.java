@@ -7,6 +7,6 @@ import lombok.Setter;
 @Getter @Setter
 public class TipoUnita extends BaseEntity {
 
-    private Long idTipoUnita;
+    private Long id;
     private String descrizioneTipoUnita;
 }

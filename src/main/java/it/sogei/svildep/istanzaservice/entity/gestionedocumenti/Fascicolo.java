@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter @Setter
 public class Fascicolo extends BaseEntity {
 
-    private Long idFascicolo;
+    private Long id;
     private String descrizioneFile;
     private String estensioneFile;
     private byte[] documentoAllegato;

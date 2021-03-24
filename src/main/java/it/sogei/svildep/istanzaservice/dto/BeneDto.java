@@ -16,5 +16,5 @@ public class BeneDto extends Dto {
     private CatastoDto datiCatastali;
 
     @NotEmpty(message = Messages.proprietariCatastali)
-    private Set<SoggettoDto> proprietariCatastali;
+    private Set<SoggettoOldDto> proprietariCatastali;
 }

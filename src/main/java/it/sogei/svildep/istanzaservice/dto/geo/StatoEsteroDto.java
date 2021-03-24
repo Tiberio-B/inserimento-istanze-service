@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class NazioneDto extends Dto {
+public class StatoEsteroDto extends Dto {
 
     private String areaSepa;
     private String nome;

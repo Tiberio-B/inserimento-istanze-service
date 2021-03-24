@@ -1,5 +1,8 @@
 package it.sogei.svildep.istanzaservice.dto.istanza.dettaglio;
 
+import it.sogei.svildep.istanzaservice.dto.SoggettoFisicoDto;
+import it.sogei.svildep.istanzaservice.dto.SoggettoGiuridicoDto;
+import it.sogei.svildep.istanzaservice.dto.pagamento.ModalitaPagamentoDto;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Getter @Setter
 public class Deposito extends BaseEntity {
 
-    private Long idDeposito;
+    private Long id;
     private LocalDate dataAperturaDeposito;
     private Double importoIniziale;
     private Long numeroNazionale;

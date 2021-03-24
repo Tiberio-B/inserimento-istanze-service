@@ -1,8 +1,8 @@
-package it.sogei.svildep.istanzaservice.dto.istanza;
+package it.sogei.svildep.istanzaservice.dto.istanza.inserimento;
 
 import it.sogei.svildep.istanzaservice.dto.BeneDto;
 import it.sogei.svildep.istanzaservice.dto.OperaDto;
-import it.sogei.svildep.istanzaservice.dto.SoggettoDto;
+import it.sogei.svildep.istanzaservice.dto.SoggettoGiuridicoDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,14 +12,16 @@ import javax.validation.Valid;
 @Getter
 @Setter
 @NoArgsConstructor
-public class DepositoAmministrativoDto extends IstanzaDto {
+public class DepositoAmministrativoDtoInserimento extends InserimentoIstanzaDto {
 
     @Valid
-    private SoggettoDto depositante;
+    private SoggettoGiuridicoDto depositante;
     @Valid
-    private SoggettoDto autoritaEspropriante;
+    private SoggettoGiuridicoDto autoritaEspropriante;
 
     private String autoritaEsproprianteCoincidenteConDepositante;
+
+    private String soggettoDaIndividuare;
 
     @Valid
     private OperaDto datiOpera;

@@ -1,10 +1,21 @@
 package it.sogei.svildep.istanzaservice.mapper;
 
+import it.sogei.svildep.istanzaservice.dto.IndirizzoDto;
 import it.sogei.svildep.istanzaservice.dto.SoggettoDto;
+import it.sogei.svildep.istanzaservice.dto.SoggettoFisicoDto;
+import it.sogei.svildep.istanzaservice.dto.SoggettoGiuridicoDto;
+import it.sogei.svildep.istanzaservice.dto.SoggettoOldDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.dettaglio.DittaIndividualeDto;
+import it.sogei.svildep.istanzaservice.entity.enums.FlagSN;
+import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.Indirizzo;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.Soggetto;
+import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.TipoSoggetto;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
@@ -15,14 +26,40 @@ public class SoggettoMapper implements Mapper<Soggetto, SoggettoDto> {
 
     @Override
     public SoggettoDto mapEntityToDtoImpl(Soggetto entity) {
-        SoggettoDto dto = new SoggettoDto();
+        SoggettoDto dto = null;
+        switch (entity.getTipoSoggetto().getDescrizioneTipoSoggetto()) {
+            case F:
+                dto = new SoggettoFisicoDto();
+                break;
+            case G:
+                dto = new SoggettoGiuridicoDto();
+                break;
+            case D:
+                dto = new DittaIndividualeDto();
+                break;
+            default:
+                dto = new SoggettoDto();
+                break;
+        }
+        dto.setCf(entity.getCodiceFiscale());
+        dto.setIndirizzi(indirizzoMapper.mapEntityToDto(entity.getIndirizzi()));
+        dto.setTipo
+
+        private Long id;
+        private String codiceFiscale;
+        private FlagSN certificatoAnagrafeTributaria;
+        private TipoSoggetto tipoSoggetto;
+        private List<Indirizzo> indirizzi;
+
+        dto.setTipoSoggetto(entity.getTipoSoggetto().toString());
+
         dto.setNome(entity.getNome());
         dto.setCognome(entity.getCognome());
-        dto.setCf(entity.getCf());
+
         dto.setPartitaIva(entity.getPartitaIva());
         dto.setIrreperibile(String.valueOf(entity.getIrreperibile()));
         dto.setRelataNotificaSoggettoNonReperibile(documentoMapper.mapEntityToDto(entity.getRelataNotificaSoggettoNonReperibile()));
-        dto.setTipoSoggetto(entity.getTipoSoggetto().toString());
+
         dto.setCategoriaSoggetto(entity.getCategoriaSoggetto().toString());
         dto.setSesso(entity.getSesso().toString());
         dto.setNasctia(indirizzoMapper.mapEntityToDto(entity.getNascita()));

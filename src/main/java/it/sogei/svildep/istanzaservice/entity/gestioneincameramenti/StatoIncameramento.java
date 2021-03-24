@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter @Setter
 public class StatoIncameramento extends BaseEntity {
 
-    private Long idStatoIncameramento;
+    private Long id;
     private String descrizioneStatoIncameramento;
     private StatoIncameramento statoIncameramento;
 }

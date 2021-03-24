@@ -6,10 +6,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ErarioDto extends Dto {
+public class ErarioDto extends ModalitaPagamentoDto {
 
     private String indicatore;
-    private String secione;
+    private String sezione;
     private String capoImputazioneEntrata;
     private String capitoloEntrata;
     private String articoloEntrata;

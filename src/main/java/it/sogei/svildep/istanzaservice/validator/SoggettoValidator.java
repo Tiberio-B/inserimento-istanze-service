@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.validator;
 
-import it.sogei.svildep.istanzaservice.dto.SoggettoDto;
+import it.sogei.svildep.istanzaservice.dto.SoggettoOldDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -10,28 +10,28 @@ public class SoggettoValidator extends DtoValidator {
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return SoggettoDto.class.isAssignableFrom(aClass);
+        return SoggettoOldDto.class.isAssignableFrom(aClass);
     }
 
     @Override
     public void validate(Object obj, Errors errors) {
         super.validate(obj, errors);
-        if (obj instanceof SoggettoDto) {
-            SoggettoDto dto = (SoggettoDto) obj;
+        if (obj instanceof SoggettoOldDto) {
+            SoggettoOldDto dto = (SoggettoOldDto) obj;
             try {
-                SoggettoDto.Sesso.valueOf(dto.getSesso());
+                SoggettoOldDto.Sesso.valueOf(dto.getSesso());
             }
             catch (IllegalArgumentException ex) {
                 errors.rejectValue("sesso", Messages.invalidSessoCode, Messages.invalidSessoMessage);
             }
             try {
-                SoggettoDto.Tipo.valueOf(dto.getTipo());
+                SoggettoOldDto.Tipo.valueOf(dto.getTipo());
             }
             catch (IllegalArgumentException ex) {
                 errors.rejectValue("tipo", Messages.invalidTipoCode, Messages.invalidTipoMessage);
             }
             try {
-                SoggettoDto.Categoria.valueOf(dto.getCategoria());
+                SoggettoOldDto.Categoria.valueOf(dto.getCategoria());
             }
             catch (IllegalArgumentException ex) {
                 errors.rejectValue("categoria", Messages.invalidCategoriaCode, Messages.invalidCategoriaMessage);

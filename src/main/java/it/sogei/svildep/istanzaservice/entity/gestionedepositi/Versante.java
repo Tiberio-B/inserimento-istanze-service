@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter @Setter
 public class Versante extends BaseEntity {
 
-    private Long idVersante;
+    private Long id;
     private String nome;
     private String cognome;
     private String codiceFiscale;

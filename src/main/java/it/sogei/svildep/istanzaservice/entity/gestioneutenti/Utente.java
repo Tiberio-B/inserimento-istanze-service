@@ -1,5 +1,6 @@
 package it.sogei.svildep.istanzaservice.entity.gestioneutenti;
 
+import it.sogei.svildep.istanzaservice.entity.base.BaseEntity;
 import it.sogei.svildep.istanzaservice.entity.enums.FlagSN;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +10,7 @@ import java.time.LocalDate;
 @Getter @Setter
 public class Utente extends BaseEntity {
 
-    private Long idUtente;
+    private Long id;
     private String nome;
     private String cognome;
     private String codiceFiscale;

@@ -7,6 +7,7 @@ import lombok.Setter;
 
 @Getter @Setter
 public class TipoDirittoSoggetto extends BaseEntity {
-    private Long idTipoDirittoSoggetto;
+
+    private Long id;
     private String descrizioneTipoDirittoSoggetto;
 }

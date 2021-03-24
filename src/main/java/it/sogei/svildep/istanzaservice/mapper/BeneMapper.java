@@ -10,12 +10,12 @@ import org.springframework.stereotype.Component;
 public class BeneMapper implements Mapper<Bene, BeneDto> {
 
     private final SoggettoMapper soggettoMapper;
-    private final CatastoMapper catastoMapper;
+    private final DatoCatastaleMapper datoCatastaleMapper;
 
     @Override
     public BeneDto mapEntityToDtoImpl(Bene entity) {
         BeneDto dto = new BeneDto();
-        dto.setDatiCatastali(catastoMapper.mapEntityToDto(entity.getDatiCatastali()));
+        dto.setDatiCatastali(datoCatastaleMapper.mapEntityToDto(entity.getDatiCatastali()));
         dto.setProprietariCatastali(soggettoMapper.mapEntityToDto(entity.getProprietariCatastali()));
         return dto;
     }
@@ -23,7 +23,7 @@ public class BeneMapper implements Mapper<Bene, BeneDto> {
     @Override
     public Bene mapDtoToEntityImpl(BeneDto dto) throws SvildepException {
         Bene entity = new Bene();
-        entity.setDatiCatastali(catastoMapper.mapDtoToEntity(dto.getDatiCatastali()));
+        entity.setDatiCatastali(datoCatastaleMapper.mapDtoToEntity(dto.getDatiCatastali()));
         entity.setProprietariCatastali(soggettoMapper.mapDtoToEntity(dto.getProprietariCatastali()));
         return entity;
     }

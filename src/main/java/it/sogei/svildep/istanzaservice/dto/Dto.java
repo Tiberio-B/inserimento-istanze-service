@@ -10,6 +10,8 @@ import javax.validation.constraints.Pattern;
 @Setter
 public abstract class Dto {
 
+	private String id;
+
 	@Pattern(regexp="^(0|[1-9][0-9]*)$", message = Messages.invalidIdMessage)
 	private String idUtenteInserimento;
 

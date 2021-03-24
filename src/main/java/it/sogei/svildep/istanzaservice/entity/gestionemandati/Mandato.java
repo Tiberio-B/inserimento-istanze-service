@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter @Setter
 public class Mandato extends BaseEntity {
 
-    private Long idMandato;
+    private Long id;
 
 }
 //TODO: da completare

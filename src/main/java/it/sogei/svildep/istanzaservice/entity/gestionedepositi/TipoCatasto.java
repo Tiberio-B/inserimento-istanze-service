@@ -1,11 +1,12 @@
 package it.sogei.svildep.istanzaservice.entity.gestionedepositi;
 
+import it.sogei.svildep.istanzaservice.entity.base.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
 public class TipoCatasto extends BaseEntity {
 
-    private Long idTipoCatasto;
+    private Long id;
     private String descrizioneTipoCatasto;
 }

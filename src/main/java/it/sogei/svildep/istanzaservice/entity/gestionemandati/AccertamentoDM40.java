@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Getter @Setter
 public class AccertamentoDM40 extends BaseEntity {
 
-    private Long idAccertamentoDM40;
+    private Long id;
     private LocalDate dataAccertamento;
     private String codiceFiscaleSoggetto;
     private Long importoInadempienza;

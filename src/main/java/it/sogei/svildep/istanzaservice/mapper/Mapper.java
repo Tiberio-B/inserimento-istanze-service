@@ -16,6 +16,7 @@ public interface Mapper<E extends BaseEntity, D extends Dto> {
     default D mapEntityToDto(E entity) {
         if (entity == null) return null;
         D dto = mapEntityToDtoImpl(entity);
+        dto.setId(String.valueOf(entity.getId()));
         dto.setIdUtenteAggiornamento(String.valueOf(entity.getIdUtenteAggiornamento()));
         dto.setIdUtenteInserimento(String.valueOf(entity.getIdUtenteInserimento()));
         dto.setTimestampAggiornamento(String.valueOf(entity.getTimestampAggiornamento()));
@@ -38,6 +39,7 @@ public interface Mapper<E extends BaseEntity, D extends Dto> {
         E entity;
         try {
             entity = mapDtoToEntityImpl(dto);
+            if (dto.getId() != null) entity.setId(Long.parseLong(dto.getId()));
             if (dto.getIdUtenteAggiornamento() != null) entity.setIdUtenteAggiornamento(Long.parseLong(dto.getIdUtenteAggiornamento()));
             if (dto.getIdUtenteInserimento() != null) entity.setIdUtenteInserimento(Long.parseLong(dto.getIdUtenteInserimento()));
             if (dto.getTimestampAggiornamento() != null) entity.setTimestampAggiornamento(LocalDateTime.parse(dto.getTimestampAggiornamento()));

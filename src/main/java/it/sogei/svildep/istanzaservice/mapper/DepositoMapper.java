@@ -1,6 +1,5 @@
 package it.sogei.svildep.istanzaservice.mapper;
 
-import it.sogei.svildep.istanzaservice.dto.DepositoDto;
 import it.sogei.svildep.istanzaservice.entity.gestionedepositi.Deposito;
 import org.springframework.stereotype.Component;
 import org.springframework.util.NumberUtils;

@@ -1,8 +1,6 @@
-package it.sogei.svildep.istanzaservice.dto.istanza;
+package it.sogei.svildep.istanzaservice.dto.istanza.inserimento;
 
 import it.sogei.svildep.istanzaservice.dto.SoggettoDto;
-
-
 import it.sogei.svildep.istanzaservice.exception.Messages;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,13 +12,11 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @NoArgsConstructor
-public class DepositoCauzionaleDto extends IstanzaDto {
+public class DepositoAmministrativoNoEsproprioDtoInserimento extends InserimentoIstanzaDto {
 
+    @NotNull(message = Messages.versante)
+    private SoggettoDto versante;
     @Valid
-    private SoggettoDto proprietario;
-
-    @Valid
-    @NotNull(message = Messages.enteRichiedente)
-    private SoggettoDto enteRichiedente;
+    private SoggettoDto ulterioreSoggetto;
 
 }

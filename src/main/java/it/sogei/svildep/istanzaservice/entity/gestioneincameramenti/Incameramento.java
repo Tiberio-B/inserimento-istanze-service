@@ -1,5 +1,6 @@
 package it.sogei.svildep.istanzaservice.entity.gestioneincameramenti;
 
+import it.sogei.svildep.istanzaservice.entity.base.BaseEntity;
 import it.sogei.svildep.istanzaservice.entity.gestionedepositi.Deposito;
 import it.sogei.svildep.istanzaservice.entity.gestionedepositi.DirittoSoggetto;
 import it.sogei.svildep.istanzaservice.entity.gestioneutenti.RTS;
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 @Getter @Setter
 public class Incameramento extends BaseEntity {
 
-    private Long idIncameramento;
+    private Long id;
     private String numeroProtocolloRichiestaIncameramento;
     private LocalDate dataProtocolloRichiestaIncameramento;
     private Double importoDaIncamerare;

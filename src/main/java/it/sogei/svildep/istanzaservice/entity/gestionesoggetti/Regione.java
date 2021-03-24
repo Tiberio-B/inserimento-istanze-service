@@ -9,7 +9,7 @@ import java.util.Set;
 @Getter @Setter
 public class Regione extends BaseEntity {
 
-    private Long idRegione;
+    private Long id;
     private String denominazioneRegione;
     private Set<Provincia> listaProvince;
 }

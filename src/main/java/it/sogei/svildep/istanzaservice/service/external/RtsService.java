@@ -17,7 +17,7 @@ public class RtsService extends ExternalService {
     }
 
     @Override
-    String getURL() { return "http://localhost:8080/svildep/api/rts"; }
+    protected String getURL() { return "http://localhost:8080/svildep/api/rts"; }
 
     public MessageDto inserimentoInFascicoloMock(Set<DocumentoDto> documenti) throws SvildepException {
         MessageDto response;
