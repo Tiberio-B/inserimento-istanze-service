@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.apache.logging.log4j.message.Message;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Getter
@@ -15,7 +16,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class DepositoVolontarioDtoInserimento extends InserimentoIstanzaDto {
 
-    @NotNull(message = Messages.proprietario)
-    private SoggettoGiuridicoDto proprietario;
+    @NotBlank(message = Messages.proprietario)
+    private String proprietarioId;
 
 }

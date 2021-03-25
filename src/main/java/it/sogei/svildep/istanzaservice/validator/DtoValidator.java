@@ -20,8 +20,8 @@ public abstract class DtoValidator implements Validator {
         if (obj instanceof Dto) {
             Dto dto = (Dto) obj;
             try {
-                if (dto.getIdUtenteInserimento() != null) Long.parseLong(dto.getIdUtenteInserimento());
-                if (dto.getIdUtenteAggiornamento() != null) Long.parseLong(dto.getIdUtenteAggiornamento());
+                if (dto.getUtenteInserimentoId() != null) Long.parseLong(dto.getUtenteInserimentoId());
+                if (dto.getUtenteAggiornamentoId() != null) Long.parseLong(dto.getUtenteAggiornamentoId());
             } catch (NumberFormatException ex) {
                 errors.rejectValue("id", Messages.invalidIdCode, Messages.invalidIdMessage);
             }

@@ -17,8 +17,8 @@ public interface Mapper<E extends BaseEntity, D extends Dto> {
         if (entity == null) return null;
         D dto = mapEntityToDtoImpl(entity);
         dto.setId(String.valueOf(entity.getId()));
-        dto.setIdUtenteAggiornamento(String.valueOf(entity.getIdUtenteAggiornamento()));
-        dto.setIdUtenteInserimento(String.valueOf(entity.getIdUtenteInserimento()));
+        dto.setUtenteAggiornamentoId(String.valueOf(entity.getIdUtenteAggiornamento()));
+        dto.setUtenteInserimentoId(String.valueOf(entity.getIdUtenteInserimento()));
         dto.setTimestampAggiornamento(String.valueOf(entity.getTimestampAggiornamento()));
         dto.setTimestampInserimento(String.valueOf(entity.getTimestampInserimento()));
         return dto;
@@ -40,8 +40,8 @@ public interface Mapper<E extends BaseEntity, D extends Dto> {
         try {
             entity = mapDtoToEntityImpl(dto);
             if (dto.getId() != null) entity.setId(Long.parseLong(dto.getId()));
-            if (dto.getIdUtenteAggiornamento() != null) entity.setIdUtenteAggiornamento(Long.parseLong(dto.getIdUtenteAggiornamento()));
-            if (dto.getIdUtenteInserimento() != null) entity.setIdUtenteInserimento(Long.parseLong(dto.getIdUtenteInserimento()));
+            if (dto.getUtenteAggiornamentoId() != null) entity.setIdUtenteAggiornamento(Long.parseLong(dto.getUtenteAggiornamentoId()));
+            if (dto.getUtenteInserimentoId() != null) entity.setIdUtenteInserimento(Long.parseLong(dto.getUtenteInserimentoId()));
             if (dto.getTimestampAggiornamento() != null) entity.setTimestampAggiornamento(LocalDateTime.parse(dto.getTimestampAggiornamento()));
             if (dto.getTimestampInserimento() != null) entity.setTimestampInserimento(LocalDateTime.parse(dto.getTimestampInserimento()));
         } catch (Exception ex) {

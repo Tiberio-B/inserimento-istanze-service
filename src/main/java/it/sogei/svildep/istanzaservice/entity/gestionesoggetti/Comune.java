@@ -14,6 +14,6 @@ public class Comune extends BaseEntity {
     private String denominazioneComune;
     private LocalDate dataInizioValidita;
     private LocalDate dataFineValidita;
-    private String comune;
+    private String codiComune;
     private Provincia provincia;
 }

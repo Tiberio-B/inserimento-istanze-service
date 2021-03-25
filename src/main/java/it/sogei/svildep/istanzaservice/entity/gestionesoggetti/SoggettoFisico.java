@@ -8,12 +8,14 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 @Getter @Setter
-public class SoggettoFisico extends BaseEntity {
+public class SoggettoFisico extends Soggetto {
 
     private Long id;
     private String nome;
     private String cognome;
     private LocalDate dataNascita;
+    private Comune comuneNascita;
+    private StatoEstero statoEsteroNascita;
     private FlagSessoMF sesso;
     private Soggetto soggetto;
     private SoggettoGiuridico soggettoGiuridico;

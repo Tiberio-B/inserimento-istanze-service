@@ -10,4 +10,8 @@ public class TipoSoggetto  extends BaseEntity {
 
     private Long id;
     private FlagTipoSoggetto descrizioneTipoSoggetto;
+
+    public TipoSoggetto(FlagTipoSoggetto descrizioneTipoSoggetto) {
+        this.descrizioneTipoSoggetto = descrizioneTipoSoggetto;
+    }
 }

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Getter
@@ -15,11 +16,11 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class DepositoGiudiziarioDtoInserimento extends InserimentoIstanzaDto {
 
-    @NotNull(message = Messages.versante)
-    private SoggettoDto versante;
-    @Valid
-    private SoggettoGiuridicoDto autoritaOrdinante;
-    @Valid
-    private SoggettoDto soggettoUlteriore;
+    @NotBlank(message = Messages.versante)
+    private String versanteId;
+    @NotBlank(message = Messages.erroreGenerico)
+    private String autoritaOrdinanteId;
+    @NotBlank(message = Messages.erroreGenerico)
+    private String soggettoUlterioreId;
 
 }

@@ -2,6 +2,8 @@ package it.sogei.svildep.istanzaservice.exception;
 
 public interface Messages {
 
+    String erroreGenerico = "MESSAGGIO D'ERRORE DA SCRIVERE.";
+
     String categoriaDeposito = "E' necessario specificare la categoria deposito.";
     String tipoIstanza = "E' necessario specificare il tipo di istanza.";
 

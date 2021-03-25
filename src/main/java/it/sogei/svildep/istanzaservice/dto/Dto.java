@@ -13,12 +13,12 @@ public abstract class Dto {
 	private String id;
 
 	@Pattern(regexp="^(0|[1-9][0-9]*)$", message = Messages.invalidIdMessage)
-	private String idUtenteInserimento;
+	private String utenteInserimentoId;
 
 	private String timestampInserimento;
 
 	@Pattern(regexp="^(0|[1-9][0-9]*)$", message = Messages.invalidIdMessage)
-	private String idUtenteAggiornamento;
+	private String utenteAggiornamentoId;
 
 	private String timestampAggiornamento;
 }

@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Getter
@@ -14,10 +15,10 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class DepositoCauzionaleDtoInserimento extends InserimentoIstanzaDto {
 
-    @NotNull(message = Messages.proprietario)
-    private SoggettoDto proprietario;
+    @NotBlank(message = Messages.proprietario)
+    private String proprietarioId;
 
-    @NotNull(message = Messages.enteCauzionato)
-    private SoggettoGiuridicoDto enteCauzionato;
+    @NotBlank(message = Messages.enteCauzionato)
+    private String enteCauzionatoId;
 
 }

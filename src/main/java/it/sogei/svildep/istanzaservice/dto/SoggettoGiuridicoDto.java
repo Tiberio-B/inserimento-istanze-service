@@ -9,12 +9,13 @@ public class SoggettoGiuridicoDto extends SoggettoDto {
 
 
     private String ragioneSociale;
-    private String naturaGiuridica;
+    private String naturaGiuridicaId;
     private String partitaIva;
-    private String cciaa;
+    private String CCIAA;
     private String progressivoSede;
     private String tipoSede;
-    private String denominazione;
+    private String denominazioneDitta;
 
 
 }
+

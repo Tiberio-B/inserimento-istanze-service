@@ -40,11 +40,4 @@ public class Istanza extends BaseEntity {
     private ModalitaPagamento modalitaPagamento;
     private StatoIstanza stato;
     //TODO: serve il mandato? SI
-
-    public enum QualitaRichiedente {
-
-        ME_MEDESIMO,
-        TITOLARE_RAPPRESENTANTE_LEGALE,
-        RESPONSABILE_UFFICIO_PUBBLICO;
-    }
 }
