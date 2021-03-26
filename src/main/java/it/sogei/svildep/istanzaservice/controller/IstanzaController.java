@@ -1,6 +1,7 @@
 package it.sogei.svildep.istanzaservice.controller;
 
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.inserimento.IstanzaInserimentoDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.IstanzaRicercaDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.IstanzaTrovataDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
@@ -21,7 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class IstanzaController {
 
-    private final IstanzaService<IstanzaDto> service;
+    private final IstanzaService<IstanzaInserimentoDto> service;
     private final IstanzaRicercaValidator istanzaRicercaValidator;
 
     @GetMapping
