@@ -1,6 +1,5 @@
 package it.sogei.svildep.istanzaservice.exception;
 
-import it.sogei.svildep.istanzaservice.dto.MessageDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -10,15 +9,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ExceptionAdvisor {
 
 	@ExceptionHandler(SvildepException.class)
-	public ResponseEntity<MessageDto> handleException(SvildepException e){
-		MessageDto messageDto = e.getMessageDto();
-		return ResponseEntity.status(messageDto.getStatus()).body(messageDto);
+	public ResponseEntity<String> handleException(SvildepException ex) {
+		return ResponseEntity.status(ex.getStatus()).body(ex.getMessage());
 	}
 
 	@ExceptionHandler(Exception.class)
-	public ResponseEntity<MessageDto> handleException(Exception e){
-		HttpStatus errorStatus = HttpStatus.INTERNAL_SERVER_ERROR;
-		return ResponseEntity.status(errorStatus).body(new MessageDto(e.getMessage(), errorStatus));
+	public ResponseEntity<String> handleException(Exception ex) {
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
 	}
 
 }

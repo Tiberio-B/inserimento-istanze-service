@@ -1,8 +1,7 @@
 package it.sogei.svildep.istanzaservice.mapper;
 
-import it.sogei.svildep.istanzaservice.dto.geo.ComuneDto;
+import it.sogei.svildep.istanzaservice.dto.ComuneDto;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.Comune;
-import it.sogei.svildep.istanzaservice.mapper.Mapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

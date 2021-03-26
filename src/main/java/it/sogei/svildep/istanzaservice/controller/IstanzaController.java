@@ -1,19 +1,13 @@
 package it.sogei.svildep.istanzaservice.controller;
 
-import it.sogei.svildep.istanzaservice.dto.MessageDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
-import it.sogei.svildep.istanzaservice.dto.istanza.dettaglio.DettaglioIstanzaDepositoDto;
-import it.sogei.svildep.istanzaservice.dto.istanza.inserimento.IstanzaDtoInserimento;
-import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.ListaRicercaIstanzaDto;
-import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.RicercaIstanzaDto;
-import it.sogei.svildep.istanzaservice.exception.BindingException;
+import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.IstanzaRicercaDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.IstanzaTrovataDto;
+import it.sogei.svildep.istanzaservice.exception.Messages;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import it.sogei.svildep.istanzaservice.service.IstanzaService;
-import it.sogei.svildep.istanzaservice.validator.InserimentoIstanzaValidator;
-import it.sogei.svildep.istanzaservice.validator.IstanzaValidator;
-import it.sogei.svildep.istanzaservice.validator.RicercaIstanzaValidator;
+import it.sogei.svildep.istanzaservice.validator.IstanzaRicercaValidator;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -23,34 +17,29 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("istanza")
+@RequestMapping("istanze")
 @RequiredArgsConstructor
 public class IstanzaController {
 
-    @Autowired private final IstanzaService service;
+    private final IstanzaService<IstanzaDto> service;
+    private final IstanzaRicercaValidator istanzaRicercaValidator;
 
-    @Autowired private RicercaIstanzaValidator ricercaIstanzaValidator;
-    @Autowired private InserimentoIstanzaValidator inserimentoIstanzaValidator;
+    @GetMapping
+    public ResponseEntity<List<IstanzaDto>> lista() { return ResponseEntity.ok().body(service.getAll()); }
 
     @GetMapping("{id}")
-    public ResponseEntity<DettaglioIstanzaDepositoDto> dettaglio(@PathVariable Long id) throws SvildepException {
+    public ResponseEntity<IstanzaDto> dettaglio(@PathVariable String idInput) throws SvildepException {
+        Long id;
+        try { id = Long.parseLong(idInput); }
+        catch (NumberFormatException ex) { throw new SvildepException(Messages.invalidIdMessage, HttpStatus.BAD_REQUEST); }
         return ResponseEntity.ok().body(service.get(id));
     }
 
-    public ResponseEntity<MessageDto> insert(IstanzaDtoInserimento requestDto, BindingResult bindingResult) throws SvildepException {
-        validate(inserimentoIstanzaValidator, requestDto, bindingResult);
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.insert(requestDto));
-    }
-
-    @PostMapping("ricerca")
-    public ResponseEntity<List<ListaRicercaIstanzaDto>> cerca(@Valid  @RequestBody RicercaIstanzaDto requestDto, BindingResult bindingResult) throws SvildepException {
-        validate(ricercaIstanzaValidator, requestDto, bindingResult);
+    @PostMapping
+    public ResponseEntity<List<IstanzaTrovataDto>> cerca(@Valid @RequestBody IstanzaRicercaDto requestDto, BindingResult bindingResult) throws SvildepException {
+        istanzaRicercaValidator.validate(requestDto, bindingResult);
+        if (bindingResult.hasErrors()) throw new SvildepException(bindingResult);
         return ResponseEntity.ok().body(service.cerca(requestDto));
-    }
-
-    private void validate(IstanzaValidator validator, IstanzaDto requestDto, BindingResult bindingResult) throws BindingException {
-        validator.validate(requestDto, bindingResult);
-        if (bindingResult.hasErrors()) throw new BindingException(bindingResult);
     }
 
 }

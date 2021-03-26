@@ -13,7 +13,7 @@ public class PersistenceService extends ExternalService {
     @Override
     protected String getURL() { return "http://localhost:8080/svildep/api/istanze"; }
 
-    /*public MessageDto inserimentoIstanzaMock(IstanzaDtoInserimento dto) throws SvildepException {
+    /*public MessageDto inserimentoIstanzaMock(IstanzaInserimentoDto dto) throws SvildepException {
         MessageDto response;
         response =  getRestTemplate().exchange(getURL(), HttpMethod.POST, new HttpEntity<>(dto) MessageDto.class).getBody();
         MockDataLoader.databaseIstanze.put(String.valueOf(dto), dto);

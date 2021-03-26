@@ -1,8 +1,6 @@
 package it.sogei.svildep.istanzaservice.mapper;
 
-import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
-import it.sogei.svildep.istanzaservice.dto.istanza.dettaglio.DettaglioIstanzaDepositoDto;
-import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.RicercaIstanzaDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.dettaglio.IstanzaDepositoDto;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.Istanza;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import it.sogei.svildep.istanzaservice.mapper.istanza.IstanzaMapper;
@@ -15,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Primary
 @NoArgsConstructor
-public abstract class DettaglioIstanzaMapper<Dto extends DettaglioIstanzaDepositoDto> extends IstanzaMapper<Dto> {
+public abstract class DettaglioIstanzaMapper<Dto extends IstanzaDepositoDto> extends IstanzaMapper<Dto> {
 
     @Getter
     @Autowired private SoggettoMapper soggettoMapper;
@@ -38,7 +36,7 @@ public abstract class DettaglioIstanzaMapper<Dto extends DettaglioIstanzaDeposit
         return dto;
     }
 
-    public Istanza fromDtoToIstanza(Dto dto) throws SvildepException {
+    public Istanza daDtoAIstanza(Dto dto) throws SvildepException {
         Istanza entity = new Istanza();
         try {
             entity.setQualitaRichiedente(Istanza.QualitaRichiedente.valueOf(dto.getQualitaRichiedente()));

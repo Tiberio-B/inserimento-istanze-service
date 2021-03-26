@@ -12,7 +12,7 @@ public class SoggettoGiuridicoMapper extends SoggettoMapper<SoggettoGiuridico, S
 
     @Override
     public SoggettoGiuridicoDto mapEntityToDtoImpl(SoggettoGiuridico entity) {
-        SoggettoGiuridicoDto dto = super.fromSoggettoToDto(entity, new SoggettoGiuridicoDto());
+        SoggettoGiuridicoDto dto = super.daSoggettoADto(entity, new SoggettoGiuridicoDto());
         dto.setRagioneSociale(entity.getRagioneSociale());
         dto.setNaturaGiuridicaId(String.valueOf(entity.getNaturaGiuridica().getId()));
         dto.setCCIAA(entity.getCCIAA());
@@ -23,7 +23,7 @@ public class SoggettoGiuridicoMapper extends SoggettoMapper<SoggettoGiuridico, S
 
     @Override
     public SoggettoGiuridico mapDtoToEntityImpl(SoggettoGiuridicoDto dto) throws SvildepException {
-        SoggettoGiuridico entity = super.fromDtoToSoggetto(dto, new SoggettoGiuridico());
+        SoggettoGiuridico entity = super.daDtoASoggetto(dto, new SoggettoGiuridico());
         entity.setRagioneSociale(dto.getRagioneSociale());
         entity.setCCIAA(dto.getCCIAA());
         entity.setPartitaIVA(dto.getPartitaIva());

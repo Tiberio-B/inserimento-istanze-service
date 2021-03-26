@@ -8,7 +8,7 @@ import org.springframework.validation.Validator;
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
 
-public abstract class DtoValidator implements Validator {
+public abstract class DtoValidator<D extends Dto> implements Validator {
 
     @Override
     public boolean supports(Class<?> aClass) {

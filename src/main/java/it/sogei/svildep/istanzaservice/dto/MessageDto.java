@@ -14,9 +14,5 @@ public class MessageDto extends Dto {
 
     private HttpStatus status;
 
-    public static MessageDto nonAutorizzato() { return new MessageDto(Messages.nonAutorizzato, HttpStatus.UNAUTHORIZED); }
-
-    public static MessageDto inserito() { return new MessageDto(Messages.inserimento, HttpStatus.CREATED); }
-
     public boolean isError() { return this.getStatus().isError(); }
 }

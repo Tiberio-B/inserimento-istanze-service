@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.mapper;
 
-import it.sogei.svildep.istanzaservice.dto.istanza.dettaglio.NascitaDto;
+import it.sogei.svildep.istanzaservice.dto.NascitaDto;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.Comune;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.SoggettoFisico;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.StatoEstero;

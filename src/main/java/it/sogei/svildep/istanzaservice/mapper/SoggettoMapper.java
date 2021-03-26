@@ -1,6 +1,5 @@
 package it.sogei.svildep.istanzaservice.mapper;
 
-import it.sogei.svildep.istanzaservice.dto.Dto;
 import it.sogei.svildep.istanzaservice.dto.SoggettoDto;
 import it.sogei.svildep.istanzaservice.entity.enums.FlagSN;
 import it.sogei.svildep.istanzaservice.entity.enums.FlagTipoSoggetto;
@@ -15,11 +14,11 @@ import org.springframework.stereotype.Component;
 @Primary
 @Component
 @NoArgsConstructor
-public abstract class SoggettoMapper<Entity extends Soggetto, Dto extends SoggettoDto> implements Mapper<Entity, Dto> {
+public abstract class SoggettoMapper<S extends Soggetto, D extends SoggettoDto> implements Mapper<S, D> {
 
     @Autowired private IndirizzoMapper indirizzoMapper;
 
-    public Dto fromSoggettoToDto(Entity entity, Dto dto) {
+    public D daSoggettoADto(S entity, D dto) {
         dto.setCodiceFiscale(entity.getCodiceFiscale());
         dto.setCertificatoAnagrafeTributaria(String.valueOf(entity.getCertificatoAnagrafeTributaria()));
         dto.setTipoSoggetto(String.valueOf(entity.getTipoSoggetto()));
@@ -27,7 +26,7 @@ public abstract class SoggettoMapper<Entity extends Soggetto, Dto extends Sogget
         return dto;
     }
 
-    public Entity fromDtoToSoggetto(Dto dto, Entity entity) throws SvildepException {
+    public S daDtoASoggetto(D dto, S entity) throws SvildepException {
         entity.setCodiceFiscale(dto.getCodiceFiscale());
         entity.setCertificatoAnagrafeTributaria(FlagSN.valueOf(dto.getCertificatoAnagrafeTributaria()));
         TipoSoggetto tipoSoggetto = new TipoSoggetto(FlagTipoSoggetto.valueOf(dto.getTipoSoggetto())); // grossi dubbi

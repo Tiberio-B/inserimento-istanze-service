@@ -1,8 +1,7 @@
 package it.sogei.svildep.istanzaservice.mapper;
 
-import it.sogei.svildep.istanzaservice.dto.geo.StatoEsteroDto;
+import it.sogei.svildep.istanzaservice.dto.StatoEsteroDto;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.StatoEstero;
-import it.sogei.svildep.istanzaservice.mapper.Mapper;
 import org.springframework.stereotype.Component;
 
 @Component
