@@ -21,4 +21,5 @@ public abstract class Dto {
 	private String utenteAggiornamentoId;
 
 	private String timestampAggiornamento;
+
 }

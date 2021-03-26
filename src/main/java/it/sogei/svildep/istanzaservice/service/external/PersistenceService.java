@@ -4,16 +4,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class EntitaService extends ExternalService {
+public class PersistenceService extends ExternalService {
 
-    EntitaService(RestTemplate restTemplate) {
+    PersistenceService(RestTemplate restTemplate) {
         super(restTemplate);
     }
 
     @Override
     protected String getURL() { return "http://localhost:8080/svildep/api/istanze"; }
 
-    /*public MessageDto inserimentoIstanzaMock(InserimentoIstanzaDto dto) throws SvildepException {
+    /*public MessageDto inserimentoIstanzaMock(IstanzaDtoInserimento dto) throws SvildepException {
         MessageDto response;
         response =  getRestTemplate().exchange(getURL(), HttpMethod.POST, new HttpEntity<>(dto) MessageDto.class).getBody();
         MockDataLoader.databaseIstanze.put(String.valueOf(dto), dto);

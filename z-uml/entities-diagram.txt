@@ -1,110 +1,287 @@
 @startuml
-'skinparam linetype ortho
+skinparam linetype polyline
 
-'########## Legenda ########## 
+package "Model" as mod #Strategy {
+	
+	class Istanza {
+		- id
+	    - numeroRichiesta
+	    - dataRichiesta
+	    - numeroProtocollo
+	    - dataProtocollo
+	    - importoDeposito
+	    - causaleDeposito
+	    - codicePagoPA
+	    - datProcedimentoTribunale
+	    - importoRestituzioneDeposito
+	    - motivazioneInvioDST
+	    - deposito
+	    - datoCatastale
 
-	note as legenda
-		digitabile ed obbligatorio*
-		digitabile non obbligatorio^
-		generato dal sistema**
-		combobox***
-		checkbox****
-	end note
+	    - categoriaDeposito
+	    - tipoIstanza
+	    - richiedente
+	    - proprietario
+	    - altroProprietario
+	    - enteCauzionato
+	    - depositanteLegale
+	    - espropriante
+	    - proprietarioEntePubblico
+	    - erede
+	    - modalitaPagamento
+	    - stato
+		....
+		+ getters & setters
+	}
 
-'########## classi ########## 
+}
 
-package "Model" as mod #Motivation {
+package "Dto" as dto #Motivation {
 
-		abstract class Istanza {
-			- qualitaRichiedente*** : QualitaRichiedente
-			- categoriaDeposito : Categoria
-			- stato : Stato
-			- pagamentoASoggettiDeposito : boolean
-			- modalitaPagamento : modalitaPagamento
-			- importoRichiesto : BigDecimal
+		abstract class IstanzaDto {
+			- numeroRichiesta
+			- dataRichiesta
+			- numeroProtocollo
+			- dataProtocollo
+			- importoDeposito
+			- causaleDeposito
+
+			- categoriaDepositoId
+			- tipoId
+			- richiedenteId
+			- statoId
+			..
+			+ {method} getters & setters
 		}
 
-		class Soggetto {
-			- nome : String
-			- cognome : String
-			- cf : String
-			- sesso : Sesso
-			- nascita : Indirizzo
-			- partitaIva : String
-			- irreperibile : boolean
-			- relataNotificaSNR : Documento
+		Istanza::numeroRichiesta -right- IstanzaDto::numeroRichiesta
+		Istanza::dataRichiesta -right- IstanzaDto::dataRichiesta
+		Istanza::numeroProtocollo -right- IstanzaDto::numeroProtocollo
+		Istanza::dataProtocollo -right- IstanzaDto::dataProtocollo
+		Istanza::importoDeposito -right- IstanzaDto::importoDeposito
+		Istanza::causaleDeposito -right- IstanzaDto::causaleDeposito
+
+
+		Istanza::categoriaDeposito -right- IstanzaDto::categoriaDepositoId
+		Istanza::tipo -right- IstanzaDto::tipoId
+		Istanza::richiedente -right- IstanzaDto::richiedenteId
+		Istanza::stato -right- IstanzaDto::statoId
+
+		package "Inserimento" as ins {
+
+			class IstanzaDtoInserimento extends IstanzaDto {
+				- @NotBlank rtsInoltroId
+				- @NotBlank modalitaTrasmissione
+				- @NotBlank qualitaRichiedente
+				..
+				- allegati
+				..
+				+ {method} @NotBlank all superclass getters
+				+ {method} getters & setters
+			}
+
+
+
+			class DepositoCauzionaleDtoInserimento extends IstanzaDtoInserimento {
+				- @NotBlank proprietarioId
+				- @NotBlank enteCauzionatoId
+				..
+				+ {method} getters & setters
+			}
+
+			class DepositoGiudiziarioDtoInserimento extends IstanzaDtoInserimento {
+				- @NotBlank versanteId
+				- @NotBlank autoritaOrdinanteId
+				- @NotBlank soggettoUlterioreId
+				..
+				+ {method} getters & setters
+			}
+
+			class DepositoVolontarioDtoInserimento extends IstanzaDtoInserimento {
+				- @NotBlank proprietarioId
+				..
+				+ {method} getters & setters
+			}
+
+			class DepositoAmministrativoDtoInserimento extends IstanzaDtoInserimento {
+				- @NotBlank depositanteId
+				- @NotBlank autoritaEsproprianteId
+				- @NotBlank operaId
+				- @NotBlank beneEspropriatoId
+				..
+				- @NotBlank autoritaEsproprianteCoincidenteConDepositante
+				- @NotBlank soggettoDaIndividuare
+				..
+				+ {method} getters & setters
+			}
+
+			class DepositoAmministrativoNoEsproprioDtoInserimento extends IstanzaDtoInserimento {
+				- @NotBlank versanteId
+				- @NotBlank soggettoUlterioreId
+				..
+				+ {method} getters & setters
+			}
+
+			class RestituzioneDepositoDtoInserimento extends IstanzaDtoInserimento {
+				- intestatarioId
+				- soggettoObbligatorioId [1..4]
+				- modalitaPagamentoId
+				..
+				- importoRichiesto
+				- pagamentoASoggettiDeposito;
+				..
+				+ {method} getters & setters
+			}
+
+			DepositoCauzionaleDtoInserimento -[hidden]down- DepositoGiudiziarioDtoInserimento
+			DepositoAmministrativoDtoInserimento -[hidden]down- DepositoAmministrativoNoEsproprioDtoInserimento
+			DepositoVolontarioDtoInserimento -[hidden]down- RestituzioneDepositoDtoInserimento 
+
 		}
 
-		class Deposito {
-			- causale* : String
-			- importo* : BigDecimal
+		package "Ricerca" as ric {
+
+			class IstanzaDtoRicerca extends IstanzaDto {
+				- @NotBlank rtsInoltroId
+				- @NotBlank modalitaTrasmissione
+				- @NotBlank qualitaRichiedente
+				..
+				- allegati
+				..
+				+ {method} @NotBlank all superclass getters
+				+ {method} getters & setters
+			}
+
+
+
+			class DepositoCauzionaleDtoRicerca extends IstanzaDtoRicerca {
+				- @NotBlank proprietarioId
+				- @NotBlank enteCauzionatoId
+				..
+				+ {method} getters & setters
+			}
+
+			class DepositoGiudiziarioDtoRicerca extends IstanzaDtoRicerca {
+				- @NotBlank versanteId
+				- @NotBlank autoritaOrdinanteId
+				- @NotBlank soggettoUlterioreId
+				..
+				+ {method} getters & setters
+			}
+
+			class DepositoVolontarioDtoRicerca extends IstanzaDtoRicerca {
+				- @NotBlank proprietarioId
+				..
+				+ {method} getters & setters
+			}
+
+			class DepositoAmministrativoDtoRicerca extends IstanzaDtoRicerca {
+				- @NotBlank depositanteId
+				- @NotBlank autoritaEsproprianteId
+				- @NotBlank operaId
+				- @NotBlank beneEspropriatoId
+				..
+				- @NotBlank autoritaEsproprianteCoincidenteConDepositante
+				- @NotBlank soggettoDaIndividuare
+				..
+				+ {method} getters & setters
+			}
+
+			class DepositoAmministrativoNoEsproprioDtoRicerca extends IstanzaDtoRicerca {
+				- @NotBlank versanteId
+				- @NotBlank soggettoUlterioreId
+				..
+				+ {method} getters & setters
+			}
+
+			class RestituzioneDepositoDtoRicerca extends IstanzaDtoRicerca {
+				- importoRichiesto
+				- pagamentoASoggettiDeposito;
+				- intestatarioId
+				- soggettoObbligatorioId [1..*]
+				- modalitaPagamentoId
+				..
+				+ {method} getters & setters
+			}
+
+			DepositoCauzionaleDtoRicerca -[hidden]down- DepositoGiudiziarioDtoRicerca
+			DepositoAmministrativoDtoRicerca -[hidden]down- DepositoAmministrativoNoEsproprioDtoRicerca
+			DepositoVolontarioDtoRicerca -[hidden]down- RestituzioneDepositoDtoRicerca 
+
 		}
 
-		class Richiesta {
-			- numero** : Long 
-			- data* : LocalDateTime 
-		}
-		class Protocollo {
-			- numero** : Long
-			- data* : LocalDateTime 
-		}
-		class Rts {
-			- id** : Long
-		}
-		
-		class Opera {
-			- descrizione* : Opera
-			- regione*** : Regione
-		}
+		package "Dettaglio" as dett {
 
-		class Bene {
-			datiCatastali* : Catasto
-			proprietariCatastali* : Set<Soggetto>
+			class IstanzaDtoDettaglio extends IstanzaDto {
+				- @NotBlank rtsInoltroId
+				- @NotBlank modalitaTrasmissione
+				- @NotBlank qualitaRichiedente
+				..
+				- allegati
+				..
+				+ {method} @NotBlank all superclass getters
+				+ {method} getters & setters
+			}
+
+
+
+			class DepositoCauzionaleDtoDettaglio extends IstanzaDtoDettaglio {
+				- @NotBlank proprietarioId
+				- @NotBlank enteCauzionatoId
+				..
+				+ {method} getters & setters
+			}
+
+			class DepositoGiudiziarioDtoDettaglio extends IstanzaDtoDettaglio {
+				- @NotBlank versanteId
+				- @NotBlank autoritaOrdinanteId
+				- @NotBlank soggettoUlterioreId
+				..
+				+ {method} getters & setters
+			}
+
+			class DepositoVolontarioDtoDettaglio extends IstanzaDtoDettaglio {
+				- @NotBlank proprietarioId
+				..
+				+ {method} getters & setters
+			}
+
+			class DepositoAmministrativoDtoDettaglio extends IstanzaDtoDettaglio {
+				- @NotBlank depositanteId
+				- @NotBlank autoritaEsproprianteId
+				- @NotBlank operaId
+				- @NotBlank beneEspropriatoId
+				..
+				- @NotBlank autoritaEsproprianteCoincidenteConDepositante
+				- @NotBlank soggettoDaIndividuare
+				..
+				+ {method} getters & setters
+			}
+
+			class DepositoAmministrativoNoEsproprioDtoDettaglio extends IstanzaDtoDettaglio {
+				- @NotBlank versanteId
+				- @NotBlank soggettoUlterioreId
+				..
+				+ {method} getters & setters
+			}
+
+			class RestituzioneDepositoDtoDettaglio extends IstanzaDtoDettaglio {
+				- importoRichiesto
+				- pagamentoASoggettiDeposito;
+				- intestatarioId
+				- soggettoObbligatorioId [1..*]
+				- modalitaPagamentoId
+				..
+				+ {method} getters & setters
+			}
+
+			DepositoCauzionaleDtoDettaglio -[hidden]down- DepositoGiudiziarioDtoDettaglio
+			DepositoAmministrativoDtoDettaglio -[hidden]down- DepositoAmministrativoNoEsproprioDtoDettaglio
+			DepositoVolontarioDtoDettaglio -[hidden]down- RestituzioneDepositoDtoDettaglio 
+
 		}
 		
 }
-
-'########## Relazioni ########## 
-
-	'########## Istanza ##########
-
-		Istanza -- Richiesta : datiRichiesta
-		Istanza -- Protocollo : datiProtoccollo
-		Istanza -- Deposito : datiDeposito
-		Istanza -- Soggetto : richiedente
-		Istanza -- Rts : rtsInoltro
-
-	'########## DepositoAmministrativo ########## 
-
-		Istanza -- Soggetto : depositante
-		Istanza -- Soggetto : autoritaEspropriante
-		Istanza -- Opera : opera
-		Istanza -- Bene : beneEspropriato
-
-	'########## DepositoAmministrativoNoEsproprio ########## 
-
-		Istanza -- Soggetto : versante
-		Istanza -- Soggetto : ulterioreSoggetto
-
-	'########## DepositoCauzionale ########## 
-
-		Istanza -- Soggetto : proprietario
-		Istanza -- Soggetto : enteRichiedente
-
-	'########## DepositoGiudiziario ########## 
-
-		Istanza -- Soggetto : versante
-		Istanza -- Soggetto : autoritaOrdinante
-		Istanza -- Soggetto : soggettoUlteriore
-
-	'########## DepositoVolontario ########## 
-
-		Istanza -- Soggetto : proprietario
-
-	'########## RestituzioneDeposito ########## 
-
-		Istanza "*" -- "1" Soggetto : soggettiObbligatori
-		Istanza -- Soggetto : intestatario
 
 @enduml
 -txmi:star

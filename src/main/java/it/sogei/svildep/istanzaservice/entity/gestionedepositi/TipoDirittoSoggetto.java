@@ -9,5 +9,5 @@ import lombok.Setter;
 public class TipoDirittoSoggetto extends BaseEntity {
 
     private Long id;
-    private String descrizioneTipoDirittoSoggetto;
+    private FlagTipoDirittoSoggetto descrizioneTipoDirittoSoggetto;
 }

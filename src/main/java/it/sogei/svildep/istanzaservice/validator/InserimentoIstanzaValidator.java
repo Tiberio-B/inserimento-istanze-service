@@ -1,7 +1,6 @@
 package it.sogei.svildep.istanzaservice.validator;
 
-import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
-import it.sogei.svildep.istanzaservice.dto.istanza.inserimento.InserimentoIstanzaDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.inserimento.IstanzaDtoInserimento;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.Istanza;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.StatoIstanza;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.TipoIstanza;
@@ -14,14 +13,14 @@ public class InserimentoIstanzaValidator extends IstanzaValidator {
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return InserimentoIstanzaDto.class.isAssignableFrom(aClass);
+        return IstanzaDtoInserimento.class.isAssignableFrom(aClass);
     }
 
     @Override
     public void validate(Object obj, Errors errors) {
         super.validate(obj, errors);
-        if (obj instanceof InserimentoIstanzaDto) {
-            InserimentoIstanzaDto dto = (InserimentoIstanzaDto) obj;
+        if (obj instanceof IstanzaDtoInserimento) {
+            IstanzaDtoInserimento dto = (IstanzaDtoInserimento) obj;
             try {
                 Istanza.QualitaRichiedente.valueOf(dto.getQualitaRichiedente());
             }

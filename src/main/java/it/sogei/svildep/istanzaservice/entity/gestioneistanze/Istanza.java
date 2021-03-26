@@ -28,7 +28,7 @@ public class Istanza extends BaseEntity {
     private Deposito deposito;
     private DatoCatastale datoCatastale;
     private CategoriaDeposito categoriaDeposito;
-    private TipoIstanza tipoIstanza;
+    private TipoIstanza tipo;
     private DirittoSoggetto richiedente;
     private DirittoSoggetto proprietario;
     private DirittoSoggetto altroProprietario;

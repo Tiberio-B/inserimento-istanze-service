@@ -1,4 +1,4 @@
-package it.sogei.svildep.istanzaservice.mapper.geo;
+package it.sogei.svildep.istanzaservice.mapper;
 
 import it.sogei.svildep.istanzaservice.dto.geo.ComuneDto;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.Comune;

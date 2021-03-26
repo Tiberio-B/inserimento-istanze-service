@@ -24,15 +24,12 @@ public interface Mapper<E extends BaseEntity, D extends Dto> {
         return dto;
     }
 
-    default Collection<D> mapEntityToDto(Collection<D> dtos, Collection<E> entities) {
+    default List<D> mapEntityToDto(List<E> entities) {
         if (entities == null) return null;
+        List<D> dtos = new ArrayList<>();
         for (E entity : entities) dtos.add(mapEntityToDto(entity));
         return dtos;
     }
-
-    default List<D> mapEntityToDto(List<E> entities) { return (List<D>) mapEntityToDto(new ArrayList<>(), entities); }
-
-    default Set<D> mapEntityToDto(Set<E> entities) { return (Set<D>) mapEntityToDto(new HashSet<>(), entities); }
 
     default E mapDtoToEntity(D dto) throws SvildepException {
         if (dto == null) return null;
@@ -50,14 +47,12 @@ public interface Mapper<E extends BaseEntity, D extends Dto> {
         return entity;
     }
 
-    default Collection<E> mapDtoToEntity(Collection<E> entities, Collection<D> dtos) throws SvildepException {
+    default List<E> mapDtoToEntity(List<D> dtos) throws SvildepException {
         if (dtos == null) return null;
+        List<E> entities = new ArrayList<>();
         for (D dto : dtos) entities.add(mapDtoToEntity(dto));
         return entities;
     }
 
-    default List<E> mapDtoToEntity(List<D> dtos) throws SvildepException { return (List<E>) mapDtoToEntity(new ArrayList<>(), dtos); }
-
-    default Set<E> mapDtoToEntity(Set<D> dtos) throws SvildepException { return (Set<E>) mapDtoToEntity(new HashSet<>(), dtos); }
 
 }

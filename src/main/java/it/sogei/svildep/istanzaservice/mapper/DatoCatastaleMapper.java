@@ -3,7 +3,6 @@ package it.sogei.svildep.istanzaservice.mapper;
 import it.sogei.svildep.istanzaservice.dto.CatastoDto;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.Provincia;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
-import it.sogei.svildep.istanzaservice.mapper.geo.ComuneMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

@@ -2,9 +2,8 @@ package it.sogei.svildep.istanzaservice.controller;
 
 import it.sogei.svildep.istanzaservice.dto.MessageDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
-import it.sogei.svildep.istanzaservice.dto.istanza.dettaglio.DettaglioIstanzaCostDepositoVolontarioDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.dettaglio.DettaglioIstanzaDepositoDto;
-import it.sogei.svildep.istanzaservice.dto.istanza.inserimento.InserimentoIstanzaDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.inserimento.IstanzaDtoInserimento;
 import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.ListaRicercaIstanzaDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.RicercaIstanzaDto;
 import it.sogei.svildep.istanzaservice.exception.BindingException;
@@ -38,7 +37,7 @@ public class IstanzaController {
         return ResponseEntity.ok().body(service.get(id));
     }
 
-    public ResponseEntity<MessageDto> insert(InserimentoIstanzaDto requestDto, BindingResult bindingResult) throws SvildepException {
+    public ResponseEntity<MessageDto> insert(IstanzaDtoInserimento requestDto, BindingResult bindingResult) throws SvildepException {
         validate(inserimentoIstanzaValidator, requestDto, bindingResult);
         return ResponseEntity.status(HttpStatus.CREATED).body(service.insert(requestDto));
     }

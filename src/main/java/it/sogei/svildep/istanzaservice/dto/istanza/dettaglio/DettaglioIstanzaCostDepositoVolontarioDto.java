@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.dto.istanza.dettaglio;
 
-import it.sogei.svildep.istanzaservice.dto.SoggettoGiuridicoDto;
+import it.sogei.svildep.istanzaservice.dto.DirittoSoggettoDto;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,6 +8,6 @@ import lombok.Setter;
 @Setter
 public class DettaglioIstanzaCostDepositoVolontarioDto extends DettaglioIstanzaDepositoDto{
 
-    private SoggettoGiuridicoDto propEntePubblico;
+    private DirittoSoggettoDto propEntePubblico;
 
 }

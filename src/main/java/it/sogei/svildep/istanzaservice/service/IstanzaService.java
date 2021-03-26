@@ -3,7 +3,7 @@ package it.sogei.svildep.istanzaservice.service;
 import it.sogei.svildep.istanzaservice.dto.MessageDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.dettaglio.DettaglioIstanzaDepositoDto;
-import it.sogei.svildep.istanzaservice.dto.istanza.inserimento.InserimentoIstanzaDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.inserimento.IstanzaDtoInserimento;
 import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.ListaRicercaIstanzaDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.RicercaIstanzaDto;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.Istanza;
@@ -27,8 +27,8 @@ public class IstanzaService extends ExternalService {
     private final RicercaIstanzaMapper ricercaIstanzaMapper;
     private final DettaglioIstanzaMapper dettaglioIstanzaMapper;
 
-    public MessageDto insert(InserimentoIstanzaDto inserimentoIstanzaDto) throws SvildepException {
-        Istanza entity = inserimentoIstanzaMapper.fromDtoToIstanza(inserimentoIstanzaDto);
+    public MessageDto insert(IstanzaDtoInserimento istanzaDtoInserimento) throws SvildepException {
+        Istanza entity = inserimentoIstanzaMapper.fromDtoToIstanza(istanzaDtoInserimento);
         return getRestTemplate().exchange(getURL(), HttpMethod.POST, new HttpEntity<>(entity), MessageDto.class).getBody();
     }
 

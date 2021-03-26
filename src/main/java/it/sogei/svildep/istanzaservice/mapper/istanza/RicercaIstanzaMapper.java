@@ -17,11 +17,7 @@ public abstract class RicercaIstanzaMapper<Dto extends RicercaIstanzaDto> extend
 
     @Getter
     @Autowired private SoggettoMapper soggettoMapper;
-    @Autowired private DepositoMapper depositoMapper;
-    @Autowired private RichiestaMapper richiestaMapper;
-    @Autowired private ProtocolloMapper protocolloMapper;
     @Autowired private RtsMapper rtsMapper;
-    @Autowired private DocumentoMapper documentoMapper;
 
     public Dto fromIstanzaToDto(Istanza entity, Dto dto) {
         dto.setQualitaRichiedente(entity.getQualitaRichiedente().toString());

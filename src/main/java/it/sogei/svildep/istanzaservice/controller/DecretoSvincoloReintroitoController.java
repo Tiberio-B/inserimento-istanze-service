@@ -1,7 +1,6 @@
 package it.sogei.svildep.istanzaservice.controller;
 
 import it.sogei.svildep.istanzaservice.dto.MessageDto;
-import it.sogei.svildep.istanzaservice.dto.istanza.inserimento.DecretoSvincoloReintroitoDtoInserimento;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
