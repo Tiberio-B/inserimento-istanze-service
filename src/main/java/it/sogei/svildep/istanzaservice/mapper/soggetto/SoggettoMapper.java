@@ -1,4 +1,4 @@
-package it.sogei.svildep.istanzaservice.mapper;
+package it.sogei.svildep.istanzaservice.mapper.soggetto;
 
 import it.sogei.svildep.istanzaservice.dto.SoggettoDto;
 import it.sogei.svildep.istanzaservice.entity.enums.FlagSN;
@@ -6,6 +6,8 @@ import it.sogei.svildep.istanzaservice.entity.enums.FlagTipoSoggetto;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.Soggetto;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.TipoSoggetto;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
+import it.sogei.svildep.istanzaservice.mapper.IndirizzoMapper;
+import it.sogei.svildep.istanzaservice.mapper.Mapper;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;

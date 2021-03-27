@@ -1,4 +1,4 @@
-package it.sogei.svildep.istanzaservice.mapper;
+package it.sogei.svildep.istanzaservice.mapper.soggetto;
 
 import it.sogei.svildep.istanzaservice.dto.SoggettoGiuridicoDto;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.*;

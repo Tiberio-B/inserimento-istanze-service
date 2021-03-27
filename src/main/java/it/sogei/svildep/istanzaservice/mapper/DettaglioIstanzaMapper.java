@@ -4,6 +4,7 @@ import it.sogei.svildep.istanzaservice.dto.istanza.dettaglio.IstanzaDepositoDto;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.Istanza;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import it.sogei.svildep.istanzaservice.mapper.istanza.IstanzaMapper;
+import it.sogei.svildep.istanzaservice.mapper.soggetto.SoggettoMapper;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

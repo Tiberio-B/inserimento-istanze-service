@@ -1,8 +1,9 @@
-package it.sogei.svildep.istanzaservice.mapper;
+package it.sogei.svildep.istanzaservice.mapper.soggetto;
 
 import it.sogei.svildep.istanzaservice.dto.DirittoSoggettoDto;
 import it.sogei.svildep.istanzaservice.entity.gestionedepositi.DirittoSoggetto;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.Soggetto;
+import it.sogei.svildep.istanzaservice.mapper.Mapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

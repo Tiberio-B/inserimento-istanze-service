@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class RestituzioneDepositoInserimentoDto extends IstanzaInserimentoDto {
+public class IstanzaRestituzioneDepositoInserimentoDto extends IstanzaInserimentoDto {
 
     @NotNull(message = Messages.erroreGenerico)
     @Valid

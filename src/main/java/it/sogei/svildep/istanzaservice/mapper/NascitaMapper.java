@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class NascitaMapper {
 
-    void fromSoggettoFisicoToNascitaDto(SoggettoFisico entity) {
+    public void daSoggettoFisicoANascitaDto(SoggettoFisico entity) {
         NascitaDto nascitaDto = new NascitaDto();
         if (entity.getComuneNascita() != null) {
             nascitaDto.setComune(entity.getComuneNascita().getDenominazioneComune());
@@ -20,7 +20,7 @@ public class NascitaMapper {
         }
     }
 
-    void fromNascitaDtoToSoggettoFisico(NascitaDto dto, SoggettoFisico entity) {
+    public void daNascitaDtoASoggettoFisico(NascitaDto dto, SoggettoFisico entity) {
         if (dto.getComune() != null) {
             Comune comune = new Comune();
             comune.setDenominazioneComune(dto.getComune());

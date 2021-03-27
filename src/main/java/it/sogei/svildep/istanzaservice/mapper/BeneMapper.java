@@ -2,6 +2,7 @@ package it.sogei.svildep.istanzaservice.mapper;
 
 import it.sogei.svildep.istanzaservice.dto.BeneDto;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
+import it.sogei.svildep.istanzaservice.mapper.soggetto.SoggettoMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

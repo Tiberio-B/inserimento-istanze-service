@@ -7,7 +7,7 @@ import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class DepositoCauzionaleInserimentoMapper extends IstanzaInserimentoMapper<IstanzaDepCauzionaleInserimentoDto> {
+public class IstanzaDepCauzionaleInserimentoMapper extends IstanzaInserimentoMapper<IstanzaDepCauzionaleInserimentoDto> {
 
     private final DirittoSoggettoMapper dirittoSoggettoMapper;
 
