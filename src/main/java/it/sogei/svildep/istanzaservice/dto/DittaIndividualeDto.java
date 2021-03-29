@@ -1,8 +1,6 @@
 package it.sogei.svildep.istanzaservice.dto;
 
-import it.sogei.svildep.istanzaservice.dto.SoggettoDto;
-import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.Comune;
-import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.Provincia;
+import it.sogei.svildep.istanzaservice.dto.soggetto.SoggettoDto;
 import lombok.Getter;
 import lombok.Setter;
 

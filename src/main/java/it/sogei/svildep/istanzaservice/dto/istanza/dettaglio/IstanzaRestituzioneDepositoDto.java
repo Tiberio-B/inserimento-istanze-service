@@ -1,8 +1,8 @@
 package it.sogei.svildep.istanzaservice.dto.istanza.dettaglio;
 
 import it.sogei.svildep.istanzaservice.dto.DittaIndividualeDto;
-import it.sogei.svildep.istanzaservice.dto.SoggettoFisicoDto;
-import it.sogei.svildep.istanzaservice.dto.SoggettoGiuridicoDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.soggetto.SoggettoFisicoRicercaDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.soggetto.SoggettoGiuridicoRicercaDto;
 import it.sogei.svildep.istanzaservice.dto.pagamento.ModalitaPagamentoDto;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,8 +17,8 @@ public class IstanzaRestituzioneDepositoDto extends IstanzaDepositoDto {
     private String dataDomandaCostituzioneDeposito;
     private String numeroDeposito;
     private String importoDeposito;
-    private List<SoggettoFisicoDto> listaSoggettiFisiciObbligatori;
-    private List<SoggettoGiuridicoDto> listaSoggettiGiuridiciObbligatori;
+    private List<SoggettoFisicoRicercaDto> listaSoggettiFisiciObbligatori;
+    private List<SoggettoGiuridicoRicercaDto> listaSoggettiGiuridiciObbligatori;
     private List<DittaIndividualeDto> listaDitteIndividualiObbligatorie;
     private String pagamentoIntestatario;
     private String cfIntestatario;

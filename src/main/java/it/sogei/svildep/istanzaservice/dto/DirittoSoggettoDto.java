@@ -10,7 +10,7 @@ import javax.validation.constraints.NotEmpty;
 @Getter
 @Setter
 @NoArgsConstructor
-public class DirittoSoggettoDto extends Dto {
+public class DirittoSoggettoDto extends SvildepDto {
 
     @NotEmpty(message = Messages.erroreGenerico)
     private String soggettoId;

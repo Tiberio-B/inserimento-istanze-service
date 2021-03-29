@@ -1,7 +1,7 @@
 package it.sogei.svildep.istanzaservice.dto.istanza;
 
 import it.sogei.svildep.istanzaservice.dto.DirittoSoggettoDto;
-import it.sogei.svildep.istanzaservice.dto.Dto;
+import it.sogei.svildep.istanzaservice.dto.SvildepDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class IstanzaDto extends Dto {
+public class IstanzaDto extends SvildepDto {
 
     private String numeroRichiesta;
     private String dataRichiesta;

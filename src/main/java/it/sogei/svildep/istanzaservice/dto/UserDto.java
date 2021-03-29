@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto extends Dto {
+public class UserDto extends SvildepDto {
 	
 	private String username;
 	private String role;

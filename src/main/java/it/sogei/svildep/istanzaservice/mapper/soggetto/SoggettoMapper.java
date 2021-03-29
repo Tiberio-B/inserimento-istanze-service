@@ -1,11 +1,10 @@
 package it.sogei.svildep.istanzaservice.mapper.soggetto;
 
-import it.sogei.svildep.istanzaservice.dto.SoggettoDto;
+import it.sogei.svildep.istanzaservice.dto.soggetto.SoggettoDto;
 import it.sogei.svildep.istanzaservice.entity.enums.FlagSN;
 import it.sogei.svildep.istanzaservice.entity.enums.FlagTipoSoggetto;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.Soggetto;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.TipoSoggetto;
-import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import it.sogei.svildep.istanzaservice.mapper.IndirizzoMapper;
 import it.sogei.svildep.istanzaservice.mapper.Mapper;
 import lombok.NoArgsConstructor;
@@ -28,7 +27,7 @@ public abstract class SoggettoMapper<S extends Soggetto, D extends SoggettoDto> 
         return dto;
     }
 
-    public S daDtoASoggetto(D dto, S entity) throws SvildepException {
+    public S daDtoASoggetto(D dto, S entity) throws RuntimeException {
         entity.setCodiceFiscale(dto.getCodiceFiscale());
         entity.setCertificatoAnagrafeTributaria(FlagSN.valueOf(dto.getCertificatoAnagrafeTributaria()));
         TipoSoggetto tipoSoggetto = new TipoSoggetto(FlagTipoSoggetto.valueOf(dto.getTipoSoggetto())); // grossi dubbi

@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.validator;
 
-import it.sogei.svildep.istanzaservice.dto.Dto;
+import it.sogei.svildep.istanzaservice.dto.SvildepDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -8,17 +8,17 @@ import org.springframework.validation.Validator;
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
 
-public abstract class DtoValidator<D extends Dto> implements Validator {
+public abstract class DtoValidator<D extends SvildepDto> implements Validator {
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return Dto.class.isAssignableFrom(aClass);
+        return SvildepDto.class.isAssignableFrom(aClass);
     }
 
     @Override
     public void validate(Object obj, Errors errors) {
-        if (obj instanceof Dto) {
-            Dto dto = (Dto) obj;
+        if (obj instanceof SvildepDto) {
+            SvildepDto dto = (SvildepDto) obj;
             try {
                 if (dto.getUtenteInserimentoId() != null) Long.parseLong(dto.getUtenteInserimentoId());
                 if (dto.getUtenteAggiornamentoId() != null) Long.parseLong(dto.getUtenteAggiornamentoId());

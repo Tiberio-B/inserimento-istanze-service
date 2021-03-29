@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
-public class OperaDto extends Dto {
+public class OperaDto extends SvildepDto {
 
     @NotBlank(message = Messages.descrizioneOpera)
     private String descrizione;

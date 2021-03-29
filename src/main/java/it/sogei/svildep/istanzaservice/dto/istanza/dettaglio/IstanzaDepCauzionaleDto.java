@@ -1,8 +1,8 @@
 package it.sogei.svildep.istanzaservice.dto.istanza.dettaglio;
 
 import it.sogei.svildep.istanzaservice.dto.DittaIndividualeDto;
-import it.sogei.svildep.istanzaservice.dto.SoggettoFisicoDto;
-import it.sogei.svildep.istanzaservice.dto.SoggettoGiuridicoDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.soggetto.SoggettoFisicoRicercaDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.soggetto.SoggettoGiuridicoRicercaDto;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,10 +11,10 @@ import lombok.Setter;
 public class IstanzaDepCauzionaleDto extends IstanzaDepositoDto {
 
     private String codicePagoPaBollo;
-    private SoggettoFisicoDto proprietarioFisico;
-    private SoggettoGiuridicoDto proprietarioGiuridico;
+    private SoggettoFisicoRicercaDto proprietarioFisico;
+    private SoggettoGiuridicoRicercaDto proprietarioGiuridico;
     private DittaIndividualeDto proprietarioDitta;
-    private SoggettoGiuridicoDto enteRichiedente;
+    private SoggettoGiuridicoRicercaDto enteRichiedente;
 
 
 }

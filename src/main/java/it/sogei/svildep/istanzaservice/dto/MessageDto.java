@@ -1,14 +1,12 @@
 package it.sogei.svildep.istanzaservice.dto;
 
-import it.sogei.svildep.istanzaservice.exception.Messages;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 
 @Getter
 @AllArgsConstructor
-public class MessageDto extends Dto {
+public class MessageDto extends SvildepDto {
 
     private String content;
 

@@ -1,31 +1,29 @@
 package it.sogei.svildep.istanzaservice.dto.istanza.ricerca;
 
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
-import it.sogei.svildep.istanzaservice.exception.Messages;
+import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.soggetto.SoggettoRicercaDto;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.NotNull;
-
 @Getter
 @Setter
-public class IstanzaRicercaDto extends IstanzaDto {
+public abstract class IstanzaRicercaDto<S extends SoggettoRicercaDto> extends IstanzaDto {
 
     private String modalitaTrasmissione;
 
+    private String dataDa;
+    private String dataA;
 
-    private String dataIstanzaDa;
-    private String dataIstanzaA;
-    private Long idTipoIstanza;
-    private Long idStatoRichiesta;
-    private Long numeroDepositoNazionaleDa;
-    private Long numeroDepositoNazionaleA;
+    private String idTipo;
+    private String idStato;
+    private String numeroRichiestaPadre;
+
+    private String numeroDepositoNazionaleDa;
+    private String numeroDepositoNazionaleA;
+
     private String esproprio;
+    private String conMandatoRestituzione;
 
-    private Long idenRichiestPadre;
-    private String presMandatoRestituzione;
-    @NotNull(message = Messages.tipoSoggetto)
-    private Long idTipoSoggetto;
-    private SoggettoRicercaDto soggetto;
+    private S soggettoDto;
 
 }

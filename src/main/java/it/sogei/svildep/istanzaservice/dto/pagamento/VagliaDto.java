@@ -1,5 +1,6 @@
 package it.sogei.svildep.istanzaservice.dto.pagamento;
 
+import it.sogei.svildep.istanzaservice.dto.geo.IndirizzoDto;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class RtsDto extends Dto {
+public class RtsDto extends SvildepDto {
 
     private String denominazione;
     private String telefono;

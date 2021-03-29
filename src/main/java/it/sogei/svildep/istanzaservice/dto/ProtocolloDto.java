@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
-public class ProtocolloDto extends Dto {
+public class ProtocolloDto extends SvildepDto {
 
     @NotBlank(message = Messages.numeroProtocollo)
     private String numero;

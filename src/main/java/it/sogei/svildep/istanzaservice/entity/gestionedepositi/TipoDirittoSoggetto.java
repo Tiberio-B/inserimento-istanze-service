@@ -1,6 +1,7 @@
 package it.sogei.svildep.istanzaservice.entity.gestionedepositi;
 
 import it.sogei.svildep.istanzaservice.entity.base.BaseEntity;
+import it.sogei.svildep.istanzaservice.entity.enums.FlagTipoDirittoSoggetto;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -1,13 +1,13 @@
 package it.sogei.svildep.istanzaservice.dto.istanza.dettaglio;
 
-import it.sogei.svildep.istanzaservice.dto.Dto;
-import it.sogei.svildep.istanzaservice.dto.SoggettoFisicoDto;
+import it.sogei.svildep.istanzaservice.dto.SvildepDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.soggetto.SoggettoFisicoRicercaDto;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public abstract class IstanzaDepositoDto extends Dto {
+public abstract class IstanzaDepositoDto extends SvildepDto {
 
     private String numeroRichiesta;
     private String dataRichiesta;
@@ -20,5 +20,5 @@ public abstract class IstanzaDepositoDto extends Dto {
     private String qualitaRichiedente;
     private String causaleDeposito;
     private String importoDeposito;
-    private SoggettoFisicoDto richiedente;
+    private SoggettoFisicoRicercaDto richiedente;
 }

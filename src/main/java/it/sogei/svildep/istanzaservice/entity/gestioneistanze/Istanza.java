@@ -20,7 +20,7 @@ public class Istanza extends BaseEntity {
     private Long numeroProtocollo;
     private LocalDate dataProtocollo;
     private String codicePagoPA;
-    private Long importoDeposito;
+    private Double importoDeposito;
     private String causaleDeposito;
     private String datProcedimentoTribunale;
     private Double importoRestituzioneDeopsito;
@@ -39,5 +39,7 @@ public class Istanza extends BaseEntity {
     private DirittoSoggetto erede;
     private ModalitaPagamento modalitaPagamento;
     private StatoIstanza stato;
+    private Opera opera;
+    private Bene beneEspropriato;
     //TODO: serve il mandato? SI
 }

@@ -11,7 +11,7 @@ import org.springframework.validation.BindingResult;
 @Setter
 @NoArgsConstructor
 public
-class SvildepException extends Exception {
+class SvildepException extends RuntimeException {
 
     private String message;
     private HttpStatus status;
@@ -30,11 +30,15 @@ class SvildepException extends Exception {
         this.setStatus(HttpStatus.BAD_REQUEST);
     }
 
+    public SvildepException(Exception ex) {
+        super(ex.getCause() + "\n" + ex.getMessage());
+    }
+
     private String getErrorMessages(BindingResult bindingResult) {
         StringBuilder messages = new StringBuilder();
         bindingResult.getFieldErrors().forEach(error -> {
             messages.append(error.getDefaultMessage()).append("\n");
         });
-        return message.toString();
+        return messages.toString();
     }
 }
