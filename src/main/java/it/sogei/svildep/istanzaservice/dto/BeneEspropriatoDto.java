@@ -11,12 +11,12 @@ import java.util.List;
 
 @Getter
 @Setter
-public class BeneDto extends SvildepDto {
+public class BeneEspropriatoDto extends SvildepDto {
 
     @NotNull(message = Messages.datiCatastali)
     @Valid
-    private CatastoDto datiCatastali;
+    private DatoCatastaleDto datiCatastali;
 
     @NotEmpty(message = Messages.proprietariCatastali)
-    private List<String> proprietariCatastaliIds;
+    private List<ProprietarioCatastaleDto> proprietariCatastali;
 }

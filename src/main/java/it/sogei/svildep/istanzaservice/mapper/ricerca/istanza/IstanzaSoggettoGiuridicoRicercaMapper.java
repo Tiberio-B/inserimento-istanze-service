@@ -1,7 +1,6 @@
-package it.sogei.svildep.istanzaservice.mapper.ricerca;
+package it.sogei.svildep.istanzaservice.mapper.ricerca.istanza;
 
 import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.IstanzaSoggettoGiuridicoRicercaDto;
-import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.SoggettoGiuridico;
 import org.springframework.stereotype.Component;
 
 @Component

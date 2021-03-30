@@ -1,5 +1,6 @@
 package it.sogei.svildep.istanzaservice.dto.istanza.inserimento;
 
+import it.sogei.svildep.istanzaservice.dto.BeneEspropriatoDto;
 import it.sogei.svildep.istanzaservice.dto.DirittoSoggettoDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
 import lombok.Getter;
@@ -24,10 +25,13 @@ public class IstanzaDepAmministrativoInserimentoDto extends IstanzaInserimentoDt
     private DirittoSoggettoDto autoritaEspropriante;
 
     @NotBlank(message = Messages.erroreGenerico)
-    private String operaId;
+    private String operaRegioneId;
 
     @NotBlank(message = Messages.erroreGenerico)
-    private String beneEspropriatoId;
+    private String operaDescrizione;
+
+    @NotNull(message = Messages.erroreGenerico)
+    private BeneEspropriatoDto beneEspropriato;
 
     @NotBlank(message = Messages.erroreGenerico)
     private String autoritaEsproprianteCoincidenteConDepositante;

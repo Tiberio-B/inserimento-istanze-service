@@ -1,0 +1,80 @@
+@startuml
+
+
+	package "Controller" as contr #Application {
+
+		package "Ricerca" as insContr {
+			abstract class IstanzaRicercaController<D extends IstanzaRicercaDto> {
+				- {field} validator : IstanzRicercaaValidator
+				- {field} service : IstanzaRicercaService
+				..
+				~ {method} search : ResponseEntity<List<IstanzaTrovataDto>>
+				> {method} requestDto : IstanzaRicercaDto,
+				> {method} br : BindingResult
+			}
+			class IstanzaSoggettoFisicoRicercaController << @RestController >> extends IstanzaRicercaController {
+				+ {method} @PostMapping post : ResponseEntity<MessageDto>
+				> {method} requestDto : SoggettoFisicoRicercaDto,
+				> {method} br : BindingResult
+			}
+			class IstanzaSoggettoGiuridicoRicercaController << @RestController >> extends IstanzaRicercaController {
+				+ {method} @PostMapping post : ResponseEntity<MessageDto>
+				> {method} requestDto : SoggettoGiuridicoRicercaDto,
+				> {method} br : BindingResult
+			}
+			class IstanzaDittaIndividualeRicercaController << @RestController >> extends IstanzaRicercaController { 
+				+ {method} @PostMapping post : ResponseEntity<MessageDto>
+				> {method} requestDto : DittaIndividualeRicercaDto,
+				> {method} br : BindingResult
+			}
+			class IstanzaRicercaValidator << @Component >> {
+				+ {method} validate
+				> {method} requestDto : IstanzaRicercaDto
+				> {method} errors : Errors
+			}
+		}
+	}
+
+	package "Service" as serv #Business {
+
+		package "Ricerca" as insServ {
+			
+			class IstanzaRicercaService<D extends IstanzaRicercaDto> << @Service >> {
+				- {field} persistenceService : PersistenceService
+				..
+				+ {method} cerca : List<IstanzaTrovataDto>
+				> {method} requestDto : IstanzaRicercaDto 
+				< {method} throws SvildepException
+				+ {abstract} {method} getMapper() : IstanzaRicercaMapper<D>
+			}
+			class IstanzaSoggettoFisicoRicercaService << @RestController >> extends IstanzaRicercaService {
+			}
+			class IstanzaSoggettoGiuridicoRicercaService << @RestController >> extends IstanzaRicercaService {
+			}
+			class IstanzaDittaIndividualeRicercaService << @RestController >> extends IstanzaRicercaService { 
+			}
+		}
+    }
+
+	package "ExternalService" as zext #Strategy {
+		abstract class ExternalService {
+			- {field} restTemplate : RestTemplate
+			+ {method} getURL() : String
+		}
+
+		class PersistenceService << @Service >> extends ExternalService {
+			+ {method} RicercaiIstanza : MessageDto
+			> {method} istanza : IstanzaDto
+			< {method} throws SvildepException
+		}
+	}
+
+		IstanzaRicercaController::service -right[thickness=4]- IstanzaRicercaService : service
+		IstanzaRicercaController::validator -up- IstanzaRicercaValidator : validator
+
+		
+		IstanzaRicercaService::persistenceService -- PersistenceService
+		
+
+@enduml
+-txmi:star

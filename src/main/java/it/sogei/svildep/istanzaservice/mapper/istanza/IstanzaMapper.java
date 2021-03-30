@@ -62,42 +62,5 @@ public class IstanzaMapper implements Mapper<Istanza, IstanzaDto> {
         return dto;
     }
 
-    public Istanza map(IstanzaRicercaDto dto, Istanza entity) {
-
-        String numeroRichiesta = dto.getNumeroRichiesta();
-        if (numeroRichiesta != null) entity.setNumeroRichiesta(Long.parseLong(numeroRichiesta));
-
-        String dataRichiesta = dto.getDataRichiesta();
-        if (dataRichiesta != null) entity.setDataRichiesta(LocalDate.parse(dataRichiesta));
-
-        String numeroProtocollo = dto.getNumeroProtocollo();
-        if (numeroProtocollo != null) entity.setNumeroRichiesta(Long.parseLong(numeroProtocollo));
-
-        String dataProtocollo = dto.getDataProtocollo();
-        if (dataProtocollo != null) entity.setDataRichiesta(LocalDate.parse(dataProtocollo));
-
-        String importoDeposito = dto.getImportoDeposito();
-        if (importoDeposito != null) entity.setImportoDeposito(Double.parseDouble(importoDeposito));
-
-        entity.setCausaleDeposito(dto.getCausaleDeposito());
-
-        CategoriaDeposito categoriaDeposito = new CategoriaDeposito();
-        String categoriaDepositoId = dto.getCategoriaDepositoId();
-        if (categoriaDepositoId != null) categoriaDeposito.setId(Long.parseLong(categoriaDepositoId));
-        entity.setCategoriaDeposito(categoriaDeposito);
-
-        TipoIstanza tipoIstanza = new TipoIstanza();
-        String tipoId = dto.getTipoId();
-        if (tipoId != null) tipoIstanza.setId(Long.parseLong(tipoId));
-        entity.setTipo(tipoIstanza);
-
-        StatoIstanza statoIstanza = new StatoIstanza();
-        String statoId = dto.getStatoId();
-        if (statoId != null) statoIstanza.setId(Long.parseLong(statoId));
-        entity.setStato(statoIstanza);
-
-        return entity;
-    }
-
 }
 

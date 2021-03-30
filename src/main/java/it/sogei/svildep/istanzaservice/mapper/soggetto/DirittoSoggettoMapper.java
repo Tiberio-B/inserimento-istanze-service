@@ -15,7 +15,7 @@ public class DirittoSoggettoMapper implements Mapper<DirittoSoggetto, DirittoSog
     public DirittoSoggettoDto mapEntityToDtoImpl(DirittoSoggetto entity) {
         DirittoSoggettoDto dto = new DirittoSoggettoDto();
         dto.setSoggettoId(String.valueOf(entity.getSoggetto().getId()));
-        dto.setTipoDirittoSoggettoId(String.valueOf(entity.getTipoDirittoSoggetto().getId()));
+        dto.setTipoDirittoSoggettoId(String.valueOf(entity.getTipoCoinvolgimentoSoggetto().getId()));
         return dto;
     }
 

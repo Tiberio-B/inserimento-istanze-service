@@ -14,7 +14,6 @@ public abstract class IstanzaRicercaDto<S extends SoggettoRicercaDto> extends Is
     private String dataDa;
     private String dataA;
 
-    private String idTipo;
     private String idStato;
     private String numeroRichiestaPadre;
 

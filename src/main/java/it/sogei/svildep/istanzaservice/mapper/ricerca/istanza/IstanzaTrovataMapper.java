@@ -1,4 +1,4 @@
-package it.sogei.svildep.istanzaservice.mapper.ricerca;
+package it.sogei.svildep.istanzaservice.mapper.ricerca.istanza;
 
 import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.IstanzaTrovataDto;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.Istanza;
@@ -15,6 +15,7 @@ public class IstanzaTrovataMapper implements EntityToDtoMapper<Istanza, IstanzaT
 
     @Override
     public IstanzaTrovataDto mapEntityToDtoImpl(Istanza entity) {
-        return (IstanzaTrovataDto) istanzaMapper.mapEntityToDtoImpl(entity);
+        IstanzaTrovataDto dto = (IstanzaTrovataDto) istanzaMapper.mapEntityToDtoImpl(entity);
+        return dto;
     }
 }

@@ -40,6 +40,6 @@ public class Istanza extends BaseEntity {
     private ModalitaPagamento modalitaPagamento;
     private StatoIstanza stato;
     private Opera opera;
-    private Bene beneEspropriato;
+    private BeneEsprorpiato beneEspropriato;
     //TODO: serve il mandato? SI
 }
