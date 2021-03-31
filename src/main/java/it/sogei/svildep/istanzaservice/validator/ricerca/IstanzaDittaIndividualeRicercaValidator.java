@@ -1,17 +1,12 @@
 package it.sogei.svildep.istanzaservice.validator.ricerca;
 
-import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.IstanzaRicercaDto;
-import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.IstanzaSoggettoFisicoRicercaDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.soggetto.IstanzaDittaIndividualeRicercaDto;
 import it.sogei.svildep.istanzaservice.validator.IstanzaValidator;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
-
 @Component
-public class IstanzaDittaIndividualeRicercaValidator extends IstanzaValidator<IstanzaDittaIndividualeRicercaDto> {
+public class IstanzaDittaIndividualeRicercaValidator extends IstanzaRicercaValidator<IstanzaDittaIndividualeRicercaDto> {
 
     @Override
     public boolean supports(Class<?> aClass) {

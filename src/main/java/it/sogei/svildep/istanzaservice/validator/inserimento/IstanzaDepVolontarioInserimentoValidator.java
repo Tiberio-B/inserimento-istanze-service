@@ -18,7 +18,14 @@ public class IstanzaDepVolontarioInserimentoValidator extends IstanzaInserimento
         super.validate(obj, errors);
         if (obj instanceof IstanzaDepVolontarioInserimentoDto) {
             IstanzaDepVolontarioInserimentoDto dto = (IstanzaDepVolontarioInserimentoDto) obj;
-            // TO-DO
+            /*
+            try {
+                Long.parseLong(dto.getProprietario().getSoggettoId());
+                Long.parseLong(dto.getProprietario().getTipoSoggettoId());
+            } catch (NumberFormatException ex) {
+                errors.rejectValue("id", Messages.invalidIdCode, Messages.invalidIdMessage);
+            }
+            */
         }
         else errors.rejectValue("class", Messages.invalidDtoCode, Messages.invalidDtoMessage);
     }

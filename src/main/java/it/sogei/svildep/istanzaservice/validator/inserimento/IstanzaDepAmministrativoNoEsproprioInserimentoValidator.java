@@ -18,7 +18,14 @@ public class IstanzaDepAmministrativoNoEsproprioInserimentoValidator extends Ist
         super.validate(obj, errors);
         if (obj instanceof IstanzaDepAmministrativoNoEsproprioInserimentoDto) {
             IstanzaDepAmministrativoNoEsproprioInserimentoDto dto = (IstanzaDepAmministrativoNoEsproprioInserimentoDto) obj;
-            // TO-DO
+            try {
+                Long.parseLong(dto.getVersante().getSoggettoId());
+                Long.parseLong(dto.getVersante().getTipoCoinvolgimentoSoggettoId());
+                Long.parseLong(dto.getSoggettoUlteriore().getSoggettoId());
+                Long.parseLong(dto.getSoggettoUlteriore().getTipoCoinvolgimentoSoggettoId());
+            } catch (NumberFormatException ex) {
+                errors.rejectValue("id", Messages.invalidIdCode, Messages.invalidIdMessage);
+            }
         }
         else errors.rejectValue("class", Messages.invalidDtoCode, Messages.invalidDtoMessage);
     }

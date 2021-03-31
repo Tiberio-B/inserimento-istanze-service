@@ -1,10 +1,11 @@
 package it.sogei.svildep.istanzaservice.entity.gestioneistanze;
 
 import it.sogei.svildep.istanzaservice.entity.base.BaseEntity;
+import it.sogei.svildep.istanzaservice.entity.enums.FlagSN;
 import it.sogei.svildep.istanzaservice.entity.gestionedepositi.CategoriaDeposito;
 import it.sogei.svildep.istanzaservice.entity.gestionedepositi.DatoCatastale;
 import it.sogei.svildep.istanzaservice.entity.gestionedepositi.Deposito;
-import it.sogei.svildep.istanzaservice.entity.gestionedepositi.DirittoSoggetto;
+import it.sogei.svildep.istanzaservice.entity.gestionedepositi.CoinvolgimentoSoggetto;
 import it.sogei.svildep.istanzaservice.entity.gestionemodalitapagamento.ModalitaPagamento;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,17 +30,18 @@ public class Istanza extends BaseEntity {
     private DatoCatastale datoCatastale;
     private CategoriaDeposito categoriaDeposito;
     private TipoIstanza tipo;
-    private DirittoSoggetto richiedente;
-    private DirittoSoggetto proprietario;
-    private DirittoSoggetto altroProprietario;
-    private DirittoSoggetto enteCauzionato;
-    private DirittoSoggetto depositanteLegale;
-    private DirittoSoggetto espropriante;
-    private DirittoSoggetto proprietarioEntePubblico;
-    private DirittoSoggetto erede;
+    private CoinvolgimentoSoggetto richiedente;
+    private CoinvolgimentoSoggetto proprietario;
+    private CoinvolgimentoSoggetto altroProprietario;
+    private CoinvolgimentoSoggetto enteCauzionato;
+    private CoinvolgimentoSoggetto depositanteLegale;
+    private CoinvolgimentoSoggetto espropriante;
+    private CoinvolgimentoSoggetto proprietarioEntePubblico;
+    private CoinvolgimentoSoggetto erede;
     private ModalitaPagamento modalitaPagamento;
     private StatoIstanza stato;
     private Opera opera;
     private BeneEsprorpiato beneEspropriato;
+    private FlagSN inserimentoManuale;
     //TODO: serve il mandato? SI
 }

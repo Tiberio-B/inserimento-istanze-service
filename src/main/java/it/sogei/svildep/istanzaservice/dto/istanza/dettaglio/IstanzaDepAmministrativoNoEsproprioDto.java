@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.dto.istanza.dettaglio;
 
-import it.sogei.svildep.istanzaservice.dto.DirittoSoggettoDto;
+import it.sogei.svildep.istanzaservice.dto.CoinvolgimentoSoggettoDto;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,10 +8,10 @@ import lombok.Setter;
 @Setter
 public class IstanzaDepAmministrativoNoEsproprioDto extends IstanzaDepositoDto {
 
-    private DirittoSoggettoDto versanteFisico;
-    private DirittoSoggettoDto versanteGiuridico;
-    private DirittoSoggettoDto versanteDitta;
-    private DirittoSoggettoDto soggettoUlterioreFisico;
-    private DirittoSoggettoDto soggettoUlterioreGiuridico;
+    private CoinvolgimentoSoggettoDto versanteFisico;
+    private CoinvolgimentoSoggettoDto versanteGiuridico;
+    private CoinvolgimentoSoggettoDto versanteDitta;
+    private CoinvolgimentoSoggettoDto soggettoUlterioreFisico;
+    private CoinvolgimentoSoggettoDto soggettoUlterioreGiuridico;
 
 }

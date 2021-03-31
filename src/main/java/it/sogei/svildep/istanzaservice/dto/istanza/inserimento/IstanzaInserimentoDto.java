@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.dto.istanza.inserimento;
 
-import it.sogei.svildep.istanzaservice.dto.DirittoSoggettoDto;
+import it.sogei.svildep.istanzaservice.dto.CoinvolgimentoSoggettoDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
 import lombok.Getter;
@@ -18,13 +18,10 @@ public class IstanzaInserimentoDto extends IstanzaDto {
     @NotBlank(message = Messages.idRTSInoltro)
     private String rtsInoltroId;
 
-    @NotBlank(message = Messages.modalitaTrasmissione)
-    private String modalitaTrasmissione;
+    private List<byte[]> allegati;
 
     @NotBlank(message = Messages.qualitaRichiedente)
-    private String qualitaRichiedente;
-
-    private List<byte[]> allegati;
+    public String getQualitaRichiedenteId() { return  super.getQualitaRichiedenteId(); }
 
     @NotBlank(message = Messages.numeroRichiesta)
     public String getNumeroRichiesta() { return super.getNumeroRichiesta(); }
@@ -51,13 +48,6 @@ public class IstanzaInserimentoDto extends IstanzaDto {
     public String getTipoId() { return super.getTipoId(); }
 
     @NotBlank(message = Messages.richiedente)
-    public DirittoSoggettoDto getRichiedente() { return super.getRichiedente(); }
-
-    public enum QualitaRichiedente {
-
-        ME_MEDESIMO,
-        TITOLARE_RAPPRESENTANTE_LEGALE,
-        RESPONSABILE_UFFICIO_PUBBLICO;
-    }
+    public CoinvolgimentoSoggettoDto getRichiedente() { return super.getRichiedente(); }
 
 }

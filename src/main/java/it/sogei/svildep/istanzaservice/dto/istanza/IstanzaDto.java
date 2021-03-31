@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.dto.istanza;
 
-import it.sogei.svildep.istanzaservice.dto.DirittoSoggettoDto;
+import it.sogei.svildep.istanzaservice.dto.CoinvolgimentoSoggettoDto;
 import it.sogei.svildep.istanzaservice.dto.SvildepDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +10,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class IstanzaDto extends SvildepDto {
+
+    private Boolean inserimentoManuale;
 
     private String numeroRichiesta;
     private String dataRichiesta;
@@ -23,8 +25,9 @@ public class IstanzaDto extends SvildepDto {
 
     private String tipoId;
 
-    private DirittoSoggettoDto richiedente;
+    private CoinvolgimentoSoggettoDto richiedente;
 
     private String statoId;
 
+    private String qualitaRichiedenteId;
 }

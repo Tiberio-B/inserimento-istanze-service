@@ -6,15 +6,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Positive;
 
 @Getter
 @Setter
 @NoArgsConstructor
-public class DirittoSoggettoDto extends SvildepDto {
+public class CoinvolgimentoSoggettoDto extends SvildepDto {
 
-    @NotEmpty(message = Messages.erroreGenerico)
+    @Positive(message = Messages.erroreGenerico)
     private String soggettoId;
 
-    @NotEmpty(message = Messages.erroreGenerico)
-    private String tipoDirittoSoggettoId;
+    @Positive(message = Messages.erroreGenerico)
+    private String tipoCoinvolgimentoSoggettoId;
 }

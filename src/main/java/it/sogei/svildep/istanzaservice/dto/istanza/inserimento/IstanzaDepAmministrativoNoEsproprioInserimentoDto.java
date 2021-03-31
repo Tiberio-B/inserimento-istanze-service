@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.dto.istanza.inserimento;
 
-import it.sogei.svildep.istanzaservice.dto.DirittoSoggettoDto;
+import it.sogei.svildep.istanzaservice.dto.CoinvolgimentoSoggettoDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,10 +16,10 @@ public class IstanzaDepAmministrativoNoEsproprioInserimentoDto extends IstanzaIn
 
     @NotNull(message = Messages.versante)
     @Valid
-    private DirittoSoggettoDto versante;
+    private CoinvolgimentoSoggettoDto versante;
 
     @NotNull(message = Messages.erroreGenerico)
     @Valid
-    private DirittoSoggettoDto soggettoUlteriore;
+    private CoinvolgimentoSoggettoDto soggettoUlteriore;
 
 }

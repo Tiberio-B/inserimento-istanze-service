@@ -19,12 +19,7 @@ public class IstanzaInserimentoValidator<D extends IstanzaInserimentoDto> extend
         super.validate(obj, errors);
         if (obj instanceof IstanzaInserimentoDto) {
             IstanzaInserimentoDto dto = (IstanzaInserimentoDto) obj;
-            try {
-                IstanzaInserimentoDto.QualitaRichiedente.valueOf(dto.getQualitaRichiedente());
-            }
-            catch (IllegalArgumentException ex) {
-                errors.rejectValue("qualitaRichiedente", Messages.invalidQualitaRichiedenteCode, Messages.invalidQualitaRichiedenteMessage);
-            }
+            //TO-DO
         }
         else errors.rejectValue("class", Messages.invalidDtoCode, Messages.invalidDtoMessage);
     }

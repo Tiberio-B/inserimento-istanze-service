@@ -1,8 +1,9 @@
 package it.sogei.svildep.istanzaservice.entity.gestioneincameramenti;
 
+import it.sogei.svildep.istanzaservice.entity.DirittoSoggetto;
 import it.sogei.svildep.istanzaservice.entity.base.BaseEntity;
 import it.sogei.svildep.istanzaservice.entity.gestionedepositi.Deposito;
-import it.sogei.svildep.istanzaservice.entity.gestionedepositi.DirittoSoggetto;
+import it.sogei.svildep.istanzaservice.entity.gestionedepositi.CoinvolgimentoSoggetto;
 import it.sogei.svildep.istanzaservice.entity.gestioneutenti.RTS;
 import lombok.Getter;
 import lombok.Setter;

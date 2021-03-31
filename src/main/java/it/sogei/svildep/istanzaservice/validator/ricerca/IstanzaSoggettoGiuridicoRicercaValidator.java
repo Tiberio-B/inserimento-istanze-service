@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
 @Component
-public class IstanzaSoggettoGiuridicoRicercaValidator extends IstanzaValidator<IstanzaSoggettoGiuridicoRicercaDto> {
+public class IstanzaSoggettoGiuridicoRicercaValidator extends IstanzaRicercaValidator<IstanzaSoggettoGiuridicoRicercaDto> {
 
     @Override
     public boolean supports(Class<?> aClass) {

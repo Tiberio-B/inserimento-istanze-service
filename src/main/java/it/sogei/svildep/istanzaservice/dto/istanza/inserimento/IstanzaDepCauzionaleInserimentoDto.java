@@ -1,11 +1,12 @@
 package it.sogei.svildep.istanzaservice.dto.istanza.inserimento;
 
-import it.sogei.svildep.istanzaservice.dto.DirittoSoggettoDto;
+import it.sogei.svildep.istanzaservice.dto.CoinvolgimentoSoggettoDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Getter
@@ -14,9 +15,11 @@ import javax.validation.constraints.NotNull;
 public class IstanzaDepCauzionaleInserimentoDto extends IstanzaInserimentoDto {
 
     @NotNull(message = Messages.proprietario)
-    private DirittoSoggettoDto proprietario;
+    @Valid
+    private CoinvolgimentoSoggettoDto proprietario;
 
     @NotNull(message = Messages.enteCauzionato)
-    private DirittoSoggettoDto enteCauzionato;
+    @Valid
+    private CoinvolgimentoSoggettoDto enteCauzionato;
 
 }

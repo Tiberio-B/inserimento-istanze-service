@@ -7,8 +7,6 @@ public interface Messages {
     String categoriaDeposito = "E' necessario specificare la categoria deposito.";
     String tipoIstanza = "E' necessario specificare il tipo di istanza.";
 
-    String modalitaTrasmissione = "Errore modalità di trasmissione.";
-
     String idRTSInoltro = "Errore id RTS per inoltro.";
 
     String inserimento = "Inserimento effettuato con successo.";

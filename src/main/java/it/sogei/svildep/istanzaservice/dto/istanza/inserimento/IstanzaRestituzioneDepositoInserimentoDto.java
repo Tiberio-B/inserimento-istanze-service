@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.dto.istanza.inserimento;
 
-import it.sogei.svildep.istanzaservice.dto.DirittoSoggettoDto;
+import it.sogei.svildep.istanzaservice.dto.CoinvolgimentoSoggettoDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,11 +18,11 @@ public class IstanzaRestituzioneDepositoInserimentoDto extends IstanzaInseriment
 
     @NotNull(message = Messages.erroreGenerico)
     @Valid
-    private DirittoSoggettoDto intestatario;
+    private CoinvolgimentoSoggettoDto intestatario;
 
     @NotNull(message = Messages.erroreGenerico)
     @Valid
-    private List<DirittoSoggettoDto> soggettiObbligatori;
+    private List<CoinvolgimentoSoggettoDto> soggettiObbligatori;
 
     @NotBlank(message = Messages.erroreGenerico)
     private String modalitaPagamentoId;

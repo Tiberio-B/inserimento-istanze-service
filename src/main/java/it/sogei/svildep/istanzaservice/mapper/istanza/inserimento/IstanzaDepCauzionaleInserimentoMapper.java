@@ -9,6 +9,6 @@ public class IstanzaDepCauzionaleInserimentoMapper extends IstanzaInserimentoMap
 
     @Override
     public Istanza mapDtoToEntityImpl(IstanzaDepCauzionaleInserimentoDto dto) throws RuntimeException {
-        return getIstanzaMapper().mapDtoToEntityImpl(dto);
+        return super.mapDtoToEntityImpl(dto);
     }
 }

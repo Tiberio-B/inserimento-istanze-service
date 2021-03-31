@@ -1,18 +1,14 @@
 package it.sogei.svildep.istanzaservice.entity.gestioneistanze;
 
-import it.sogei.svildep.istanzaservice.entity.gestioneutenti.Ruolo;
+import it.sogei.svildep.istanzaservice.entity.base.BaseEntity;
+import it.sogei.svildep.istanzaservice.entity.enums.FlagStatoIstanza;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class StatoIstanza {
+public class StatoIstanza extends BaseEntity {
 
     private Long id;
-    private Stato descrizioneStatoIstanza;
-    private Ruolo ruolo;
-
-    public enum Stato {
-
-        IN_BOZZA;
-    }
+    private String descrizione;
+    private FlagStatoIstanza codice;
 }

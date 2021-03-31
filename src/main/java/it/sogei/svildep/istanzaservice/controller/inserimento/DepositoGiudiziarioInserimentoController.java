@@ -8,6 +8,7 @@ import it.sogei.svildep.istanzaservice.service.inserimento.IstanzaInserimentoSer
 import it.sogei.svildep.istanzaservice.validator.inserimento.IstanzaInserimentoValidator;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,7 @@ import javax.validation.Valid;
 @RequestMapping("depositoGiudiziario")
 @RequiredArgsConstructor
 @Getter
+@Setter
 public class DepositoGiudiziarioInserimentoController extends IstanzaInserimentoController<IstanzaDepGiudiziarioInserimentoDto> {
 
     private final IstanzaInserimentoService<IstanzaDepGiudiziarioInserimentoDto> service;

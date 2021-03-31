@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
 @Component
-public class IstanzaSoggettoFisicoRicercaValidator extends IstanzaValidator<IstanzaSoggettoFisicoRicercaDto> {
+public class IstanzaSoggettoFisicoRicercaValidator extends IstanzaRicercaValidator<IstanzaSoggettoFisicoRicercaDto> {
 
     @Override
     public boolean supports(Class<?> aClass) {
