@@ -1,0 +1,15 @@
+@startuml
+skinparam linetype polyline
+
+	interface EntityToDtoMapper <E extends BaseEntity, D extends SvildepDto> {
+		+ {abstract} {method} mapEntityToDtoImpl(D dto) : E
+		> {abstract} {method} throws RunTimeException
+		+ {method} default mapEntityToDto(D dto) : E
+		> {method} throws SvildepException
+		+ {method} default mapEntityToDto(List<D> dtos) : List<E>
+		> {method} throws SvildepException
+	}
+
+
+@enduml
+-txmi:star

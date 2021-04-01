@@ -3,8 +3,7 @@ package it.sogei.svildep.istanzaservice.controller.get;
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
-import it.sogei.svildep.istanzaservice.service.IstanzaGetService;
-import it.sogei.svildep.istanzaservice.validator.ricerca.IstanzaRicercaValidator;
+import it.sogei.svildep.istanzaservice.service.GetIstanzaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class IstanzaGetController {
 
-    private final IstanzaGetService service;
+    private final GetIstanzaService service;
 
     @GetMapping
     public ResponseEntity<List<IstanzaDto>> lista() { return ResponseEntity.ok().body(service.getAll()); }

@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice;
 
-import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.IstanzaTrovataDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.istanza.IstanzaTrovataDto;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;

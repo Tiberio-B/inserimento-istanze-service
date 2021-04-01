@@ -16,20 +16,24 @@ import java.time.LocalDate;
 public class Istanza extends BaseEntity {
 
     private Long id;
+
     private Long numeroRichiesta;
     private LocalDate dataRichiesta;
+
     private Long numeroProtocollo;
     private LocalDate dataProtocollo;
-    private String codicePagoPA;
+
     private Double importoDeposito;
     private String causaleDeposito;
+
     private String datProcedimentoTribunale;
     private Double importoRestituzioneDeopsito;
     private String motivazioneInvioDST;
     private Deposito deposito;
-    private DatoCatastale datoCatastale;
+
     private CategoriaDeposito categoriaDeposito;
     private TipoIstanza tipo;
+
     private CoinvolgimentoSoggetto richiedente;
     private CoinvolgimentoSoggetto proprietario;
     private CoinvolgimentoSoggetto altroProprietario;
@@ -38,8 +42,10 @@ public class Istanza extends BaseEntity {
     private CoinvolgimentoSoggetto espropriante;
     private CoinvolgimentoSoggetto proprietarioEntePubblico;
     private CoinvolgimentoSoggetto erede;
+
     private ModalitaPagamento modalitaPagamento;
     private StatoIstanza stato;
+
     private Opera opera;
     private BeneEsprorpiato beneEspropriato;
     private FlagSN inserimentoManuale;

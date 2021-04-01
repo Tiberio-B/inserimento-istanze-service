@@ -1,0 +1,50 @@
+@startuml
+skinparam linetype polyline
+
+package "Dto" as dto #Business {
+
+	abstract class SvildepDto {
+		- {field} idUtenteInserimento : Long
+    	- {field} timestampInserimento : LocalDateTime
+    	- {field} idUtenteAggiornamento : LocalDateTime
+    	- {field} timestampAggiornamento : Long
+	}
+
+	abstract class IstanzaDto extends SvildepDto {
+		- {field} numeroRichiesta
+		- {field} dataRichiesta
+		- {field} numeroProtocollo
+		- {field} dataProtocollo
+		- {field} importoDeposito
+		- {field} causaleDeposito
+		- {field} categoriaDepositoId
+		- {field} tipoId
+		- {field} statoId
+		+ {method} getters & setters
+	}
+
+	abstract class IstanzaInserimentoDto extends IstanzaDto {
+		- {field} @NotBlank rtsInoltroId
+		- {field} @NotBlank modalitaTrasmissione
+		- {field} @NotBlank qualitaRichiedente
+		- {field} @NotEmpty coinvolgimenti : List<CoinvolgimentoSoggettoDto>
+		- {field} allegati
+		+ {method} @NotBlank all superclass getters
+		+ {method} getters & setters
+	}
+
+	class IstanzaDepAmministrativoInserimentoDto extends IstanzaInserimentoDto {
+		- {field} @NotBlank operaId
+		- {field} @NotBlank beneEspropriatoId
+		- {field} @NotBlank autoritaEsproprianteCoincidenteConDepositante
+		- {field} @NotBlank soggettoDaIndividuare
+		+ {method} getters & setters
+	}
+
+	
+}
+
+
+
+@enduml
+-txmi:star

@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.mapper.ricerca.istanza;
 
-import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.IstanzaTrovataDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.istanza.IstanzaTrovataDto;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.Istanza;
 import it.sogei.svildep.istanzaservice.mapper.istanza.IstanzaMapper;
 import it.sogei.svildep.istanzaservice.mapper.EntityToDtoMapper;

@@ -1,0 +1,106 @@
+@startuml
+
+
+	package "Controller" as contr #Application {
+
+		package "Inserimento" as insContr {
+			abstract class IstanzaInserimentoController {
+				- {field} validator : IstanzInserimentoaValidator
+				- {field} service : IstanzaInserimentoService
+				..
+				~ {method} insert : ResponseEntity<MessageDto>
+				> {method} requestDto : IstanzaInserimentoDto,
+				> {method} br : BindingResult
+			}
+			class DecSvincoloReintroitoInserimentoController << @RestController >> {
+				+ {method} @PostMapping post : ResponseEntity<MessageDto>
+				> {method} requestDto : DecretoSvincoloReintroitoDto,
+				> {method} br : BindingResult
+			}
+			class DepAmministrativoInserimentoController << @RestController >> {
+				+ {method} @PostMapping post : ResponseEntity<MessageDto>
+				> {method} requestDto : DepositoAmministrativoDto,
+				> {method} br : BindingResult
+			}
+			class DepAmministrativoNoEsproprioInserimentoController << @RestController >> { 
+				+ {method} @PostMapping post : ResponseEntity<MessageDto>
+				> {method} requestDto : DepositoAmministrativoNoEsproprioDto,
+				> {method} br : BindingResult
+			}
+	  		class DepCauzionaleInserimentoController << @RestController >> {
+				+ {method} @PostMapping post : ResponseEntity<MessageDto>
+				> {method} requestDto : DepositoCauzionaleDto,
+				> {method} br : BindingResult
+			}
+			class DepGiudiziarioInserimentoController << @RestController >> {
+				+ {method} @PostMapping post : ResponseEntity<MessageDto>
+				> {method} requestDto : DepositoGiudiziarioDto,
+				> {method} br : BindingResult
+			}
+			class DepVolontarioInserimentoController << @RestController >> {
+				+ {method} @PostMapping post : ResponseEntity<MessageDto>
+				> {method} requestDto : DepositoVolontarioDto,
+				> {method} br : BindingResult
+			}
+			class RestituzioneDepositoInserimentoController << @RestController >> {
+				+ {method} @PostMapping post : ResponseEntity<MessageDto>
+				> {method} requestDto : RestituzioneDepositoDto,
+				> {method} br : BindingResult
+			}
+			class IstanzaInserimentoValidator << @Component >> {
+				+ {method} validate
+				> {method} requestDto : IstanzaDto
+				> {method} errors : Errors
+			}
+
+			class DepAmministrativoInserimentoController extends IstanzaInserimentoController
+			class DepAmministrativoNoEsproprioInserimentoController extends IstanzaInserimentoController
+	  		class DepCauzionaleInserimentoController extends IstanzaInserimentoController
+			class DepGiudiziarioInserimentoController extends IstanzaInserimentoController
+			class RestituzioneDepositoInserimentoController extends IstanzaInserimentoController
+			class DepVolontarioInserimentoController extends IstanzaInserimentoController
+			DecSvincoloReintroitoInserimentoController -left-|> IstanzaInserimentoController
+		}
+	}
+
+	package "Service" as serv #Business {
+
+		package "Inserimento" as insServ {
+			
+			class IstanzaInserimentoService << @Service >> {
+				- {field} persistenceService : PersistenceService
+				..
+				+ {method} insert : MessageDto
+				> {method} requestDto : IstanzaInserimentoDto 
+				< {method} throws SvildepException
+			}
+		}
+	}
+
+	package "ExternalService" as zext #Strategy {
+		abstract class ExternalService {
+			- {field} restTemplate : RestTemplate
+			+ {method} getURL() : String
+		}
+
+		class PersistenceService << @Service >> extends ExternalService {
+			+ {method} inserimentoiIstanza : MessageDto
+			> {method} istanza : IstanzaDto
+			< {method} throws SvildepException
+		}
+	}
+
+		IstanzaInserimentoController::service -right[thickness=4]- IstanzaInserimentoService : service
+		IstanzaInserimentoController::validator -up- IstanzaInserimentoValidator : validator
+
+		
+		IstanzaInserimentoService::persistenceService -- PersistenceService
+
+		DepGiudiziarioInserimentoController -[hidden]down- DepCauzionaleInserimentoController
+		DepAmministrativoInserimentoController -[hidden]down- DepAmministrativoNoEsproprioInserimentoController
+		RestituzioneDepositoInserimentoController -[hidden]down- DepVolontarioInserimentoController
+
+		
+
+@enduml
+-txmi:star

@@ -1,8 +1,6 @@
 package it.sogei.svildep.istanzaservice.validator;
 
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
-import it.sogei.svildep.istanzaservice.dto.istanza.inserimento.IstanzaInserimentoDto;
-import it.sogei.svildep.istanzaservice.entity.gestioneistanze.QualitaRichiedente;
 import it.sogei.svildep.istanzaservice.exception.Messages;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

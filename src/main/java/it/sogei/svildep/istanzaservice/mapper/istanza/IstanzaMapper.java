@@ -1,12 +1,9 @@
 package it.sogei.svildep.istanzaservice.mapper.istanza;
 
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
-import it.sogei.svildep.istanzaservice.dto.istanza.inserimento.IstanzaInserimentoDto;
-import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.IstanzaRicercaDto;
 import it.sogei.svildep.istanzaservice.entity.gestionedepositi.CategoriaDeposito;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.Istanza;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.QualitaRichiedente;
-import it.sogei.svildep.istanzaservice.entity.gestioneistanze.StatoIstanza;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.TipoIstanza;
 import it.sogei.svildep.istanzaservice.mapper.Mapper;
 import lombok.NoArgsConstructor;

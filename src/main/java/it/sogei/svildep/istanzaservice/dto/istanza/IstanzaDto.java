@@ -2,9 +2,12 @@ package it.sogei.svildep.istanzaservice.dto.istanza;
 
 import it.sogei.svildep.istanzaservice.dto.CoinvolgimentoSoggettoDto;
 import it.sogei.svildep.istanzaservice.dto.SvildepDto;
+import it.sogei.svildep.istanzaservice.exception.Messages;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.validation.constraints.Positive;
 
 @Getter
 @Setter
@@ -21,6 +24,8 @@ public class IstanzaDto extends SvildepDto {
 
     private String importoDeposito;
     private String causaleDeposito;
+
+    @Positive(message = Messages.erroreGenerico)
     private String categoriaDepositoId;
 
     private String tipoId;

@@ -1,0 +1,80 @@
+@startuml
+
+
+	package "Controller" as contr #Application {
+
+		package "Inserimento" as insContr {
+			abstract class IstanzaInserimentoController {
+				- {field} validator : IstanzInserimentoaValidator
+				- {field} service : IstanzaInserimentoService
+				..
+				~ {method} insert : ResponseEntity<MessageDto>
+				> {method} requestDto : IstanzaInserimentoDto,
+				> {method} br : BindingResult
+			}
+
+	  		class IstanzaDepCauzionaleInserimentoController << @RestController >> extends IstanzaInserimentoController {
+				+ {method} @PostMapping post : ResponseEntity<MessageDto>
+				> {method} requestDto : DepositoCauzionaleDto,
+				> {method} br : BindingResult
+			}
+			
+			class IstanzaInserimentoValidator << @Component >> {
+				+ {method} validate
+				> {method} requestDto : IstanzaDto
+				> {method} errors : Errors
+			}
+
+			class IstanzaDepCauzionaleInserimentoValidator << @Component >> extends IstanzaInserimentoValidator {
+				+ {method} validate
+				> {method} requestDto : IstanzaDto
+				> {method} errors : Errors
+			}
+		}
+	}
+
+	package "Service" as serv #Business {
+
+		package "Inserimento" as insServ {
+			
+			class IstanzaInserimentoService << @Service >> {
+				- {field} persistenceService : PersistenceService
+				..
+				+ {method} insert : MessageDto
+				> {method} requestDto : IstanzaInserimentoDto 
+				< {method} throws SvildepException
+			}
+
+			class IstanzaDepCauzionaleInserimentoService << @Service >> extends IstanzaInserimentoService {
+				- {field} persistenceService : PersistenceService
+				..
+				+ {method} insert : MessageDto
+				> {method} requestDto : IstanzaInserimentoDto 
+				< {method} throws SvildepException
+			}
+		}
+	}
+
+	package "ExternalService" as zext #Strategy {
+		abstract class ExternalService {
+			- {field} restTemplate : RestTemplate
+			+ {method} getURL() : String
+		}
+
+		class PersistenceService << @Service >> extends ExternalService {
+			+ {method} inserimentoiIstanza : MessageDto
+			> {method} istanza : IstanzaDto
+			< {method} throws SvildepException
+		}
+	}
+
+		IstanzaInserimentoController::service -right[thickness=4]- IstanzaInserimentoService : service
+		IstanzaInserimentoController::validator -up- IstanzaInserimentoValidator : validator
+
+		
+		IstanzaInserimentoService::persistenceService -- PersistenceService
+
+		IstanzaDepCauzionaleInserimentoValidator -[hidden]left- IstanzaInserimentoValidator	
+
+@enduml
+-txmi:star

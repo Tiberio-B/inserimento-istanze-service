@@ -1,0 +1,106 @@
+@startuml
+skinparam linetype polyline
+
+package "Model" as mod #Application {
+	abstract class BaseEntity {
+		+ {abstract} {method} getId() : Long
+    	+ {abstract} {method} setId(Long id)
+		- {field} idUtenteInserimento : Long
+    	- {field} timestampInserimento : LocalDateTime
+    	- {field} idUtenteAggiornamento : LocalDateTime
+    	- {field} timestampAggiornamento : Long
+		+ {method} getters & setters
+	}
+
+	class Istanza extends BaseEntity {
+		- {field} id : Long
+	    - {field} numeroRichiesta : Long
+	    - {field} dataRichiesta : LocalDateTime
+	    - {field} numeroProtocollo : Long
+	    - {field} dataProtocollo : LocalDateTime
+	    - {field} importoDeposito : Double
+	    - {field} causaleDeposito : String
+	    - {field} datProcedimentoTribunale : LocalDateTime
+	    - {field} importoRestituzioneDeposito : Double
+	    - {field} motivazioneInvioDST : String
+	    - {field} deposito : Deposito
+	    - {field} datoCatastale : DatoCatastale
+	    - {field} categoriaDeposito : CategoriaDeposito
+	    - {field} tipoIstanza : TipoIstanza
+	    - {field} modalitaPagamento : ModalitaPagamento
+	    - {field} stato : StatoIstanza
+		+ {method} getters & setters
+	}
+
+	class Soggetto extends BaseEntity {
+		- {field} id : Long
+	    - {field} numeroRichiesta : Long
+	    - {field} dataRichiesta : LocalDateTime
+	    - {field} numeroProtocollo : Long
+	    - {field} dataProtocollo : LocalDateTime
+	    - {field} importoDeposito : Double
+	    - {field} causaleDeposito : String
+	    - {field} datProcedimentoTribunale : LocalDateTime
+	    - {field} importoRestituzioneDeposito : Double
+	    - {field} motivazioneInvioDST : String
+	    - {field} deposito : Deposito
+	    - {field} datoCatastale : DatoCatastale
+	    - {field} categoriaDeposito : CategoriaDeposito
+	    - {field} tipoIstanza : TipoIstanza
+	    - {field} modalitaPagamento : ModalitaPagamento
+	    - {field} stato : StatoIstanza
+		+ {method} getters & setters
+	}
+
+	class CoinvolgimentoSoggetto {
+	}
+
+	CoinvolgimentoSoggetto -up- Istanza : istanza
+	CoinvolgimentoSoggetto -up- Soggetto : soggetto
+
+	class Deposito extends BaseEntity {
+		- {field} id : Long
+	    - {field} numeroRichiesta : Long
+	    - {field} dataRichiesta : LocalDateTime
+	    - {field} numeroProtocollo : Long
+	    - {field} dataProtocollo : LocalDateTime
+	    - {field} importoDeposito : Double
+	    - {field} causaleDeposito : String
+	    - {field} datProcedimentoTribunale : LocalDateTime
+	    - {field} importoRestituzioneDeposito : Double
+	    - {field} motivazioneInvioDST : String
+	    - {field} deposito : Deposito
+	    - {field} datoCatastale : DatoCatastale
+	    - {field} categoriaDeposito : CategoriaDeposito
+	    - {field} tipoIstanza : TipoIstanza
+	    - {field} modalitaPagamento : ModalitaPagamento
+	    - {field} stato : StatoIstanza
+		+ {method} getters & setters
+	}
+	
+	class DirittoSoggetto {
+	}
+
+	DirittoSoggetto -up- Deposito : deposito
+	DirittoSoggetto -up- Soggetto : soggetto
+
+	class TipoDirittoSoggetto {
+		- {field} descrizione : String
+		- {field} codice : Enum
+		+ {method} getters & setters
+	}
+
+	DirittoSoggetto -down- TipoDirittoSoggetto : tipoDiritto
+
+	class TipoCoinvolgimentoSoggetto {
+		- {field} descrizione : String
+		- {field} codice : Enum
+		+ {method} getters & setters
+	}
+
+	CoinvolgimentoSoggetto -down- TipoCoinvolgimentoSoggetto : tipoCoinvolgimento
+
+}
+
+@enduml
+-txmi:star

@@ -1,0 +1,47 @@
+@startuml
+skinparam linetype polyline
+
+package "Mapper" as map #Strategy {
+
+	together {
+
+		interface DtoToEntityMapper <E extends BaseEntity, D extends SvildepDto> {
+			+ {abstract} {method} mapDtoToEntityImpl(D dto) : E
+			> {abstract} {method} throws RunTimeException
+			+ {method} default mapDtoToEntity(D dto) : E
+			> {method} throws SvildepException
+			+ {method} default mapDtoToEntity(List<D> dtos) : List<E>
+			> {method} throws SvildepException
+		}
+		
+	}
+
+	together {
+
+		abstract class IstanzaMapper <Istanza, D extends IstanzaDto>
+
+		abstract class IstanzaInserimentoMapper <Istanza, IstanzaInserimentoDto> extends DtoToEntityMapper {
+			- {field} @Autowired IstanzaMapper : IstanzaMapper
+		}
+
+		abstract class IstanzaRicercaMapper <Istanza, IstanzaRicercaDto> extends DtoToEntityMapper {
+			- {field} @Autowired IstanzaMapper : IstanzaMapper
+		}
+
+		IstanzaInserimentoMapper -left- IstanzaMapper
+		IstanzaRicercaMapper -right- IstanzaMapper
+
+		IstanzaMapper -up-|> DtoToEntityMapper
+	}
+
+	together {
+
+		class IstanzaDepAmministrativoInserimentoMapper <Istanza, IstanzaDepAmministrativoInserimentoDto> extends IstanzaInserimentoMapper
+
+		class IstanzaDepAmministrativoRicercaMapper <Istanza, IstanzaDepAmministrativoRicercaDto> extends IstanzaRicercaMapper
+	}
+
+}
+
+@enduml
+-txmi:star

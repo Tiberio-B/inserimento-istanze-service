@@ -31,7 +31,7 @@ class SvildepException extends RuntimeException {
     }
 
     public SvildepException(Exception ex) {
-        super(ex.getCause() + "\n" + ex.getMessage());
+        this.setMessage(ex.getMessage());
     }
 
     private String getErrorMessages(BindingResult bindingResult) {
