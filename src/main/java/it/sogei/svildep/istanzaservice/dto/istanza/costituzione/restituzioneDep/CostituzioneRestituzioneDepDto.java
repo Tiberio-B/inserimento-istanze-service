@@ -3,6 +3,7 @@ package it.sogei.svildep.istanzaservice.dto.istanza.costituzione.restituzioneDep
 import it.sogei.svildep.istanzaservice.dto.CoinvolgimentoSoggettoDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.costituzione.CostituzioneDepositoDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
+import it.sogei.svildep.istanzaservice.validation.annotation.ValidSvildepId;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,13 +27,13 @@ public class CostituzioneRestituzioneDepDto extends CostituzioneDepositoDto {
     @Valid
     private List<CoinvolgimentoSoggettoDto> soggettiObbligatori;
 
-    @Positive(message = Messages.erroreGenerico)
+    @ValidSvildepId
     private String modalitaPagamentoId;
 
     @NotBlank(message = Messages.erroreGenerico)
     private String pagamentoASoggettiDeposito;
 
-    @Positive(message = Messages.erroreGenerico)
+    @NotBlank(message = Messages.erroreGenerico)
     private String importoRichiesto;
 
 }

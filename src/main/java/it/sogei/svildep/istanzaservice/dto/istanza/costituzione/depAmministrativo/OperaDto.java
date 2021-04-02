@@ -13,5 +13,7 @@ public class OperaDto extends SvildepDto {
 
     @NotBlank(message = Messages.descrizioneOpera)
     private String descrizione;
-    private String regione;
+
+    @NotBlank(message = Messages.erroreGenerico)
+    private String regioneId;
 }

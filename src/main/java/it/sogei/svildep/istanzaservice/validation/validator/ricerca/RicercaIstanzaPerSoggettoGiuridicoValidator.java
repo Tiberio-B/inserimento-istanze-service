@@ -1,4 +1,4 @@
-package it.sogei.svildep.istanzaservice.validator.ricerca;
+package it.sogei.svildep.istanzaservice.validation.validator.ricerca;
 
 import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.istanza.RicercaIstanzaPerSoggettoGiuridicoDto;
 import org.springframework.stereotype.Component;

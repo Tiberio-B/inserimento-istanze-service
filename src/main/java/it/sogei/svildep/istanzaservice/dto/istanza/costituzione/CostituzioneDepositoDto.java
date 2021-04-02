@@ -3,6 +3,7 @@ package it.sogei.svildep.istanzaservice.dto.istanza.costituzione;
 import it.sogei.svildep.istanzaservice.dto.CoinvolgimentoSoggettoDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
+import it.sogei.svildep.istanzaservice.validation.annotation.ValidSvildepId;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import lombok.Setter;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import java.util.List;
 
@@ -18,7 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 public class CostituzioneDepositoDto extends IstanzaDto {
 
-    @NotBlank(message = Messages.idRTSInoltro)
+    @ValidSvildepId(message = Messages.idRTSInoltro)
     private String rtsInoltroId;
 
     private List<byte[]> allegati;
@@ -27,8 +29,11 @@ public class CostituzioneDepositoDto extends IstanzaDto {
     @Valid
     private List<CoinvolgimentoSoggettoDto> coinvolgimenti;
 
-    @NotBlank(message = Messages.qualitaRichiedente)
+    @ValidSvildepId(message = Messages.qualitaRichiedente)
     public String getQualitaRichiedenteId() { return  super.getQualitaRichiedenteId(); }
+
+    @ValidSvildepId(message = Messages.tipoIstanza)
+    public String getTipoId() { return super.getTipoId(); }
 
     @NotBlank(message = Messages.numeroRichiesta)
     public String getNumeroRichiesta() { return super.getNumeroRichiesta(); }
@@ -47,11 +52,5 @@ public class CostituzioneDepositoDto extends IstanzaDto {
 
     @NotBlank(message = Messages.causaleDeposito)
     public String getCausaleDeposito() { return super.getCausaleDeposito(); }
-
-    @Positive(message = Messages.tipoIstanza)
-    public String getTipoId() { return super.getTipoId(); }
-
-    @NotBlank(message = Messages.richiedente)
-    public CoinvolgimentoSoggettoDto getRichiedente() { return super.getRichiedente(); }
 
 }

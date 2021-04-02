@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -25,7 +26,7 @@ public class CostituzioneDepositoService<D extends CostituzioneDepositoDto> exte
 
     public MessageDto insert(D istanzaDtoInserimento) throws SvildepException {
         Istanza istanza = istanzaMapper.mapDtoToEntity(istanzaDtoInserimento);
-        List<CoinvolgimentoSoggetto> coinvolgimenti = coinvolgimentoSoggettoMapper.mapDtoToEntity(istanzaDtoInserimento.getCoinvolgimenti());
+        ArrayList<CoinvolgimentoSoggetto> coinvolgimenti = new ArrayList<>(coinvolgimentoSoggettoMapper.mapDtoToEntity(istanzaDtoInserimento.getCoinvolgimenti()));
         return getPersistenceService().insertIstanza(istanza, coinvolgimenti);
     }
 

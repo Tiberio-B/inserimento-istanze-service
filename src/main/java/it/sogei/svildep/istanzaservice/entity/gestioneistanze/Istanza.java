@@ -26,7 +26,7 @@ public class Istanza extends BaseEntity {
     private Double importoDeposito;
     private String causaleDeposito;
 
-    private String datProcedimentoTribunale;
+    private String datiProcedimentoTribunale;
     private Double importoRestituzioneDeopsito;
     private String motivazioneInvioDST;
     private Deposito deposito;

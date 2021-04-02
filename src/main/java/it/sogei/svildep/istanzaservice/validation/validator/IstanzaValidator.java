@@ -1,4 +1,4 @@
-package it.sogei.svildep.istanzaservice.validator;
+package it.sogei.svildep.istanzaservice.validation.validator;
 
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;

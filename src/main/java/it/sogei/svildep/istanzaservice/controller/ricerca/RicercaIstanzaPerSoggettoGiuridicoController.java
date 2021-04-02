@@ -4,7 +4,7 @@ import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.istanza.RicercaIstanz
 import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.istanza.IstanzaTrovataDto;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import it.sogei.svildep.istanzaservice.service.ricerca.RicercaIstanzaService;
-import it.sogei.svildep.istanzaservice.validator.ricerca.RicercaIstanzaValidator;
+import it.sogei.svildep.istanzaservice.validation.validator.ricerca.RicercaIstanzaValidator;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

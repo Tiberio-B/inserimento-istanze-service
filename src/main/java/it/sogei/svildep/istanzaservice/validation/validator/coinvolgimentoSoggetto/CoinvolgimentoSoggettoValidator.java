@@ -1,8 +1,8 @@
-package it.sogei.svildep.istanzaservice.validator.coinvolgimentoSoggetto;
+package it.sogei.svildep.istanzaservice.validation.validator.coinvolgimentoSoggetto;
 
 import it.sogei.svildep.istanzaservice.dto.CoinvolgimentoSoggettoDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
-import it.sogei.svildep.istanzaservice.validator.DtoValidator;
+import it.sogei.svildep.istanzaservice.validation.validator.DtoValidator;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 

@@ -4,7 +4,7 @@ import it.sogei.svildep.istanzaservice.dto.MessageDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.costituzione.depGiudiziario.CostituzioneDepGiudiziarioDto;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import it.sogei.svildep.istanzaservice.service.costituzione.CostituzioneDepositoService;
-import it.sogei.svildep.istanzaservice.validator.costituzione.CostituzioneDepositoValidator;
+import it.sogei.svildep.istanzaservice.validation.validator.costituzione.CostituzioneDepositoValidator;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -29,7 +29,7 @@ public class CostituzioneDepGiudiziarioController extends CostituzioneDepositoCo
     private final CostituzioneDepositoValidator<CostituzioneDepGiudiziarioDto> validator;
 
     @PostMapping
-    public ResponseEntity<MessageDto> post(@Valid @RequestBody CostituzioneDepGiudiziarioDto requestDto, BindingResult bindingResult)
+    public ResponseEntity<String> post(@Valid @RequestBody CostituzioneDepGiudiziarioDto requestDto, BindingResult bindingResult)
             throws SvildepException { return insert(requestDto, bindingResult); }
 
 }

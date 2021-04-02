@@ -1,7 +1,7 @@
-package it.sogei.svildep.istanzaservice.validator.ricerca;
+package it.sogei.svildep.istanzaservice.validation.validator.ricerca;
 
 import it.sogei.svildep.istanzaservice.dto.istanza.ricerca.istanza.RicercaIstanzaDto;
-import it.sogei.svildep.istanzaservice.validator.IstanzaValidator;
+import it.sogei.svildep.istanzaservice.validation.validator.IstanzaValidator;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 

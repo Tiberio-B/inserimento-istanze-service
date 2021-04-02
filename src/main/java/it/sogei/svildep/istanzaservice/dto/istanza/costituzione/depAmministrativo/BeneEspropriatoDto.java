@@ -19,5 +19,6 @@ public class BeneEspropriatoDto extends SvildepDto {
     private DatoCatastaleDto datiCatastali;
 
     @NotEmpty(message = Messages.proprietariCatastali)
+    @Valid
     private List<ProprietarioCatastaleDto> proprietariCatastali;
 }

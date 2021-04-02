@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 @AllArgsConstructor
-public class MessageDto extends SvildepDto {
+public class MessageDto {
 
     private String content;
 

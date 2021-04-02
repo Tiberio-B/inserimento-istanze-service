@@ -1,4 +1,4 @@
-package it.sogei.svildep.istanzaservice.validator.costituzione;
+package it.sogei.svildep.istanzaservice.validation.validator.costituzione;
 
 import it.sogei.svildep.istanzaservice.dto.istanza.costituzione.depAmministrativo.ProprietarioCatastaleDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.costituzione.depAmministrativo.CostituzioneDepAmministrativoDto;
