@@ -7,6 +7,7 @@ import it.sogei.svildep.istanzaservice.entity.gestionedepositi.DatoCatastale;
 import it.sogei.svildep.istanzaservice.entity.gestionedepositi.Deposito;
 import it.sogei.svildep.istanzaservice.entity.gestionedepositi.CoinvolgimentoSoggetto;
 import it.sogei.svildep.istanzaservice.entity.gestionemodalitapagamento.ModalitaPagamento;
+import it.sogei.svildep.istanzaservice.entity.gestioneutenti.RTS;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,27 +28,29 @@ public class Istanza extends BaseEntity {
     private String causaleDeposito;
 
     private String datiProcedimentoTribunale;
-    private Double importoRestituzioneDeopsito;
+    private Double importoRestituzioneDeposito;
     private String motivazioneInvioDST;
+
     private Deposito deposito;
+    private DatoCatastale datoCatastale;
 
     private CategoriaDeposito categoriaDeposito;
+
     private TipoIstanza tipo;
 
-    private CoinvolgimentoSoggetto richiedente;
-    private CoinvolgimentoSoggetto proprietario;
-    private CoinvolgimentoSoggetto altroProprietario;
-    private CoinvolgimentoSoggetto enteCauzionato;
-    private CoinvolgimentoSoggetto depositanteLegale;
-    private CoinvolgimentoSoggetto espropriante;
-    private CoinvolgimentoSoggetto proprietarioEntePubblico;
-    private CoinvolgimentoSoggetto erede;
-
-    private ModalitaPagamento modalitaPagamento;
     private StatoIstanza stato;
 
-    private Opera opera;
+    private ModalitaPagamento modalitaPagamento;
+
+    private RTS rtsInoltro;
+
+    private RTS rtsCompetente;
+
     private BeneEsprorpiato beneEspropriato;
+
+    private QualitaRichiedente qualitaRichiedente;
+
+    private Opera opera;
+
     private FlagSN inserimentoManuale;
-    //TODO: serve il mandato? SI
 }

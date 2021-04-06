@@ -34,22 +34,22 @@ public class PersistenceService implements ExternalService {
     private String PATH_ISTANZE;
 
     public Istanza getIstanza(Long id) {
-        return restTemplate.exchange(URL+ PATH_ISTANZE, HttpMethod.GET, new HttpEntity<>(id), Istanza.class).getBody();
+        return restTemplate.exchange(URL+PATH_ISTANZE, HttpMethod.GET, new HttpEntity<>(id), Istanza.class).getBody();
     }
 
     public MessageDto insertIstanza(Istanza istanza, ArrayList<CoinvolgimentoSoggetto> coinvolgimenti) throws SvildepException {
-        Pair<Istanza, ArrayList<CoinvolgimentoSoggetto>> entities = new Pair(istanza, coinvolgimenti);
-        HttpEntity<String> json = new HttpEntity<>(JsonOperation.objectToJson(entities));
-        HttpEntity<String> istanzaDaInviare = new HttpEntity<>(JsonOperation.objectToJson(istanza));
-        return restTemplate.exchange(URL+ PATH_ISTANZE, HttpMethod.POST, istanzaDaInviare, MessageDto.class).getBody();
+        String json1 = JsonOperation.objectToJson(istanza);
+        String json2 = JsonOperation.objectToJson(coinvolgimenti);
+        HttpEntity<String[]> json = new HttpEntity<>(new String[]{json1, json2});
+        return restTemplate.exchange(URL+PATH_ISTANZE, HttpMethod.POST, json, MessageDto.class).getBody();
     }
 
     public List<Istanza> getAllIstanze() {
-        return restTemplate.exchange(URL+ PATH_ISTANZE, HttpMethod.GET, null, List.class).getBody();
+        return restTemplate.exchange(URL+PATH_ISTANZE, HttpMethod.GET, null, List.class).getBody();
     }
 
     public List<Istanza> searchIstanze(List<Object> entities) {
-        return restTemplate.exchange(URL+ PATH_ISTANZE, HttpMethod.POST, new HttpEntity<>(entities), List .class).getBody();
+        return restTemplate.exchange(URL+PATH_ISTANZE, HttpMethod.POST, new HttpEntity<>(entities), List .class).getBody();
     }
 
 }
