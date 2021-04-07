@@ -1,7 +1,7 @@
 package it.sogei.svildep.istanzaservice.mapper.soggetto;
 
 import it.sogei.svildep.istanzaservice.dto.CoinvolgimentoSoggettoDto;
-import it.sogei.svildep.istanzaservice.entity.gestionedepositi.CoinvolgimentoSoggetto;
+import it.sogei.svildep.istanzaservice.entity.gestioneistanze.CoinvolgimentoSoggetto;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.TipoCoinvolgimentoSoggetto;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.Soggetto;
 import it.sogei.svildep.istanzaservice.mapper.DtoToEntityMapper;

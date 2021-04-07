@@ -1,6 +1,15 @@
 package it.sogei.svildep.istanzaservice.entity.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
 public enum FlagTipoSoggetto {
 
-    F, G, D;
+    TSF("Soggetto fisico"),
+    TSG("Soggetto giuridico"),
+    TSD("Ditta individuale");
+
+    public String descrizione;
 }

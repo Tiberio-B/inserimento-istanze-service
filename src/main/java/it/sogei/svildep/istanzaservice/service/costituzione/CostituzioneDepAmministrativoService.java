@@ -13,4 +13,6 @@ public class CostituzioneDepAmministrativoService extends CostituzioneDepositoSe
 
     private final CostituzioneDepositoMapper<CostituzioneDepAmministrativoDto> istanzaMapper;
 
+
+
 }

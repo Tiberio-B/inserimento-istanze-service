@@ -1,23 +1,26 @@
 package it.sogei.svildep.istanzaservice.entity.gestionedepositi;
 
 import it.sogei.svildep.istanzaservice.entity.base.BaseEntity;
+import it.sogei.svildep.istanzaservice.entity.enums.FlagCategoriaDeposito;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
+
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
 @Getter @Setter
+@Entity
+@Table(name = "D_CATEGORIE_DEPOSITO")
 public class CategoriaDeposito extends BaseEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
+    @Column(name = "PK_SEQU_ID_CATEGORIA_DEPOSITO")
     private Long id;
-    private Categoria descrizioneCategoriaDeposito;
-
-    public enum Categoria {
-
-        DEPOSITO_CAUZIONALE,
-        DEPOSITO_GIUDIZIARIO,
-        DEPOSITO_AMMINISTRATIVO,
-        DEPOSITO_AMMINISTRATIVO_NO_ESPROPRIO,
-        DEPOSITO_VOLONTARIO,
-        DECRETO_SVINCOLO_REINTROITO,
-        RESTITUZIONE_DEPOSITO;
-    }
+    @Column(name = "DESC_DESCRIZIONE_CATEGORIA_DEPOSITO")
+    private String descrizioneCategoriaDeposito;
+    @Column(name = "CODI_CODICE_CATEGORIA")
+    private FlagCategoriaDeposito codiceCategoria;
 }

@@ -2,18 +2,17 @@ package it.sogei.svildep.istanzaservice.dto.istanza.costituzione.depAmministrati
 
 import it.sogei.svildep.istanzaservice.dto.SvildepDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
-import it.sogei.svildep.istanzaservice.validation.annotation.ValidSvildepId;
+import it.sogei.svildep.istanzaservice.validation.annotation.ParsableLong;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
 public class DatoCatastaleDto extends SvildepDto {
 
-    @ValidSvildepId(message = Messages.tipoCatasto)
+    @ParsableLong(message = Messages.tipoCatasto)
     private String tipoCatastoId;
 
     @NotBlank(message = Messages.sezioneUrbana)
@@ -28,6 +27,6 @@ public class DatoCatastaleDto extends SvildepDto {
     @NotBlank(message = Messages.particellaCatasto)
     private String particella;
 
-    @ValidSvildepId(message = Messages.comune)
+    @ParsableLong(message = Messages.comune)
     private String comuneId;
 }

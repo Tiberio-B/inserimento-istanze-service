@@ -28,7 +28,4 @@ public class CostituzioneDecSvincoloReintroitoController extends CostituzioneDep
 
     private final CostituzioneDepositoValidator<CostituzioneDecSvincoloReintroitoDto> validator;
 
-    @PostMapping
-    public ResponseEntity<String> post(@Valid @RequestBody CostituzioneDecSvincoloReintroitoDto requestDto, BindingResult bindingResult)
-            throws SvildepException { return insert(requestDto, bindingResult); }
 }

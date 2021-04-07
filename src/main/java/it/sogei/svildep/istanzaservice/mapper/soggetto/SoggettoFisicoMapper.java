@@ -1,6 +1,7 @@
 package it.sogei.svildep.istanzaservice.mapper.soggetto;
 
 import it.sogei.svildep.istanzaservice.dto.soggetto.SoggettoFisicoDto;
+import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.Soggetto;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.SoggettoFisico;
 import it.sogei.svildep.istanzaservice.mapper.geo.NascitaMapper;
 import lombok.RequiredArgsConstructor;
@@ -10,11 +11,11 @@ import java.time.LocalDate;
 
 @Component
 @RequiredArgsConstructor
-public class SoggettoFisicoMapper extends SoggettoMapper<SoggettoFisico, SoggettoFisicoDto> {
+public class SoggettoFisicoMapper extends SoggettoMapper<Soggetto, SoggettoFisicoDto> {
 
     private final NascitaMapper nascitaMapper;
 
-    @Override
+    /*@Override
     public SoggettoFisicoDto mapEntityToDtoImpl(SoggettoFisico entity) {
         SoggettoFisicoDto dto = super.daSoggettoADto(entity, new SoggettoFisicoDto());
         dto.setCognome(entity.getCognome());
@@ -31,6 +32,16 @@ public class SoggettoFisicoMapper extends SoggettoMapper<SoggettoFisico, Soggett
         entity.setNome(dto.getNome());
         entity.setDataNascita(LocalDate.parse(dto.getDataNascita()));
         return entity;
+    }*/
+
+    @Override
+    public SoggettoFisicoDto mapEntityToDtoImpl(Soggetto entity) {
+        return null;
+    }
+
+    @Override
+    public Soggetto mapDtoToEntityImpl(SoggettoFisicoDto dto) throws RuntimeException {
+        return null;
     }
 }
 

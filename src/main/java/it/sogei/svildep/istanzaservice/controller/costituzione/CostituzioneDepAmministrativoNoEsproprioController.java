@@ -28,8 +28,5 @@ public class CostituzioneDepAmministrativoNoEsproprioController extends Costituz
 
     private final CostituzioneDepositoService<CostituzioneDepositoDto> service;
 
-    @PostMapping
-    public ResponseEntity<String> post(@Valid @RequestBody CostituzioneDepositoDto requestDto, BindingResult bindingResult)
-            throws SvildepException { return insert(requestDto, bindingResult); }
 
 }

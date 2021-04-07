@@ -23,7 +23,7 @@ public class CostituzioneDepositoMapper<D extends CostituzioneDepositoDto> imple
     @Override
     public Istanza mapDtoToEntityImpl(D dto) throws RuntimeException {
         Istanza entity = istanzaMapper.mapDtoToEntityImpl(dto);
-        entity.setStato(statoIstanzaMapper.mapDtoToEntity(dto));
+        // entity.setStato(statoIstanzaMapper.mapDtoToEntity(dto));
         return entity;
     }
 }

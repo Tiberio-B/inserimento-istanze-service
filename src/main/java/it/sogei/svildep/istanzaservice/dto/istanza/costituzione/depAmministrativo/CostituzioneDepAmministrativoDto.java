@@ -2,7 +2,7 @@ package it.sogei.svildep.istanzaservice.dto.istanza.costituzione.depAmministrati
 
 import it.sogei.svildep.istanzaservice.dto.istanza.costituzione.CostituzioneDepositoDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
-import it.sogei.svildep.istanzaservice.validation.annotation.ValidSvildepId;
+import it.sogei.svildep.istanzaservice.validation.annotation.ParsableLong;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class CostituzioneDepAmministrativoDto extends CostituzioneDepositoDto {
 
-    @ValidSvildepId
+    @ParsableLong
     private String operaRegioneId;
 
     @NotBlank(message = Messages.erroreGenerico)

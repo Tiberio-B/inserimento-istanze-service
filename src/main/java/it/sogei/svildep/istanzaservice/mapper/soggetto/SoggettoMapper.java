@@ -23,16 +23,14 @@ public abstract class SoggettoMapper<S extends Soggetto, D extends SoggettoDto> 
         dto.setCodiceFiscale(entity.getCodiceFiscale());
         dto.setCertificatoAnagrafeTributaria(String.valueOf(entity.getCertificatoAnagrafeTributaria()));
         dto.setTipoSoggetto(String.valueOf(entity.getTipoSoggetto()));
-        dto.setIndirizzi(indirizzoMapper.mapEntityToDto(entity.getIndirizzi()));
         return dto;
     }
 
     public S daDtoASoggetto(D dto, S entity) throws RuntimeException {
         entity.setCodiceFiscale(dto.getCodiceFiscale());
         entity.setCertificatoAnagrafeTributaria(FlagSN.valueOf(dto.getCertificatoAnagrafeTributaria()));
-        TipoSoggetto tipoSoggetto = new TipoSoggetto(FlagTipoSoggetto.valueOf(dto.getTipoSoggetto())); // grossi dubbi
-        entity.setTipoSoggetto(tipoSoggetto);
-        entity.setIndirizzi(indirizzoMapper.mapDtoToEntity(dto.getIndirizzi()));
+        // TipoSoggetto tipoSoggetto = new TipoSoggetto(FlagTipoSoggetto.valueOf(dto.getTipoSoggetto())); // grossi dubbi
+        // entity.setTipoSoggetto(tipoSoggetto);
         return entity;
     }
 }

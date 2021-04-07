@@ -27,8 +27,5 @@ public class CostituzioneDepCauzionaleController extends CostituzioneDepositoCon
 
     private final CostituzioneDepositoValidator<CostituzioneDepositoDto> validator;
 
-    @PostMapping
-    public ResponseEntity<String> post(@Valid @RequestBody CostituzioneDepositoDto requestDto, BindingResult bindingResult)
-            throws SvildepException { return insert(requestDto, bindingResult); }
 
 }

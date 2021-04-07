@@ -3,7 +3,7 @@ package it.sogei.svildep.istanzaservice.dto.istanza.costituzione;
 import it.sogei.svildep.istanzaservice.dto.CoinvolgimentoSoggettoDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
-import it.sogei.svildep.istanzaservice.validation.annotation.ValidSvildepId;
+import it.sogei.svildep.istanzaservice.validation.annotation.ParsableLong;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,8 +11,6 @@ import lombok.Setter;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
 import java.util.List;
 
 @Getter
@@ -20,7 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 public class CostituzioneDepositoDto extends IstanzaDto {
 
-    @ValidSvildepId(message = Messages.idRTSInoltro)
+    @ParsableLong(message = Messages.idRTSInoltro)
     private String rtsInoltroId;
 
     private List<byte[]> allegati;
@@ -29,10 +27,10 @@ public class CostituzioneDepositoDto extends IstanzaDto {
     @Valid
     private List<CoinvolgimentoSoggettoDto> coinvolgimenti;
 
-    @ValidSvildepId(message = Messages.qualitaRichiedente)
+    @ParsableLong(message = Messages.qualitaRichiedente)
     public String getQualitaRichiedenteId() { return  super.getQualitaRichiedenteId(); }
 
-    @ValidSvildepId(message = Messages.tipoIstanza)
+    @ParsableLong(message = Messages.tipoIstanza)
     public String getTipoId() { return super.getTipoId(); }
 
     @NotBlank(message = Messages.numeroRichiesta)

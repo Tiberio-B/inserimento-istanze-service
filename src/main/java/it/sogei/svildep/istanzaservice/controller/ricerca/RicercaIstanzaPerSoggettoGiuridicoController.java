@@ -26,9 +26,4 @@ public class RicercaIstanzaPerSoggettoGiuridicoController extends RicercaIstanza
     private final RicercaIstanzaValidator<RicercaIstanzaPerSoggettoGiuridicoDto> validator;
     private final RicercaIstanzaService<RicercaIstanzaPerSoggettoGiuridicoDto> service;
 
-    @PostMapping
-    public ResponseEntity<List<IstanzaTrovataDto>> cerca(@Valid @RequestBody RicercaIstanzaPerSoggettoGiuridicoDto requestDto, BindingResult bindingResult) throws SvildepException {
-        return search(requestDto, bindingResult);
-    }
-
 }

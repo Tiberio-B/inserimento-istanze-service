@@ -2,6 +2,8 @@ package it.sogei.svildep.istanzaservice.exception;
 
 public interface Messages {
 
+    String soggettoNonPresente = "Uno o più dei soggetti specificati non e' censito.";
+
     String erroreGenerico = "MESSAGGIO D'ERRORE DA SCRIVERE.";
 
     String categoriaDeposito = "E' necessario specificare la categoria deposito.";

@@ -28,8 +28,5 @@ public class CostituzioneDepGiudiziarioController extends CostituzioneDepositoCo
 
     private final CostituzioneDepositoValidator<CostituzioneDepGiudiziarioDto> validator;
 
-    @PostMapping
-    public ResponseEntity<String> post(@Valid @RequestBody CostituzioneDepGiudiziarioDto requestDto, BindingResult bindingResult)
-            throws SvildepException { return insert(requestDto, bindingResult); }
 
 }

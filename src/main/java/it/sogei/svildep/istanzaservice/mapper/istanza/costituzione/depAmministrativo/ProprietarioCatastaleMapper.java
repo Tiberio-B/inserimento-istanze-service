@@ -1,6 +1,7 @@
 package it.sogei.svildep.istanzaservice.mapper.istanza.costituzione.depAmministrativo;
 
 import it.sogei.svildep.istanzaservice.dto.istanza.costituzione.depAmministrativo.ProprietarioCatastaleDto;
+import it.sogei.svildep.istanzaservice.entity.enums.FlagSN;
 import it.sogei.svildep.istanzaservice.entity.gestionedocumenti.Fascicolo;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.ProprietarioCatastale;
 import it.sogei.svildep.istanzaservice.mapper.DtoToEntityMapper;
@@ -14,7 +15,7 @@ public class ProprietarioCatastaleMapper implements DtoToEntityMapper<Proprietar
         ProprietarioCatastale entity = new ProprietarioCatastale();
         entity.setNominativo(dto.getNominativo());
         entity.setCfPiva(dto.getCfPiva());
-        entity.setSoggettoIrreperibile(Boolean.parseBoolean(dto.getSoggettoIrreperibile()));
+        entity.setSoggettoIrreperibile(FlagSN.valueOf(dto.getSoggettoIrreperibile()));
 
         Fascicolo fascicolo = new Fascicolo();
         fascicolo.setDocumentoAllegato(dto.getDocumentoRelataNotifica());

@@ -1,15 +1,16 @@
 package it.sogei.svildep.istanzaservice.mapper.soggetto;
 
 import it.sogei.svildep.istanzaservice.dto.soggetto.SoggettoGiuridicoDto;
+import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.Soggetto;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.SoggettoGiuridico;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class SoggettoGiuridicoMapper extends SoggettoMapper<SoggettoGiuridico, SoggettoGiuridicoDto> {
+public class SoggettoGiuridicoMapper extends SoggettoMapper<Soggetto, SoggettoGiuridicoDto> {
 
-    @Override
+    /*@Override
     public SoggettoGiuridicoDto mapEntityToDtoImpl(SoggettoGiuridico entity) {
         SoggettoGiuridicoDto dto = super.daSoggettoADto(entity, new SoggettoGiuridicoDto());
         dto.setRagioneSociale(entity.getRagioneSociale());
@@ -23,6 +24,15 @@ public class SoggettoGiuridicoMapper extends SoggettoMapper<SoggettoGiuridico, S
         entity.setRagioneSociale(dto.getRagioneSociale());
         entity.setPartitaIVA(dto.getPartitaIva());
         return entity;
+    }*/
+
+    @Override
+    public SoggettoGiuridicoDto mapEntityToDtoImpl(Soggetto entity) {
+        return null;
     }
 
+    @Override
+    public Soggetto mapDtoToEntityImpl(SoggettoGiuridicoDto dto) throws RuntimeException {
+        return null;
+    }
 }
