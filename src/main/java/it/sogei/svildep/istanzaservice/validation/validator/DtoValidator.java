@@ -20,7 +20,7 @@ public abstract class DtoValidator<D extends SvildepDto> implements Validator {
         if (obj instanceof SvildepDto) {
             SvildepDto dto = (SvildepDto) obj;
             try {
-                if (dto.getUtenteInserimentoId() != null) Long.parseLong(dto.getUtenteInserimentoId());
+                Long.parseLong(dto.getUtenteInserimentoId());
                 if (dto.getUtenteAggiornamentoId() != null) Long.parseLong(dto.getUtenteAggiornamentoId());
             } catch (NumberFormatException ex) {
                 errors.rejectValue("id", Messages.invalidIdCode, Messages.invalidIdMessage);

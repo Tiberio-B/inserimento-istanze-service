@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.mapper.istanza.costituzione.depAmministrativo;
 
-import it.sogei.svildep.istanzaservice.dto.istanza.costituzione.depAmministrativo.DatoCatastaleDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.depAmministrativo.DatoCatastaleDto;
 import it.sogei.svildep.istanzaservice.entity.gestionedepositi.DatoCatastale;
 import it.sogei.svildep.istanzaservice.entity.gestionedepositi.TipoCatasto;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.Comune;

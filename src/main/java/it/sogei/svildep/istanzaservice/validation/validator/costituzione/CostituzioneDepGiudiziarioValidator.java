@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.validation.validator.costituzione;
 
-import it.sogei.svildep.istanzaservice.dto.istanza.costituzione.depGiudiziario.CostituzioneDepGiudiziarioDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.depGiudiziario.CostituzioneDepGiudiziarioDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

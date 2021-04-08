@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.mapper.istanza.costituzione.depAmministrativo;
 
-import it.sogei.svildep.istanzaservice.dto.istanza.costituzione.depAmministrativo.ProprietarioCatastaleDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.depAmministrativo.ProprietarioCatastaleDto;
 import it.sogei.svildep.istanzaservice.entity.enums.FlagSN;
 import it.sogei.svildep.istanzaservice.entity.gestionedocumenti.Fascicolo;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.ProprietarioCatastale;

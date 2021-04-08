@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.mapper.istanza.costituzione.depAmministrativo;
 
-import it.sogei.svildep.istanzaservice.dto.istanza.costituzione.depAmministrativo.OperaDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.depAmministrativo.OperaDto;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.Opera;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.Regione;
 import it.sogei.svildep.istanzaservice.mapper.DtoToEntityMapper;

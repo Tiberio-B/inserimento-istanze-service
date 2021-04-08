@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.validation.validator.costituzione;
 
-import it.sogei.svildep.istanzaservice.dto.istanza.costituzione.restituzioneDep.CostituzioneRestituzioneDepDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.restituzioneDep.CostituzioneRestituzioneDepDto;
 import it.sogei.svildep.istanzaservice.entity.enums.FlagSN;
 import it.sogei.svildep.istanzaservice.exception.Messages;
 import org.springframework.stereotype.Component;

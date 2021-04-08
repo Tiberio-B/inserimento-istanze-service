@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.mapper.istanza.costituzione.restituzioneDep;
 
-import it.sogei.svildep.istanzaservice.dto.istanza.costituzione.restituzioneDep.CostituzioneRestituzioneDepDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.restituzioneDep.CostituzioneRestituzioneDepDto;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.Istanza;
 import it.sogei.svildep.istanzaservice.entity.gestionemodalitapagamento.ModalitaPagamento;
 import it.sogei.svildep.istanzaservice.mapper.istanza.costituzione.CostituzioneDepositoMapper;

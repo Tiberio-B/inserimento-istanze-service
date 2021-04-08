@@ -1,7 +1,6 @@
 package it.sogei.svildep.istanzaservice.validation.validator.costituzione;
 
-import it.sogei.svildep.istanzaservice.dto.CoinvolgimentoSoggettoDto;
-import it.sogei.svildep.istanzaservice.dto.istanza.costituzione.CostituzioneDepositoDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.CostituzioneDepositoDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
 import it.sogei.svildep.istanzaservice.validation.validator.IstanzaValidator;
 import it.sogei.svildep.istanzaservice.validation.validator.coinvolgimentoSoggetto.CoinvolgimentoSoggettoValidator;

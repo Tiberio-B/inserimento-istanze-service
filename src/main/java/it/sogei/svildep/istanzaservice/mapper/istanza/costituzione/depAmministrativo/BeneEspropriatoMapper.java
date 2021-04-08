@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.mapper.istanza.costituzione.depAmministrativo;
 
-import it.sogei.svildep.istanzaservice.dto.istanza.costituzione.depAmministrativo.BeneEspropriatoDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.depAmministrativo.BeneEspropriatoDto;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.BeneEspropriato;
 import it.sogei.svildep.istanzaservice.mapper.DtoToEntityMapper;
 import lombok.RequiredArgsConstructor;

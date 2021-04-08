@@ -1,6 +1,6 @@
 package it.sogei.svildep.istanzaservice.mapper;
 
-import it.sogei.svildep.istanzaservice.dto.istanza.costituzione.CostituzioneDepositoDto;
+import it.sogei.svildep.istanzaservice.dto.istanza.CostituzioneDepositoDto;
 import it.sogei.svildep.istanzaservice.entity.enums.FlagStatoIstanza;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.StatoIstanza;
 import org.springframework.stereotype.Component;
