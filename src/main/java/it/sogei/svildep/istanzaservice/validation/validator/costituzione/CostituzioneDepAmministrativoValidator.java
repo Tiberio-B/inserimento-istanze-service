@@ -19,18 +19,6 @@ public class CostituzioneDepAmministrativoValidator extends CostituzioneDeposito
         super.validate(obj, errors);
         if (obj instanceof CostituzioneDepAmministrativoDto) {
             CostituzioneDepAmministrativoDto dto = (CostituzioneDepAmministrativoDto) obj;
-            try {
-                Long.parseLong(dto.getOperaRegioneId());
-            } catch (NumberFormatException ex) {
-                errors.rejectValue("id", Messages.invalidIdCode, Messages.invalidIdMessage);
-            }
-            try {
-                for (ProprietarioCatastaleDto proprietarioCatastale : dto.getBeneEspropriato().getProprietariCatastali()) {
-                    proprietarioCatastale.getCfPiva(); // TO-DO valida RegEx
-                }
-            } catch (Exception ex) {
-                errors.rejectValue("cfPiva", Messages.erroreGenerico, Messages.erroreGenerico);
-            }
         }
         else errors.rejectValue("class", Messages.invalidDtoCode, Messages.invalidDtoMessage);
     }

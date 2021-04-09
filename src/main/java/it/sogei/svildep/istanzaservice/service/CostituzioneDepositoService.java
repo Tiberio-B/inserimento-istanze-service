@@ -39,16 +39,25 @@ public class CostituzioneDepositoService<D extends CostituzioneDepositoDto> {
 
     @Transactional
     public MessageDto insert(D istanzaDtoInserimento) throws SvildepException {
+        Istanza istanza = prepareInsert(istanzaDtoInserimento);
+        return persist(istanza, istanzaDtoInserimento);
+    }
+
+    Istanza prepareInsert(D istanzaDtoInserimento) {
         Istanza istanza = istanzaMapper.mapDtoToEntity(istanzaDtoInserimento);
-        setStato(istanza);
+        setStato(istanzaDtoInserimento, istanza);
+        return istanza;
+    }
+
+    MessageDto persist(Istanza istanza, D istanzaDtoInserimento) {
         istanzaRepository.saveAndFlush(istanza);
         associazioneAiSoggetti(istanza, istanzaDtoInserimento.getCoinvolgimenti());
-        inserimentoInFascioloRts(istanza.getRtsCompetente(), istanzaDtoInserimento.getAllegati());
+        // inserimentoInFascioloRts(istanza.getRtsCompetente(), istanzaDtoInserimento.getAllegati());
         return new MessageDto(Messages.inserimento, HttpStatus.OK);
     }
 
-    private void setStato(Istanza istanza) {
-        boolean inserimentoManuale = istanza.getInserimentoManuale().equals(FlagSN.S);
+    private void setStato(D istanzaDtoInserimento, Istanza istanza) {
+        boolean inserimentoManuale = istanzaDtoInserimento.getInserimentoManuale().equals(FlagSN.S);
         Optional<StatoIstanza> statoIstanza = statoIstanzaRepository.findByCodice(inserimentoManuale? FlagStatoIstanza.SIB : FlagStatoIstanza.SII);
         istanza.setStato(statoIstanza.orElse(null));
     }

@@ -4,9 +4,28 @@ public interface Messages {
 
     String soggettoNonPresente = "Uno o più dei soggetti specificati non e' censito.";
 
-    String erroreGenerico = "MESSAGGIO D'ERRORE DA SCRIVERE.";
+    String erroreData = "La data acquisita non e' valida.";
+    String erroreTimestamp = "Il timestamp acquisito non e' valido.";
+    String erroreImporto = "L'importo acquisito non e' valido.";
+    String erroreCategoriaDeposito = "La categoria deposito acquisita non e' valida.";
+    String erroreQualitaRichiedente = "La qualita' richiedente acquisita non e' valida.";
+    String erroreSesso = "Il sesso  acquisito non e' valido.";
+    String erroreSiNo = "Il flag Si/No acquisito non e' valido.";
+    String erroreStatoIstanza = "Lo stato istanza acquisito non e' valido.";
+    String erroreTipoCatasto = "Il tipo catasto acquisito non e' valido.";
+    String erroreTipoCoinvolgimento = "Il tipo coinvolgimento acquisito non e' valido.";
+    String erroreTipoDirittoSoggetto = "Il tipo diritto acquisito non e' valido.";
+    String erroreTipoIstanza = "Il tipo istanza acquisito non e' valido.";
+    String erroreTipoSede = "Il tipo sede acquisito non e' valido.";
+    String erroreTipoSoggetto = "Il tipo soggetto acquisito non e' valido.";
+    String erroreIdentificativoNumerico = "L'identificativo numerico acquisito non e' valido.";
+    String erroreDescrizioneOpera = "La descrizione opera acquisita non è valida.";
+    String erroreBeneEspropriato = "Il bene espropriato acquisito non è valido.";
+    String erroreCfPiva = "Il codice fiscale o la partita IVA acquisito/a non e' valido/a.";
 
-    String categoriaDeposito = "E' necessario specificare la categoria deposito.";
+    String erroreNome = "Il nome acquisito non e' valido.";
+    String erroreCognome = "Il cognome acquisito non e' valido.";
+
     String tipoIstanza = "E' necessario specificare il tipo di istanza.";
 
     String idRTSInoltro = "Errore id RTS per inoltro.";
@@ -15,11 +34,7 @@ public interface Messages {
 
     String numeroRichiesta = "E' necessario specificare il numero della richiesta.";
 
-    String nonAutorizzato = "L'utente corrente non è autorizzato ad eseguire l'operazione.";
-
-    String enteCauzionato = "E' necessario specificare l'ente richiedente.";
     String qualitaRichiedente = "E' necessario specificare la qualita' del richiedente.";
-    String richiedente = "E' necessario specificare il richiedente.";
 
     String datiCatastali = "E' necessario specificare i dati catastali.";
     String proprietariCatastali = "E' necessario specificare almeno un proprietario catastale";
@@ -29,11 +44,9 @@ public interface Messages {
     String subalternoCatasto = "E' necessario specificare il subalterno del catasto.";
     String particellaCatasto = "E' necessario specificare la particella del catasto.";
 
-    String provincia = "E' necessario specificare la provincia.";
     String comune = "E' necessario specificare il comune.";
 
     String causaleDeposito = "E' necessario specificare la causale del deposito.";
-    String importoDeposito = "E' necessario specificare l'importo del deposito.";
 
     String numeroProtocollo = "E' necessario specificare il numero del protocollo.";
     String dataProtocollo = "E' necessario specificare la data del protocollo";
@@ -41,7 +54,6 @@ public interface Messages {
     String dataRichiesta = "E' necessario specificare la data della richiesta.";
 
     String descrizioneOpera = "E' necessario specificare la descrizione dell'opera.";
-    String tipoSoggetto = "E' necessario specificare il tipo soggetto";
 
     String invalidDtoCode = "invalidDto";
     String invalidDtoMessage = "Il corpo della richiesta non è un DTO valido.";
@@ -49,24 +61,9 @@ public interface Messages {
     String invalidIdCode = "invalidId";
     String invalidIdMessage = "L'id acquisito non è un numero valido.";
 
-    String invalidDateCode = "invalidDate";
     String invalidDateMessage = "La data specificata non è una data valida.";
-
-    String invalidSessoCode = "invalidSesso";
-    String invalidSessoMessage = "Il sesso specificato non è valido.";
-
-    String invalidTipoCode = "invalidTipo";
-    String invalidTipoMessage = "Il tipo specificato non è valido.";
-
-    String invalidCategoriaCode = "invalidCategoria";
-    String invalidCategoriaMessage = "La categoria specificata non è valida.";
 
     String invalidQualitaRichiedenteCode = "invalidQualitaRichiedente";
     String invalidQualitaRichiedenteMessage = "La qualita' richiedente specificata non è valida.";
 
-    String invalidStatoCode = "invalidStato";
-    String invalidStatoMessage = "Lo stato specificato non è valido.";
-
-    String proprietario = "Dati proprietario non validi.";
-    String versante = "Dati versante non validi.";
 }

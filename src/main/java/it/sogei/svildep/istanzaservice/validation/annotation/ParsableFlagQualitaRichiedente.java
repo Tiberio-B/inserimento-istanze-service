@@ -12,7 +12,7 @@ import java.lang.annotation.*;
 @Target( { ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ParsableFlagQualitaRichiedente {
-    String message() default Messages.erroreGenerico;
+    String message() default Messages.erroreQualitaRichiedente;
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

@@ -1,7 +1,6 @@
 package it.sogei.svildep.istanzaservice.validation.validator.costraint;
 
 import it.sogei.svildep.istanzaservice.validation.ParsableDouble;
-import it.sogei.svildep.istanzaservice.validation.annotation.ParsableLong;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

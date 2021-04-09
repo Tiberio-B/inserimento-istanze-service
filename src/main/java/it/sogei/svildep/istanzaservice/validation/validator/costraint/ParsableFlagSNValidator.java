@@ -18,9 +18,9 @@ public class ParsableFlagSNValidator implements
     public boolean isValid(String field,
                            ConstraintValidatorContext cxt) {
         try {
-            Enum.valueOf(FlagSN.class, field);
+            FlagSN.valueOf(field);
             return true;
-        } catch (DateTimeParseException ex) {
+        } catch (IllegalArgumentException ex) {
             return false;
         }
     }

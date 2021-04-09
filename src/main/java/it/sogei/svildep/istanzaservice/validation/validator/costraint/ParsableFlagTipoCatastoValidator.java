@@ -1,25 +1,25 @@
 package it.sogei.svildep.istanzaservice.validation.validator.costraint;
 
-import it.sogei.svildep.istanzaservice.entity.enums.FlagCategoriaDeposito;
-import it.sogei.svildep.istanzaservice.entity.enums.FlagSessoMF;
-import it.sogei.svildep.istanzaservice.validation.annotation.ParsableFlagCategoriaDeposito;
+import it.sogei.svildep.istanzaservice.entity.enums.FlagTipoCatasto;
+import it.sogei.svildep.istanzaservice.entity.enums.FlagTipoSede;
+import it.sogei.svildep.istanzaservice.validation.annotation.ParsableFlagTipoSede;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.time.format.DateTimeParseException;
 
-public class ParsableFlagCategoriaDepositoValidator implements
-        ConstraintValidator<ParsableFlagCategoriaDeposito, String> {
+public class ParsableFlagTipoCatastoValidator implements
+        ConstraintValidator<ParsableFlagTipoSede, String> {
 
     @Override
-    public void initialize(ParsableFlagCategoriaDeposito field) {
+    public void initialize(ParsableFlagTipoSede field) {
     }
 
     @Override
     public boolean isValid(String field,
                            ConstraintValidatorContext cxt) {
         try {
-            FlagCategoriaDeposito.valueOf(field);
+            FlagTipoCatasto.valueOf(field);
             return true;
         } catch (IllegalArgumentException ex) {
             return false;

@@ -21,7 +21,7 @@ public class ParsableFlagTipoCoinvolgimentoValidator implements
         try {
             FlagTipoCoinvolgimento.valueOf(field);
             return true;
-        } catch (DateTimeParseException ex) {
+        } catch (IllegalArgumentException ex) {
             return false;
         }
     }

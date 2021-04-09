@@ -12,7 +12,7 @@ import java.lang.annotation.*;
 @Target( { ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ParsableFlagSN {
-    String message() default Messages.erroreGenerico;
+    String message() default Messages.erroreSiNo;
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

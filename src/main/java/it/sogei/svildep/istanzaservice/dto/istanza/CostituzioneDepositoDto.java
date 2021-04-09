@@ -1,10 +1,8 @@
 package it.sogei.svildep.istanzaservice.dto.istanza;
 
 import it.sogei.svildep.istanzaservice.dto.CoinvolgimentoSoggettoDto;
-import it.sogei.svildep.istanzaservice.dto.istanza.IstanzaDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
 import it.sogei.svildep.istanzaservice.validation.annotation.ParsableDate;
-import it.sogei.svildep.istanzaservice.validation.annotation.ParsableDouble;
 import it.sogei.svildep.istanzaservice.validation.annotation.ParsableLong;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +23,7 @@ public class CostituzioneDepositoDto extends IstanzaDto {
 
     private List<byte[]> allegati;
 
-    @NotEmpty(message = Messages.erroreGenerico)
+    @NotEmpty(message = Messages.erroreTipoCoinvolgimento)
     @Valid
     private List<CoinvolgimentoSoggettoDto> coinvolgimenti;
 
@@ -47,7 +45,7 @@ public class CostituzioneDepositoDto extends IstanzaDto {
     @ParsableDate(message = Messages.dataProtocollo)
     public String getDataProtocollo() { return super.getDataProtocollo(); }
 
-    @ParsableDouble(message = Messages.importoDeposito)
+//    @ParsableDouble(message = Messages.importoDeposito)
     public String getImportoDeposito() { return super.getImportoDeposito(); }
 
     @NotBlank(message = Messages.causaleDeposito)

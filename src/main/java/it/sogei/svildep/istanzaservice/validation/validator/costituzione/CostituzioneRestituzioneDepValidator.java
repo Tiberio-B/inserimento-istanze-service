@@ -19,13 +19,6 @@ public class CostituzioneRestituzioneDepValidator extends CostituzioneDepositoVa
         super.validate(obj, errors);
         if (obj instanceof CostituzioneRestituzioneDepDto) {
             CostituzioneRestituzioneDepDto dto = (CostituzioneRestituzioneDepDto) obj;
-            try {
-                FlagSN.valueOf(dto.getPagamentoASoggettiDeposito());
-            } catch (NumberFormatException ex) {
-                errors.rejectValue("importoRichiesto", Messages.erroreGenerico, Messages.erroreGenerico);
-            } catch (IllegalArgumentException ex) {
-                errors.rejectValue("pagamentoASoggettiDeposito", Messages.erroreGenerico, Messages.erroreGenerico);
-            }
         }
         else errors.rejectValue("class", Messages.invalidDtoCode, Messages.invalidDtoMessage);
     }

@@ -21,7 +21,7 @@ public class ParsableFlagSessoMFValidator implements
         try {
             FlagSessoMF.valueOf(field);
             return true;
-        } catch (DateTimeParseException ex) {
+        } catch (IllegalArgumentException ex) {
             return false;
         }
     }

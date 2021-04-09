@@ -21,7 +21,7 @@ public class ParsableFlagTipoIstanzaValidator implements
         try {
             FlagTipoIstanza.valueOf(field);
             return true;
-        } catch (DateTimeParseException ex) {
+        } catch (IllegalArgumentException ex) {
             return false;
         }
     }

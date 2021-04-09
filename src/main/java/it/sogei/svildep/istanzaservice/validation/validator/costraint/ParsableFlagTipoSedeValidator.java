@@ -21,7 +21,7 @@ public class ParsableFlagTipoSedeValidator implements
         try {
             FlagTipoSede.valueOf(field);
             return true;
-        } catch (DateTimeParseException ex) {
+        } catch (IllegalArgumentException ex) {
             return false;
         }
     }

@@ -22,7 +22,7 @@ public class ParsableFlagStatoIstanzaValidator implements
         try {
             FlagStatoIstanza.valueOf(field);
             return true;
-        } catch (DateTimeParseException ex) {
+        } catch (IllegalArgumentException ex) {
             return false;
         }
     }

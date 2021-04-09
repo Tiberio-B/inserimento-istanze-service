@@ -13,7 +13,7 @@ import java.lang.annotation.*;
 @Target( { ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ParsableFlagSessoMF {
-    String message() default Messages.erroreGenerico;
+    String message() default Messages.erroreSesso;
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

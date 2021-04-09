@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class CostituzioneDepGiudiziarioDto extends CostituzioneDepositoDto {
 
-    @NotNull(message = Messages.erroreGenerico)
+    @NotNull
     @Valid
     private SoggettoUlterioreDto soggettoUlteriore;
 

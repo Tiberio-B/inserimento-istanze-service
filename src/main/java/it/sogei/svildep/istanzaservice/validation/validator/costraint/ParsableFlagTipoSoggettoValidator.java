@@ -21,7 +21,7 @@ public class ParsableFlagTipoSoggettoValidator implements
         try {
             FlagTipoSoggetto.valueOf(field);
             return true;
-        } catch (DateTimeParseException ex) {
+        } catch (IllegalArgumentException ex) {
             return false;
         }
     }

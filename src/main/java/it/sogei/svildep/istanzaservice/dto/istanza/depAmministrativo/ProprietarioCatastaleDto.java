@@ -12,10 +12,10 @@ import javax.validation.constraints.NotBlank;
 @Setter
 public class ProprietarioCatastaleDto extends SvildepDto {
 
-    @NotBlank(message = Messages.erroreGenerico)
+    @NotBlank(message = Messages.erroreNome)
     private String nominativo;
 
-    @NotBlank(message = Messages.erroreGenerico)
+    @NotBlank(message = Messages.erroreCfPiva)
     private String cfPiva;
 
     @ParsableFlagSN

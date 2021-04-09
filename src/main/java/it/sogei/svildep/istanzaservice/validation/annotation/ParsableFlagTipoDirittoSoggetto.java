@@ -13,7 +13,7 @@ import java.lang.annotation.*;
 @Target( { ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ParsableFlagTipoDirittoSoggetto {
-    String message() default Messages.erroreGenerico;
+    String message() default Messages.erroreTipoDirittoSoggetto;
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

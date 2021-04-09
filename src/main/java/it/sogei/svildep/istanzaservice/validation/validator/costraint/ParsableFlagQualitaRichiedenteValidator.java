@@ -21,7 +21,7 @@ public class ParsableFlagQualitaRichiedenteValidator implements
         try {
             FlagQualitaRichiedente.valueOf(field);
             return true;
-        } catch (DateTimeParseException ex) {
+        } catch (IllegalArgumentException ex) {
             return false;
         }
     }

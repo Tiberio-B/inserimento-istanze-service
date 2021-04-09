@@ -20,17 +20,14 @@ public class CostituzioneDepAmministrativoDto extends CostituzioneDepositoDto {
     @ParsableLong
     private String operaRegioneId;
 
-    @NotBlank(message = Messages.erroreGenerico)
+    @NotBlank(message = Messages.erroreDescrizioneOpera)
     private String operaDescrizione;
 
-    @NotNull(message = Messages.erroreGenerico)
+    @NotNull(message = Messages.erroreBeneEspropriato)
     @Valid
     private BeneEspropriatoDto beneEspropriato;
 
     @ParsableFlagSN
     private String autoritaEsproprianteCoincidenteConDepositante;
-
-    @ParsableFlagSN
-    private String soggettoDaIndividuare;
 
 }

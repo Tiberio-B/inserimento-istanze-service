@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -18,21 +19,21 @@ import java.util.List;
 @NoArgsConstructor
 public class CostituzioneRestituzioneDepDto extends CostituzioneDepositoDto {
 
-    @NotNull(message = Messages.erroreGenerico)
+    @NotNull(message = Messages.erroreTipoCoinvolgimento)
     @Valid
     private CoinvolgimentoSoggettoDto intestatario;
 
-    @NotNull(message = Messages.erroreGenerico)
+    @NotEmpty
     @Valid
     private List<CoinvolgimentoSoggettoDto> soggettiObbligatori;
 
     @ParsableLong
     private String modalitaPagamentoId;
 
-    @NotBlank(message = Messages.erroreGenerico)
+    @NotBlank(message = Messages.erroreSiNo)
     private String pagamentoASoggettiDeposito;
 
-    @NotBlank(message = Messages.erroreGenerico)
+    @NotBlank(message = Messages.erroreImporto)
     private String importoRichiesto;
 
 }

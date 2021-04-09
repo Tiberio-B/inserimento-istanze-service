@@ -12,7 +12,7 @@ import java.lang.annotation.*;
 @Target( { ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ParsableLong {
-    String message() default Messages.invalidIdMessage;
+    String message() default Messages.erroreIdentificativoNumerico;
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

@@ -13,7 +13,7 @@ import java.lang.annotation.*;
 @Target( { ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ParsableFlagTipoIstanza {
-    String message() default Messages.erroreGenerico;
+    String message() default Messages.erroreTipoIstanza;
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

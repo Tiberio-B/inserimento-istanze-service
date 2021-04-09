@@ -2,6 +2,7 @@ package it.sogei.svildep.istanzaservice.dto.istanza.depAmministrativo;
 
 import it.sogei.svildep.istanzaservice.dto.SvildepDto;
 import it.sogei.svildep.istanzaservice.exception.Messages;
+import it.sogei.svildep.istanzaservice.validation.annotation.ParsableFlagTipoCatasto;
 import it.sogei.svildep.istanzaservice.validation.annotation.ParsableLong;
 import lombok.Getter;
 import lombok.Setter;

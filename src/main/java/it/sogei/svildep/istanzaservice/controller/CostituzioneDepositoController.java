@@ -2,6 +2,7 @@ package it.sogei.svildep.istanzaservice.controller;
 
 import it.sogei.svildep.istanzaservice.dto.MessageDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.CostituzioneDepositoDto;
+import it.sogei.svildep.istanzaservice.entity.enums.FlagSN;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import it.sogei.svildep.istanzaservice.service.CostituzioneDepositoService;
 import it.sogei.svildep.istanzaservice.validation.validator.costituzione.CostituzioneDepositoValidator;
@@ -26,7 +27,7 @@ public abstract class CostituzioneDepositoController<D extends CostituzioneDepos
     ResponseEntity<String> insert(@Valid @RequestBody D requestDto, BindingResult bindingResult) throws SvildepException {
         getValidator().validate(requestDto, bindingResult);
         if (bindingResult.hasErrors()) throw new SvildepException(bindingResult);
-        requestDto.setInserimentoManuale(true);
+        requestDto.setInserimentoManuale(FlagSN.S);
         MessageDto response = getService().insert(requestDto);
         return ResponseEntity.status(response.getStatus()).body(response.getContent());
     }

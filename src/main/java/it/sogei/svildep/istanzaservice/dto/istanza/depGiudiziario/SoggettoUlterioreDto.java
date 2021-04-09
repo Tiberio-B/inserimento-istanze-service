@@ -7,10 +7,10 @@ import javax.validation.constraints.NotBlank;
 
 public class SoggettoUlterioreDto extends SvildepDto {
 
-    @NotBlank(message = Messages.erroreGenerico)
+    @NotBlank(message = Messages.erroreNome)
     private String nome;
 
-    @NotBlank(message = Messages.erroreGenerico)
+    @NotBlank(message = Messages.erroreCognome)
     private String cognome;
     private String cfPiva;
 }

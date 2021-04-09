@@ -3,6 +3,7 @@ package it.sogei.svildep.istanzaservice.entity.gestioneistanze;
 import it.sogei.svildep.istanzaservice.entity.base.BaseEntity;
 import it.sogei.svildep.istanzaservice.entity.enums.FlagSN;
 import it.sogei.svildep.istanzaservice.entity.gestionedepositi.CategoriaDeposito;
+import it.sogei.svildep.istanzaservice.entity.gestionedepositi.DatoCatastale;
 import it.sogei.svildep.istanzaservice.entity.gestionedepositi.Deposito;
 import it.sogei.svildep.istanzaservice.entity.gestionemodalitapagamento.ModalitaPagamento;
 import it.sogei.svildep.istanzaservice.entity.gestioneutenti.RTS;
@@ -69,8 +70,8 @@ public class Istanza extends BaseEntity {
     @JoinColumn(name = "FK2_RTS_COMPETENTE_ISTANZE")
     private RTS rtsCompetente;
     @ManyToOne
-    @JoinColumn(name = "FK1_BENI_ESPROPRIATI_ISTANZE")
-    private BeneEspropriato beneEspropriato;
+    @JoinColumn(name = "FK1_DATI_CATASTALI_ISTANZE")
+    private DatoCatastale datoCatastale;
     @ManyToOne
     @JoinColumn(name = "FK1_QUALITA_RICHIEDENTI_ISTANZE")
     private QualitaRichiedente qualitaRichiedente;

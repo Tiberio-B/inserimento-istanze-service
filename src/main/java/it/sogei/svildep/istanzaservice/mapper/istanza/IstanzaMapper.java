@@ -39,6 +39,8 @@ public class IstanzaMapper implements Mapper<Istanza, IstanzaDto> {
 
         QualitaRichiedente qualitaRichiedente = new QualitaRichiedente();
         qualitaRichiedente.setId(Long.parseLong(dto.getQualitaRichiedenteId()));
+
+        entity.setInserimentoManuale(dto.getInserimentoManuale());
         return entity;
     }
 
@@ -56,7 +58,7 @@ public class IstanzaMapper implements Mapper<Istanza, IstanzaDto> {
 
         dto.setCategoriaDepositoId(String.valueOf(entity.getCategoriaDeposito().getId()));
         dto.setTipoId(String.valueOf(entity.getTipo().getId()));
-        dto.setStatoId(String.valueOf(entity.getStato().getId()));
+        dto.setStato(entity.getStato().getDescrizione());
         return dto;
     }
 
