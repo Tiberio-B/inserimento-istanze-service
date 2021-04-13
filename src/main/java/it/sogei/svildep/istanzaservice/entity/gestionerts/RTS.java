@@ -1,4 +1,4 @@
-package it.sogei.svildep.istanzaservice.entity.gestioneutenti;
+package it.sogei.svildep.istanzaservice.entity.gestionerts;
 
 import it.sogei.svildep.istanzaservice.entity.base.BaseEntity;
 import it.sogei.svildep.istanzaservice.entity.gestionesoggetti.Comune;

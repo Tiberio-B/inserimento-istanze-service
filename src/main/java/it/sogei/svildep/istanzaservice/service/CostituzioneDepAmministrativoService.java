@@ -37,6 +37,9 @@ public class CostituzioneDepAmministrativoService extends CostituzioneDepositoSe
         Istanza istanza = super.prepareInsert(istanzaDtoInserimento);
         operaRepository.saveAndFlush(istanza.getOpera());
         istanza.setDatoCatastale(persistDatoCatastale(istanzaDtoInserimento));
+        getCompetenzaRtsRepository().findByProvincia(istanza.getDatoCatastale().getComune().getProvincia()).ifPresent(competenzaRts -> {
+            istanza.setRtsCompetente(competenzaRts.getRts());
+        });
         return super.persist(istanza, istanzaDtoInserimento);
     }
 
@@ -58,5 +61,6 @@ public class CostituzioneDepAmministrativoService extends CostituzioneDepositoSe
     private void persistDocumentoRelataNotifica(ProprietarioCatastale proprietarioCatastale) { // da rivedere
         fascicoloRepository.saveAndFlush(proprietarioCatastale.getDocumentoRelataNotifica());
     }
+
 
 }

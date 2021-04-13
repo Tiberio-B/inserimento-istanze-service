@@ -7,7 +7,7 @@ import it.sogei.svildep.istanzaservice.entity.gestioneistanze.Istanza;
 import it.sogei.svildep.istanzaservice.entity.gestionemandati.AccertamentoDM40;
 import it.sogei.svildep.istanzaservice.entity.gestionemandati.Mandato;
 import it.sogei.svildep.istanzaservice.entity.gestionepignoramenti.Pignoramento;
-import it.sogei.svildep.istanzaservice.entity.gestioneutenti.RTS;
+import it.sogei.svildep.istanzaservice.entity.gestionerts.RTS;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;

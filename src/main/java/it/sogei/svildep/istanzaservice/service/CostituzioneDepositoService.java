@@ -5,17 +5,18 @@ import it.sogei.svildep.istanzaservice.dto.MessageDto;
 import it.sogei.svildep.istanzaservice.dto.istanza.CostituzioneDepositoDto;
 import it.sogei.svildep.istanzaservice.entity.enums.FlagSN;
 import it.sogei.svildep.istanzaservice.entity.enums.FlagStatoIstanza;
+import it.sogei.svildep.istanzaservice.entity.enums.FlagTipoCoinvolgimento;
 import it.sogei.svildep.istanzaservice.entity.gestionedocumenti.Fascicolo;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.Istanza;
 import it.sogei.svildep.istanzaservice.entity.gestioneistanze.StatoIstanza;
-import it.sogei.svildep.istanzaservice.entity.gestioneutenti.RTS;
+import it.sogei.svildep.istanzaservice.entity.gestionerts.RTS;
 import it.sogei.svildep.istanzaservice.exception.Messages;
 import it.sogei.svildep.istanzaservice.exception.SvildepException;
 import it.sogei.svildep.istanzaservice.mapper.istanza.costituzione.CostituzioneDepositoMapper;
 import it.sogei.svildep.istanzaservice.mapper.soggetto.CoinvolgimentoSoggettoMapper;
 import it.sogei.svildep.istanzaservice.repository.*;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -23,10 +24,11 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 @Getter
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class CostituzioneDepositoService<D extends CostituzioneDepositoDto> {
 
     @Autowired private CostituzioneDepositoMapper<D> istanzaMapper;
@@ -36,16 +38,24 @@ public class CostituzioneDepositoService<D extends CostituzioneDepositoDto> {
     @Autowired private CoinvolgimentoSoggettoRepository coinvolgimentiRepository;
     @Autowired private SoggettoRepository soggettoRepository;
     @Autowired private FascicoloRepository fascicoloRepository;
+    @Autowired private RtsRepository rtsRepository;
+    @Autowired private CompetenzaRtsRepository competenzaRtsRepository;
+    @Autowired private IndirizzoRepository indirizzoRepository;
 
     @Transactional
     public MessageDto insert(D istanzaDtoInserimento) throws SvildepException {
-        Istanza istanza = prepareInsert(istanzaDtoInserimento);
+        Istanza istanza = prepareInsert(istanzaDtoInserimento, FlagTipoCoinvolgimento.CSR);
         return persist(istanza, istanzaDtoInserimento);
     }
 
     Istanza prepareInsert(D istanzaDtoInserimento) {
+        return prepareInsert(istanzaDtoInserimento, FlagTipoCoinvolgimento.CSR);
+    }
+
+    Istanza prepareInsert(D istanzaDtoInserimento, FlagTipoCoinvolgimento codiceCoinvolgimento) {
         Istanza istanza = istanzaMapper.mapDtoToEntity(istanzaDtoInserimento);
-        setStato(istanzaDtoInserimento, istanza);
+        istanza.setStato(findStato(istanzaDtoInserimento));
+        istanza.setRtsCompetente(findRtsCompetente(istanza, codiceCoinvolgimento));
         return istanza;
     }
 
@@ -56,10 +66,22 @@ public class CostituzioneDepositoService<D extends CostituzioneDepositoDto> {
         return new MessageDto(Messages.inserimento, HttpStatus.OK);
     }
 
-    private void setStato(D istanzaDtoInserimento, Istanza istanza) {
+    private StatoIstanza findStato(D istanzaDtoInserimento) {
         boolean inserimentoManuale = istanzaDtoInserimento.getInserimentoManuale().equals(FlagSN.S);
         Optional<StatoIstanza> statoIstanza = statoIstanzaRepository.findByCodice(inserimentoManuale? FlagStatoIstanza.SIB : FlagStatoIstanza.SII);
-        istanza.setStato(statoIstanza.orElse(null));
+        return statoIstanza.orElse(null);
+    }
+
+    private RTS findRtsCompetente(Istanza istanza, FlagTipoCoinvolgimento codiceCoinvolgimento) {
+        AtomicReference<RTS> rts = new AtomicReference<>();
+        coinvolgimentiRepository.findByCodiceAndIstanza(codiceCoinvolgimento, istanza).ifPresent(proprietario -> {
+            indirizzoRepository.findBySoggetto(proprietario.getSoggetto()).ifPresent(soggetto -> {
+                competenzaRtsRepository.findByProvincia(soggetto.getComune().getProvincia()).ifPresent(competenzaRts -> {
+                    rts.set(competenzaRts.getRts());
+                });
+            });
+        });
+        return rts.get();
     }
 
     private void associazioneAiSoggetti(Istanza istanza, List<CoinvolgimentoSoggettoDto> coinvolgimenti) throws SvildepException {

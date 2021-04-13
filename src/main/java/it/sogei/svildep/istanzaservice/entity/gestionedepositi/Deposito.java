@@ -3,7 +3,7 @@ package it.sogei.svildep.istanzaservice.entity.gestionedepositi;
 import it.sogei.svildep.istanzaservice.entity.base.BaseEntity;
 import it.sogei.svildep.istanzaservice.entity.enums.FlagBC;
 import it.sogei.svildep.istanzaservice.entity.enums.FlagSN;
-import it.sogei.svildep.istanzaservice.entity.gestioneutenti.RTS;
+import it.sogei.svildep.istanzaservice.entity.gestionerts.RTS;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;

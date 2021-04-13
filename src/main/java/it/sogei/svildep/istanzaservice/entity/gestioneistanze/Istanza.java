@@ -6,7 +6,7 @@ import it.sogei.svildep.istanzaservice.entity.gestionedepositi.CategoriaDeposito
 import it.sogei.svildep.istanzaservice.entity.gestionedepositi.DatoCatastale;
 import it.sogei.svildep.istanzaservice.entity.gestionedepositi.Deposito;
 import it.sogei.svildep.istanzaservice.entity.gestionemodalitapagamento.ModalitaPagamento;
-import it.sogei.svildep.istanzaservice.entity.gestioneutenti.RTS;
+import it.sogei.svildep.istanzaservice.entity.gestionerts.RTS;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
