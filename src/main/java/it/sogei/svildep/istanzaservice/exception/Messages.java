@@ -2,6 +2,8 @@ package it.sogei.svildep.istanzaservice.exception;
 
 public interface Messages {
 
+    String erroreSoggettoUlteriore = "Il soggetto ulteriore specificato non presenta alcuni campi obbligatori.";
+
     String soggettoNonPresente = "Uno o più dei soggetti specificati non e' censito.";
 
     String erroreData = "La data acquisita non e' valida.";
@@ -13,7 +15,7 @@ public interface Messages {
     String erroreSiNo = "Il flag Si/No acquisito non e' valido.";
     String erroreStatoIstanza = "Lo stato istanza acquisito non e' valido.";
     String erroreTipoCatasto = "Il tipo catasto acquisito non e' valido.";
-    String erroreTipoCoinvolgimento = "Il tipo coinvolgimento acquisito non e' valido.";
+    String erroreTipoCoinvolgimento = "Uno o più dei tipi coinvolgimento acquisiti non e' valido.";
     String erroreTipoDirittoSoggetto = "Il tipo diritto acquisito non e' valido.";
     String erroreTipoIstanza = "Il tipo istanza acquisito non e' valido.";
     String erroreTipoSede = "Il tipo sede acquisito non e' valido.";
@@ -28,7 +30,8 @@ public interface Messages {
 
     String tipoIstanza = "E' necessario specificare il tipo di istanza.";
 
-    String idRTSInoltro = "Errore id RTS per inoltro.";
+    String idRTSInoltro = "La RTS per l'inoltro acquisita non è valida.";
+    String soggettoRtsCompetenteId = "La RTS di competenza acquisita non è valida.";
 
     String inserimento = "Inserimento effettuato con successo.";
 
