@@ -3,6 +3,16 @@
 
 	package "Controller" as contr #Application {
 
+		card card [
+lettura
+----
+scrittua
+====
+altro
+....
+altro2
+]
+
 		package "Inserimento" as insContr {
 			abstract class IstanzaInserimentoController {
 				- {field} validator : IstanzInserimentoaValidator
@@ -89,6 +99,8 @@
 			< {method} throws SvildepException
 		}
 	}
+		card::lettura -- IstanzaInserimentoService
+		card::scrittura -- IstanzaInserimentoController
 
 		IstanzaInserimentoController::service -right[thickness=4]- IstanzaInserimentoService : service
 		IstanzaInserimentoController::validator -up- IstanzaInserimentoValidator : validator
